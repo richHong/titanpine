@@ -2,11 +2,11 @@ import React from 'react';
 class NavBar extends React.Component {
 	render(){
 		return (
-			<div>
-				<a href>Sign Up</a>
-				<a href>Log In</a>
-    			<input type="text" placeholder="Search"/>
-    			<button type="submit">Search</button>
+			<div id='nav'>
+				<a href className='searchlinks'>Sign Up</a>
+				<a href className='searchlinks'>Log In</a>
+    			<input type="text" className='searchbox' placeholder=""/>
+    			<button type="submit" className='searchbutton'>Search</button>
     		</div>
     	)
 	}
