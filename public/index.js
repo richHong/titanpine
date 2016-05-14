@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import NavBar from './Navbar';
 
 class HelloWorld extends Component {
   render() {

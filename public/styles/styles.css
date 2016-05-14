@@ -1,0 +1,45 @@
+.test {
+	text-align: center
+}
+
+#nav {
+	text-align: right;
+	background-color:rgba(0, 0, 0, 0.05);
+    height: 50px;
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    position:fixed;
+    float: right;
+}
+
+
+.searchbutton {
+	background-color: rgba(0, 0, 255, 0.09);
+	height: 50px;
+	width: 150px;
+	font-size: 30px;
+	outline: 0px;
+	box-shadow: none;
+	border: none;
+	float: top; 
+	vertical-align: top;
+}
+
+.searchbox {
+	height: 50px;
+	width: 300px;
+	font-size: 40px;
+	font-family: "Courier New", Courier, monospace;
+	outline: 0px;
+	box-shadow: none;
+	border: none;
+	background-color:rgba(255, 0, 0, 0.06);
+	float: top; 
+	text-align: right;
+}
+
+.searchlinks {
+	vertical-align: bottom;
+	margin: 0px 5px 0px 5px;
+	text-decoration: none;
+}
