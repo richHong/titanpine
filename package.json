@@ -17,12 +17,11 @@
   },
   "homepage": "https://github.com/andyderek/titanpine#readme",
   "dependencies": {
-    "react": "^15.0.2",
-    "react-dom": "^15.0.2",
     "my1stnpmpackage": "^1.0.2",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.1",
+    "react-router": "^2.4.0",
     "redux": "^3.3.1",
     "webpack": "^1.9.11"
   },
