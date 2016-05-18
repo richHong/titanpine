@@ -32,6 +32,7 @@ module.exports = (function() {
   /* generator: begin imports */
 
   const V1UsersController = Nodal.require('app/controllers/v1/users_controller.js');
+  const V1HouseListingsController = Nodal.require('app/controllers/v1/house_listings_controller.js');
 
   /* generator: end imports */
 
@@ -40,6 +41,7 @@ module.exports = (function() {
   /* generator: begin routes */
 
   router.route('/v1/users/{id}').use(V1UsersController);
+  router.route('/v1/house_listings/{id}').use(V1HouseListingsController);
 
   /* generator: end routes */
 
