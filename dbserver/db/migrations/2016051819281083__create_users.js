@@ -14,7 +14,20 @@ module.exports = (function() {
     up() {
 
       return [
-        this.createTable("users", [{"name":"email","type":"string","properties":{"unique":true}},{"name":"password","type":"string"},{"name":"username","type":"string"}])
+        this.createTable("users",
+          [{"name":"email","type":"string","properties":{"unique":true}},
+           {"name":"password","type":"string"},
+           {"name":"username","type":"string","properties":{"unique":true}},
+           {"name":"user_id","type":"number"},
+           {"name":"description","type":"string"},
+           {"name":"gen_interests","type":"string"},
+           {"name":"tech_interests","type":"string"},
+           {"name":"occupation:","type":"string"},
+           {"name":"first_name","type":"string"},
+           {"name":"last_name","type":"string"},
+           {"name":"hometown","type":"string"},
+           {"name":"avatar","type":"bytea"},
+           {"name":"time_frame","type":"string"}])
       ];
 
     }
