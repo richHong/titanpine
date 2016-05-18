@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import NavBar from './Navbar';
-import SearchBar from './SearchBar'
+import { Router, Route, hashHistory } from 'react-router'
 
-class HelloWorld extends Component {
-  render() {
-    return (<div>
-    	Hello Titans!
-      </div>
-    )
-  }
-}
+import SignUp from './SignUp'
 
-render(<HelloWorld/>, document.getElementById('app'))
+render((
+	<Router history={hashHistory}>
+		<Route path="/" component={ SignUp } />
+	</Router>
+), document.getElementById('app'))
