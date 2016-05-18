@@ -14,17 +14,18 @@ module.exports = (function() {
     up() {
 
       return [
-        this.createTable("house_listings", [
+        this.createTable("house_listings",
+         [{"name":"house_name","type":"string"},
           {"name":"heading","type":"text"},
-          {"name":"subheader","type":"text"},
           {"name":"street_add","type":"text"},
           {"name":"city","type":"text"},
           {"name":"state","type":"text"},
           {"name":"zipcode","type":"text"},
-          {"name":"house_rules","type":"text"},
-          {"name":"house_interests","type":"text"},
-          {"name":"price", "type":"integer"},
+          {"name":"price", "type":"int"},
           {"name":"dates_avail","type":"text"},
+          {"name":"house_interests","type":"text"},
+          {"name":"house_mission","type":"string"},
+          {"name":"house_rules","type":"text"},
           {"name":"vacancies","type":"integer"},
           {"name":"primary_member","type":"text"},
           {"name":"amenities", "type":"text"}
