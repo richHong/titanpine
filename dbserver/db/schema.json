@@ -1,0 +1,60 @@
+{
+
+  "migration_id": 2016051821221819,
+
+  "models": {
+
+    "HouseListing": {
+
+      "table": "house_listings",
+
+      "columns": [
+        {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
+        {"name": "user_id", "type": "int", "properties": {}},
+        {"name": "house_name", "type": "string", "properties": {}},
+        {"name": "heading", "type": "text", "properties": {}},
+        {"name": "street_add", "type": "text", "properties": {}},
+        {"name": "city", "type": "text", "properties": {}},
+        {"name": "state", "type": "text", "properties": {}},
+        {"name": "zipcode", "type": "text", "properties": {}},
+        {"name": "price", "type": "int", "properties": {}},
+        {"name": "dates_avail", "type": "text", "properties": {}},
+        {"name": "house_interests", "type": "text", "properties": {}},
+        {"name": "house_mission", "type": "string", "properties": {}},
+        {"name": "house_rules", "type": "text", "properties": {}},
+        {"name": "vacancies", "type": "int", "properties": {}},
+        {"name": "primary_member", "type": "text", "properties": {}},
+        {"name": "amenities", "type": "text", "properties": {}},
+        {"name": "created_at", "type": "datetime", "properties": {}},
+        {"name": "updated_at", "type": "datetime", "properties": {}}
+      ]
+
+    },
+
+    "User": {
+
+      "table": "users",
+
+      "columns": [
+        {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
+        {"name": "email", "type": "string", "properties": {"unique":true}},
+        {"name": "password", "type": "string", "properties": {}},
+        {"name": "username", "type": "string", "properties": {"unique":true}},
+        {"name": "first_name", "type": "string", "properties": {}},
+        {"name": "last_name", "type": "string", "properties": {}},
+        {"name": "description", "type": "string", "properties": {}},
+        {"name": "occupation", "type": "string", "properties": {}},
+        {"name": "gen_interests", "type": "string", "properties": {}},
+        {"name": "tech_interests", "type": "string", "properties": {}},
+        {"name": "hometown", "type": "string", "properties": {}},
+        {"name": "avatar", "type": "bytea", "properties": {}},
+        {"name": "time_frame", "type": "string", "properties": {}},
+        {"name": "created_at", "type": "datetime", "properties": {}},
+        {"name": "updated_at", "type": "datetime", "properties": {}}
+      ]
+
+    }
+
+  }
+
+}
