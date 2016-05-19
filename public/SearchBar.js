@@ -7,9 +7,9 @@ class SearchBar extends React.Component {
     			</div>
 	}
 
-onChange(e){
-   console.log('This is working', this.search.value);
-}
+	onChange(e){
+   		console.log('This is working', this.search.value);
+	}
 
 }
 

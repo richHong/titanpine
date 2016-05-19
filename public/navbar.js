@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router'
 class NavBar extends React.Component {
 	render(){
 		return (
-			<form>
-				<a href className='searchlinks'>Sign Up</a>
-				<a href className='searchlinks'>Log In</a>
-    		</form>
+			<div>
+				<Link to='/signup' className='searchlinks'>Sign Up</Link>
+				<Link to='/login' className='searchlinks'>Log In</Link>
+    		</div>
     	);
 	}
 }
