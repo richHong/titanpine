@@ -10,6 +10,7 @@
 
       "columns": [
         {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
+        {"name": "user_id", "type": "int", "properties": {}},
         {"name": "house_name", "type": "string", "properties": {}},
         {"name": "heading", "type": "text", "properties": {}},
         {"name": "street_add", "type": "text", "properties": {}},
@@ -21,7 +22,7 @@
         {"name": "house_interests", "type": "text", "properties": {}},
         {"name": "house_mission", "type": "string", "properties": {}},
         {"name": "house_rules", "type": "text", "properties": {}},
-        {"name": "vacancies", "type": "integer", "properties": {}},
+        {"name": "vacancies", "type": "int", "properties": {}},
         {"name": "primary_member", "type": "text", "properties": {}},
         {"name": "amenities", "type": "text", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},

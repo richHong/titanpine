@@ -10,11 +10,11 @@ module.exports = (function() {
     index() {
 
       HouseListing.query()
+        .join('user')
         .where(this.params.query)
         .end((err, models) => {
 
           this.respond(err || models);
-
         });
 
     }

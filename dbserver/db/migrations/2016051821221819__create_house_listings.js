@@ -15,7 +15,8 @@ module.exports = (function() {
 
       return [
         this.createTable("house_listings",
-         [{"name":"house_name","type":"string"},
+         [{"name":"user_id","type":"int"},
+          {"name":"house_name","type":"string"},
           {"name":"heading","type":"text"},
           {"name":"street_add","type":"text"},
           {"name":"city","type":"text"},
@@ -26,7 +27,7 @@ module.exports = (function() {
           {"name":"house_interests","type":"text"},
           {"name":"house_mission","type":"string"},
           {"name":"house_rules","type":"text"},
-          {"name":"vacancies","type":"integer"},
+          {"name":"vacancies","type":"int"},
           {"name":"primary_member","type":"text"},
           {"name":"amenities", "type":"text"}
         ])
