@@ -14,4 +14,4 @@ onChange(e){
 }
 
 
-export default SearchBar	
+export default SearchBar
