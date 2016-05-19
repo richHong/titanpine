@@ -9,8 +9,8 @@ class SignUp extends React.Component {
 			first name: <input /><br />
 			last name: <input /><br />
 			<button className='signupbutton'>Join</button>
-			</form> 
-			
+			</form>
+
 		</div>
 	}
 }
