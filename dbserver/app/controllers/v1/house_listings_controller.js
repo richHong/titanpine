@@ -6,7 +6,9 @@ module.exports = (function() {
   const pg = require('pg');
   const HouseListing = Nodal.require('app/models/house_listing.js');
 
-  class V1HouseListingsController extends Nodal.Controller {
+  const AuthController = Nodal.require('app/controllers/auth_controller.js');
+
+  class V1HouseListingsController extends AuthController {
 
     index() {
 
@@ -54,6 +56,8 @@ module.exports = (function() {
     }
 
     create() {
+
+      // AccessToken.verify(err, accessToken, user)
 
       HouseListing.create(this.params.body, (err, model) => {
 
