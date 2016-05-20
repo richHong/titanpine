@@ -40,3 +40,23 @@
 	margin: 0px 5px 0px 5px;
 	text-decoration: none;
 }
+.checkbox{
+	float:left;
+	display: block;
+	height: 25px;
+}
+#techInterests{
+	display:block;
+	clear:both;
+}
+#profileSubmit{
+	display:block;
+	clear:both;
+}
+#aboutMe{
+	height: 200px;
+	width: 400px;
+}
+#aboutMe:input:placeholder {
+
+}

@@ -6,16 +6,23 @@ class SignUp extends React.Component {
 				username: <input ref={(username) => this.username = username} /><br />
 				password: <input type='password' ref={(password) => this.password = password} /><br />
 				re-enter password: <input type='password' ref={(confirmPassword) => this.confirmPassword = confirmPassword} /><br />
-				<button onClick={this.submitForm.bind(this)}>Join</button>
+				email:<input ref={(email) => this.email = email} /><br />
+				<button onClick={this.submitForm.bind(this)} to="/createProfile">Join</button>
 			</form> 	
 		</div>
 	}
 
 	submitForm(e){
 		e.preventDefault()
-		var username = this.username.value;
-		var password = this.password.value;
-		var confirmPassword = this.confirmPassword.value;
+  		fetch('http://localhost:3001/v1/users/', {
+      		method: 'POST',
+      		headers: {'Content-Type': 'application/json'},
+      		body: JSON.stringify({username: this.username.value, password: this.password.value, email: this.email.value})
+    	})
+    	.then(function(response){
+    		window.location = '#/createProfile';
+      		console.log(response);
+    	});
 	}
 }
 
