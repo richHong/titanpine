@@ -36,7 +36,20 @@ module.exports = (function() {
 
       User.find(this.params.route.id, (err, model) => {
 
-        this.respond(err || model);
+        this.respond(err || model,
+          ['id',
+           'email',
+           'username',
+           'first_name',
+           'description',
+           'occupation',
+           'gen_interests',
+           'tech_interests',
+           'hometown',
+           'avatar',
+           'time_frame',
+           'created_at'
+         ]);
 
       });
 
@@ -46,7 +59,20 @@ module.exports = (function() {
 
       User.create(this.params.body, (err, model) => {
 
-        this.respond(err || model);
+        this.respond(err || model,
+          ['id',
+           'email',
+           'username',
+           'first_name',
+           'description',
+           'occupation',
+           'gen_interests',
+           'tech_interests',
+           'hometown',
+           'avatar',
+           'time_frame',
+           'created_at'
+         ]);
 
       });
 
@@ -56,7 +82,20 @@ module.exports = (function() {
 
       User.update(this.params.route.id, this.params.body, (err, model) => {
 
-        this.respond(err || model);
+        this.respond(err || model,
+          ['id',
+           'email',
+           'username',
+           'first_name',
+           'description',
+           'occupation',
+           'gen_interests',
+           'tech_interests',
+           'hometown',
+           'avatar',
+           'time_frame',
+           'created_at'
+         ]);
 
       });
 
@@ -66,7 +105,20 @@ module.exports = (function() {
 
       User.destroy(this.params.route.id, (err, model) => {
 
-        this.respond(err || model);
+        this.respond(err || model,
+          ['id',
+           'email',
+           'username',
+           'first_name',
+           'description',
+           'occupation',
+           'gen_interests',
+           'tech_interests',
+           'hometown',
+           'avatar',
+           'time_frame',
+           'created_at'
+         ]);
 
       });
 
