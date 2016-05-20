@@ -7,7 +7,8 @@ class ProfileForm extends React.Component {
       genInterests:['Music', 'Movies', 'Books', 'Fashion', 'Outdoors', 'Sports', 'Crafting', 'Gaming'],
       techInterests: ['Javascript','Ruby', 'Node', 'React', 'Angular', 'Express', 'MongoDB', 'Postgres','Redux', 'JQuery'],
       general:[],
-      tech:[]
+      tech:[],
+      currentUserID: 1
     };
     this.submit = this.submit.bind(this);
     this.addGeneral = this.addGeneral.bind(this);
@@ -36,11 +37,23 @@ class ProfileForm extends React.Component {
 
   submit(e, description, hometown, occupation){
     e.preventDefault();
-    console.log('Your descriptions is:',description.value);
-    console.log('Your hometown is:', hometown.value);
-    console.log('Your general interests are:', this.state.general);
-    console.log('Your general interests are:', this.state.tech);
-    console.log('Your occupation is:', occupation.value);
+  
+    fetch('http://localhost:3001/v1/users/'+currentUserID, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        hometown: hometown.value,
+        description: description.value,
+        occupation: occupation.value,
+        gen_interests: this.state.general,
+        tech_interests: this.state.tech
+      })
+    }).then(function(response){
+      console.log(response);
+    });
+
     description.value = '';
     hometown.value = '';
     occupation.value = '';
@@ -60,7 +73,7 @@ class ProfileForm extends React.Component {
             {this.state.genInterests.map((value, i) => {
               return (
                 <div key={i} className="checkbox">
-                  <input type="checkbox" onChange={e => this.addGeneral(value)}/>
+                  <input type="checkbox" onChange={e => this.addGeneral(value)} />
                   <span>{value}</span>
                 </div>
                 )
@@ -71,7 +84,7 @@ class ProfileForm extends React.Component {
             {this.state.techInterests.map((value, i) => {
               return (
                 <div key={i} className="checkbox">
-                  <input type="checkbox" onChange={e => this.addTech(value)}/>
+                  <input type="checkbox" onChange={e => this.addTech(value)} />
                   <span>{value}</span>
                 </div>
                 )
