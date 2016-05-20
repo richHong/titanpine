@@ -13,7 +13,20 @@ module.exports = (function() {
         .where(this.params.query)
         .end((err, models) => {
 
-          this.respond(err || models);
+          this.respond(err || models,
+            ['id',
+             'email',
+             'username',
+             'first_name',
+             'description',
+             'occupation',
+             'gen_interests',
+             'tech_interests',
+             'hometown',
+             'avatar',
+             'time_frame',
+             'created_at'
+           ]);
 
         });
 
