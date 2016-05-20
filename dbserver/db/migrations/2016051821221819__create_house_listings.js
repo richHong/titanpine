@@ -29,7 +29,8 @@ module.exports = (function() {
           {"name":"house_rules","type":"text"},
           {"name":"vacancies","type":"int"},
           {"name":"primary_member","type":"text"},
-          {"name":"amenities", "type":"text"}
+          {"name":"amenities","type":"text"},
+          {"name":"other","type":"text"}
         ])
       ];
 
