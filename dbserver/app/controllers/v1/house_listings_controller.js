@@ -14,7 +14,31 @@ module.exports = (function() {
         .join('user')
         .where(this.params.query)
         .end((err, models) => {
-          this.respond(err || models);
+
+          this.respond(err || models,
+            ['id',
+             'user_id',
+             'house_name',
+             'heading',
+             'street_add',
+             'city',
+             'state',
+             'zipcode',
+             'price',
+             'dates_avail',
+             'house_interests',
+             'house_mission',
+             'house_rules',
+             'vacancies',
+             'primary_member',
+             'created_at',
+             'updated_at',
+             {
+               user:
+               ['id','username','first_name','avatar']
+             }
+           ]);
+
         });
 
     }
