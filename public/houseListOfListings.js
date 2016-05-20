@@ -4,7 +4,7 @@ import HouseListing from './houseListing';
 const HouseList = ({houses}) => (
   <div>
     {houses.map((house) => {
-      return <House house={house} />
+      return <HouseListing house={house} />
     })}
   </div>
 )

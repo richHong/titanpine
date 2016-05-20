@@ -1,4 +1,3 @@
-
 #nav {
 	text-align: right;
 	background-color:rgba(0, 0, 0, 0.05);
@@ -8,7 +7,6 @@
     position:fixed;
     float: right;
 }
-
 
 .searchbutton {
 	background-color: rgba(0, 0, 255, 0.09);
@@ -44,19 +42,4 @@
 	float:left;
 	display: block;
 	height: 25px;
-}
-#techInterests{
-	display:block;
-	clear:both;
-}
-#profileSubmit{
-	display:block;
-	clear:both;
-}
-#aboutMe{
-	height: 200px;
-	width: 400px;
-}
-#aboutMe:input:placeholder {
-
 }

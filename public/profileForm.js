@@ -5,7 +5,7 @@ class ProfileForm extends React.Component {
     super(props);
     this.state = {
       genInterests:['Music', 'Movies', 'Books', 'Fashion', 'Outdoors', 'Sports', 'Crafting', 'Gaming'],
-      techInterests: ['Javascript','Ruby', 'Node', 'React', 'Angular', 'Express', 'MongoDB', 'Postgres','Redux', 'JQuery'],
+      techInterests: ['Javascript','Ruby', 'Node', 'React', 'Angular', 'Express', 'MongoDB', 'Postgres','Redux'],
       general:[],
       tech:[],
       currentUserID: 1
@@ -50,13 +50,9 @@ class ProfileForm extends React.Component {
         gen_interests: this.state.general,
         tech_interests: this.state.tech
       })
-    }).then(function(response){
+    }).then(response => {
       console.log(response);
     });
-
-    description.value = '';
-    hometown.value = '';
-    occupation.value = '';
   }
 
   render(){
@@ -78,7 +74,7 @@ class ProfileForm extends React.Component {
                 </div>
                 )
             })}
-          </div>
+          </div><br/><br/>
           <label id="techInterests"><strong>Tech Interests:</strong></label>
           <div>
             {this.state.techInterests.map((value, i) => {
@@ -89,7 +85,7 @@ class ProfileForm extends React.Component {
                 </div>
                 )
             })}
-          </div>
+          </div><br/><br/>
           <input id="profileSubmit" type="submit" value="Save Changes"/>
         </form>
       )
