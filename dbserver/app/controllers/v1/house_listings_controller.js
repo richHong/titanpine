@@ -3,6 +3,7 @@ module.exports = (function() {
   'use strict';
 
   const Nodal = require('nodal');
+  const pg = require('pg');
   const HouseListing = Nodal.require('app/models/house_listing.js');
 
   class V1HouseListingsController extends Nodal.Controller {
@@ -13,7 +14,6 @@ module.exports = (function() {
         .join('user')
         .where(this.params.query)
         .end((err, models) => {
-
           this.respond(err || models);
         });
 
