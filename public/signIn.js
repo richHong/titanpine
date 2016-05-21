@@ -7,8 +7,6 @@ export default class SignIn extends Component {
   render() {
     return (
       <div> 
-        <NavBar/>
-        <SearchBar/>
         <h1>User Login</h1>
         <SignInForm/>       
       </div>

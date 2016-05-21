@@ -9,6 +9,7 @@ import CreateHouse from './createHouse'
 import SearchBar from './SearchBar'
 import NavBar from './NavBar'
 import MainContain from './MainContain'
+import SignIn from './SignIn'
 
 render((
 	<Router history={hashHistory}>
@@ -18,6 +19,7 @@ render((
     			<Route path="/createProfile" component={ CreateProfile } />
     			<Route path='/signup' component={ SignUp } />
     			<Route path='/createHouse' component={ CreateHouse } />
+                <Route path='/signin' component={ SignIn } />
             </Route>
         </Route>
 	</Router>
