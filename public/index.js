@@ -3,12 +3,14 @@ import { render } from 'react-dom';
 import { Router, Route, hashHistory, browserHistory } from 'react-router';
 
 import SignUp from './SignUp';
-import CreateProfile from './createProfile'
-import CreateHouse from './createHouse'
+import SignIn from './signInForm';
+import CreateProfile from './createProfile';
+import CreateHouse from './createHouse';
 
 render((
 	<Router history={hashHistory}>
 		<Route path="/signup" component={ SignUp } />
+    <Route path="/" component={ SignIn } />
     <Route path="/createProfile" component={ CreateProfile } />
     <Route path="/createHouse" component={ CreateHouse } />
 	</Router>
