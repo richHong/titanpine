@@ -73,9 +73,13 @@ module.exports = (function() {
 
     update() {
 
-      HouseListing.update(this.params.route.id, this.params.body, (err, model) => {
+      this.authorize((accessToken, user) => {
 
-        this.respond(err || model);
+        HouseListing.update(this.params.route.id, this.params.body, (err, model) => {
+
+          this.respond(err || model);
+
+        });
 
       });
 
@@ -83,9 +87,13 @@ module.exports = (function() {
 
     destroy() {
 
-      HouseListing.destroy(this.params.route.id, (err, model) => {
+      this.authorize((accessToken, user) => {
 
-        this.respond(err || model);
+        HouseListing.destroy(this.params.route.id, (err, model) => {
+
+          this.respond(err || model);
+
+        });
 
       });
 
