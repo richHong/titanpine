@@ -58,24 +58,19 @@ module.exports = (function() {
 
     create() {
 
-      User.create(this.params.body, (err, model) => {
+      // this.userLogin((user, password) => {
 
-        this.respond(err || model,
-          ['id',
-           'email',
-           'username',
-           'first_name',
-           'description',
-           'occupation',
-           'gen_interests',
-           'tech_interests',
-           'hometown',
-           'avatar',
-           'time_frame',
-           'created_at'
-         ]);
+        User.create(this.params.body, (err, model) => {
 
-      });
+          this.respond(err || model,
+            ['id',
+            'email',
+            'username'
+          ]);
+
+        });
+
+      // });
 
     }
 
@@ -108,24 +103,29 @@ module.exports = (function() {
 
     destroy() {
 
-      User.destroy(this.params.route.id, (err, model) => {
+      this.authorize((accessToken, user) => {
 
-        this.respond(err || model,
-          ['id',
-           'email',
-           'username',
-           'first_name',
-           'description',
-           'occupation',
-           'gen_interests',
-           'tech_interests',
-           'hometown',
-           'avatar',
-           'time_frame',
-           'created_at'
-         ]);
+        User.destroy(this.params.route.id, (err, model) => {
+
+          this.respond(err || model,
+            ['id',
+            'email',
+            'username',
+            'first_name',
+            'description',
+            'occupation',
+            'gen_interests',
+            'tech_interests',
+            'hometown',
+            'avatar',
+            'time_frame',
+            'created_at'
+          ]);
+
+        });
 
       });
+
 
     }
 
