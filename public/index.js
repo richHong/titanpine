@@ -9,8 +9,8 @@ import CreateHouse from './createHouse';
 
 render((
 	<Router history={hashHistory}>
-		<Route path="/signup" component={ SignUp } />
     <Route path="/" component={ SignIn } />
+    <Route path="/signup" component={ SignUp } />
     <Route path="/createProfile" component={ CreateProfile } />
     <Route path="/createHouse" component={ CreateHouse } />
 	</Router>
