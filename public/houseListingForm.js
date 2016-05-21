@@ -37,7 +37,7 @@ class HousingForm extends React.Component {
 
   submit(e, name, heading, street, city, state, zipCode, price, dateStart, dateEnd, interests, mission, rules, vacancies, primary, amenities){
     e.preventDefault();
-
+   
     fetch('http://localhost:3001/v1/house_listings/', {
       method: 'POST',
       headers: {
@@ -48,17 +48,17 @@ class HousingForm extends React.Component {
           house_name: name.value,
           heading: heading.value, 
           street_add: street.value,
-          city: city.value,
+          city: city.value.toLowerCase(),
           state: state.value,
           zipcode: zipCode.value,
           price: price.value,
           dates_avail: dateStart.value+' to '+dateEnd.value,
-          house_interests: interests.value,
+          house_interests: interests.value+this.state.houseInterests,
           house_mission: mission.value,
           house_rules: rules.value,
           vacancies: vacancies.value,
           primary_member: primary.value,
-          amenities: amenities.value
+          amenities: amenities.value+this.state.houseAmenities
       })
     }).then(response => {
       console.log(response);
