@@ -10,7 +10,7 @@ class SignIn extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: username.value,
+        username: username.value.toLowerCase(),
         password: password.value
       })
     })
