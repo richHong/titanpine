@@ -1,21 +1,22 @@
 import React from 'react';
 
-class SignIn extends React.Component {
+class SignInForm extends React.Component {
+
   handleSubmit(e, username, password) {
     e.preventDefault();
 
-    fetch(/* NEED TO ADD URL */, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: username.value.toLowerCase(),
-        password: password.value
-      })
-    })
-      .then(response => response.json())
-      .then(json => console.log(json));
+  //   fetch(/* NEED TO ADD URL */, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       username: username.value.toLowerCase(),
+  //       password: password.value
+  //     })
+  //   })
+  //     .then(response => response.json())
+  //     .then(json => console.log(json));
   }
   
   render(){
@@ -30,4 +31,4 @@ class SignIn extends React.Component {
 
 }
 
-export default SignIn
+export default SignInForm

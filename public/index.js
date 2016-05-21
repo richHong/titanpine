@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Router, Route, hashHistory, browserHistory } from 'react-router';
 
 import SignUp from './SignUp';
-import SignIn from './signInForm';
+import SignIn from './signIn';
 import CreateProfile from './createProfile';
 import CreateHouse from './createHouse';
 
