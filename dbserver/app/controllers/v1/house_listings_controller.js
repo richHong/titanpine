@@ -57,13 +57,9 @@ module.exports = (function() {
 
     create() {
 
-      this.authorize((err, accessToken, user) => {
+      this.authorize((accessToken, user) => {
 
-        if (err) {
-          return this.respond(err);
-        }
-
-        this.params.body.data.user_id = user.get('id');
+        this.params.body.user_id = user.get('id');
 
         HouseListing.create(this.params.body, (err, model) => {
 

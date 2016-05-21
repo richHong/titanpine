@@ -12,7 +12,15 @@ module.exports = (function() {
       this.setHeader('Cache-Control', 'no-store');
       this.setHeader('Pragma', 'no-cache');
 
-      AccessToken.verify(this.params, callback);
+      AccessToken.verify(this.params, (err, accessToken, user) => {
+
+        if (err) {
+          return this.respond(err);
+        }
+
+        callback(accessToken, user);
+
+      });
 
     }
 
