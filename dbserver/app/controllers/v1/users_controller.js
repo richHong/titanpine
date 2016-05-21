@@ -4,8 +4,9 @@ module.exports = (function() {
 
   const Nodal = require('nodal');
   const User = Nodal.require('app/models/user.js');
+  const AuthController = Nodal.require('app/controllers/auth_controller.js');
 
-  class V1UsersController extends Nodal.Controller {
+  class V1UsersController extends AuthController {
 
     index() {
 
@@ -80,22 +81,26 @@ module.exports = (function() {
 
     update() {
 
-      User.update(this.params.route.id, this.params.body, (err, model) => {
+      this.authorize((accessToken, user) => {
 
-        this.respond(err || model,
-          ['id',
-           'email',
-           'username',
-           'first_name',
-           'description',
-           'occupation',
-           'gen_interests',
-           'tech_interests',
-           'hometown',
-           'avatar',
-           'time_frame',
-           'created_at'
-         ]);
+        User.update(this.params.route.id, this.params.body, (err, model) => {
+
+          this.respond(err || model,
+            ['id',
+             'email',
+             'username',
+             'first_name',
+             'description',
+             'occupation',
+             'gen_interests',
+             'tech_interests',
+             'hometown',
+             'avatar',
+             'time_frame',
+             'created_at'
+           ]);
+
+        });
 
       });
 
