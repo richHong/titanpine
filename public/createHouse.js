@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import HouseListingForm from './houseListingForm';
+import NavBar from './navBar';
+import SearchBar from './SearchBar';
 
 export default class CreateHouse extends Component {
   render() {
