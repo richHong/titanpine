@@ -57,13 +57,22 @@ module.exports = (function() {
 
     create() {
 
-      // AccessToken.verify(err, accessToken, user)
+      this.authorize((err, accessToken, user) => {
 
-      HouseListing.create(this.params.body, (err, model) => {
+        if (err) {
+          return this.respond(err);
+        }
 
-        this.respond(err || model);
+        this.params.body.data.user_id = user.get('id');
 
-      });
+        HouseListing.create(this.params.body, (err, model) => {
+
+          this.respond(err || model);
+
+        });
+
+      })
+
 
     }
 
