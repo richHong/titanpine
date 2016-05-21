@@ -7,8 +7,6 @@ export default class CreateHouse extends Component {
   render() {
     return (
       <div> 
-        <NavBar/>
-        <SearchBar/>
         <h1>Create Your Hacker House Profile Below</h1>
         <HouseListingForm/>       
       </div>
