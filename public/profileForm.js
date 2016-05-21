@@ -37,7 +37,7 @@ class ProfileForm extends React.Component {
 
   submit(e, description, hometown, occupation){
     e.preventDefault();
-  
+
     fetch('http://localhost:3001/v1/users/'+currentUserID, {
       method: 'PUT',
       headers: {
@@ -92,4 +92,4 @@ class ProfileForm extends React.Component {
   }
 }
 
-export default ProfileForm 
+export default ProfileForm
