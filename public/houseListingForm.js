@@ -37,7 +37,7 @@ class HousingForm extends React.Component {
 
   submit(e, name, heading, street, city, state, zipCode, price, dateStart, dateEnd, interests, mission, rules, vacancies, primary, amenities){
     e.preventDefault();
-   
+
     fetch('http://localhost:3001/v1/house_listings/', {
       method: 'POST',
       headers: {
@@ -46,7 +46,7 @@ class HousingForm extends React.Component {
       body: JSON.stringify({
           user_id: this.state.currentUserID,
           house_name: name.value,
-          heading: heading.value, 
+          heading: heading.value,
           street_add: street.value,
           city: city.value.toLowerCase(),
           state: state.value,
@@ -122,4 +122,4 @@ class HousingForm extends React.Component {
   }
 }
 
-export default HousingForm 
+export default HousingForm
