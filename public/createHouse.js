@@ -8,7 +8,7 @@ export default class CreateHouse extends Component {
     return (
       <div> 
         <h1>Create Your Hacker House Profile Below</h1>
-        <HouseListingForm/>       
+        <HouseListingForm/>
       </div>
     )
   }
