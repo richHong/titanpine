@@ -25,7 +25,7 @@ module.exports = (function() {
            {"name":"gen_interests","type":"string"},
            {"name":"tech_interests","type":"string"},
            {"name":"hometown","type":"string"},
-           {"name":"avatar","type":"url"},
+           {"name":"avatar","type":"text"},
            {"name":"time_frame","type":"string"}])
       ];
 

@@ -1,6 +1,6 @@
 {
 
-  "migration_id": 2016052004263307,
+  "migration_id": 2016052421111807,
 
   "models": {
 
@@ -48,6 +48,20 @@
 
     },
 
+    "HouseListingPic": {
+
+      "table": "house_listing_pics",
+
+      "columns": [
+        {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
+        {"name": "house_listing_id", "type": "int", "properties": {}},
+        {"name": "url", "type": "text", "properties": {}},
+        {"name": "created_at", "type": "datetime", "properties": {}},
+        {"name": "updated_at", "type": "datetime", "properties": {}}
+      ]
+
+    },
+
     "User": {
 
       "table": "users",
@@ -64,7 +78,7 @@
         {"name": "gen_interests", "type": "string", "properties": {}},
         {"name": "tech_interests", "type": "string", "properties": {}},
         {"name": "hometown", "type": "string", "properties": {}},
-        {"name": "avatar", "type": "url", "properties": {}},
+        {"name": "avatar", "type": "text", "properties": {}},
         {"name": "time_frame", "type": "string", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}

@@ -14,7 +14,10 @@ module.exports = (function() {
     up() {
 
       return [
-        this.createTable("house_listing_pics", [])
+        this.createTable("house_listing_pics",
+         [{"name":"house_listing_id","type":"int"},
+          {"name":"url","type":"text"}
+        ])
       ];
 
     }
