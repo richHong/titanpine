@@ -64,7 +64,7 @@
         {"name": "gen_interests", "type": "string", "properties": {}},
         {"name": "tech_interests", "type": "string", "properties": {}},
         {"name": "hometown", "type": "string", "properties": {}},
-        {"name": "avatar", "type": "bytea", "properties": {}},
+        {"name": "avatar", "type": "url", "properties": {}},
         {"name": "time_frame", "type": "string", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}
