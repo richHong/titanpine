@@ -40,7 +40,14 @@ app.all('/build/*', function (req, res) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extened:true}));
 //THIS IS ALL FILE UPLOAD STUFFFFFF=============================================
-var s3fsImplementation = new S3FS('hackerhabitat', {
+var s3fsImplementation1 = new S3FS('hackerhabitatavatars', {
+  accessKeyId: config.accessKeyId,
+  secretAccessKey: config.secretAccessKey,
+  endpoint: config.endpoint,
+  region: config.region
+});
+
+var s3fsImplementation2 = new S3FS('hackerhabitatlistings', {
   accessKeyId: config.accessKeyId,
   secretAccessKey: config.secretAccessKey,
   endpoint: config.endpoint,
@@ -53,7 +60,24 @@ app.post('/v1/avatars', function (req,res) {
   console.log('THE FILE',file);
   var stream = fs.createReadStream(file.path);
 
-  return s3fsImplementation.writeFile(file.originalFilename, stream)
+  return s3fsImplementation1.writeFile(file.originalFilename, stream)
+    .then(function(err) {
+      fs.unlink(file.path, function() {
+        if (err) {
+          console.log('Error');
+        }
+        console.log('Success');
+    });
+    res.send('File Upload Complete');
+  });
+});
+
+app.post('/v1/listings', function (req,res) {
+  var file = req.files.file;
+  console.log('THE FILE',file);
+  var stream = fs.createReadStream(file.path);
+
+  return s3fsImplementation2.writeFile(file.originalFilename, stream)
     .then(function(err) {
       fs.unlink(file.path, function() {
         if (err) {
