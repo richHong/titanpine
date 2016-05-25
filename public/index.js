@@ -7,7 +7,7 @@ import SignUp from './SignUp';
 import CreateProfile from './createProfile';
 import CreateHouse from './createHouse';
 import SearchBar from './SearchBar';
-import NavBar from './NavBar';
+import NavBar from './navBar';
 import MainContain from './MainContain';
 import SignIn from './SignIn';
 import Results from './results';
