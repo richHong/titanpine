@@ -1,4 +1,5 @@
 import React from 'react';
+import { Router, Route, hashHistory, browserHistory } from 'react-router';
 
 class ProfileForm extends React.Component {
   constructor(props){
@@ -52,6 +53,7 @@ class ProfileForm extends React.Component {
       })
     }).then(response => {
       console.log(response);
+      browserHistory.push('/createHouse');
     });
   }
 
