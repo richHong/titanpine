@@ -40,7 +40,7 @@ module.exports = (function() {
                user:
                ['id','username','first_name','avatar']
              }
-           ]);
+          ]);
 
         });
 

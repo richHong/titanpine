@@ -26,7 +26,7 @@ module.exports = (function() {
                user:
                ['id','username','email','created_at']
              }
-            ]);
+          ]);
 
         });
 
