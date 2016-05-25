@@ -8,7 +8,7 @@ module.exports = (function() {
 
   const AuthController = Nodal.require('app/controllers/auth_controller.js');
 
-  class V1HouseListingPicsController extends Nodal.Controller {
+  class V1HouseListingPicsController extends AuthController {
 
     index() {
 
@@ -19,16 +19,14 @@ module.exports = (function() {
 
           this.respond(err || models,
             ['id',
-             'user_id',
              'url',
-             'created_at',
              {
                user:
-               ['id','username','email','created_at']
+               ['username']
              }
           ]);
 
-        });
+      });
 
     }
 
@@ -42,11 +40,18 @@ module.exports = (function() {
 
     }
 
+
     create() {
 
-      HouseListingPic.create(this.params.body, (err, model) => {
+      this.authorize((accessToken, user) => {
 
-        this.respond(err || model);
+        this.params.body.user_id = user.get('id');
+
+        HouseListingPic.create(this.params.body, (err, model) => {
+
+          this.respond(err || model);
+
+        });
 
       });
 
@@ -54,19 +59,28 @@ module.exports = (function() {
 
     update() {
 
-      HouseListingPic.update(this.params.route.id, this.params.body, (err, model) => {
+      this.authorize((accessToken, user) => {
 
-        this.respond(err || model);
+        HouseListingPic.update(this.params.route.id, this.params.body, (err, model) => {
+
+          this.respond(err || model);
+
+        });
 
       });
+
 
     }
 
     destroy() {
 
-      HouseListingPic.destroy(this.params.route.id, (err, model) => {
+      this.authorize((accessToken, user) => {
 
-        this.respond(err || model);
+        HouseListingPic.destroy(this.params.route.id, (err, model) => {
+
+          this.respond(err || model);
+
+        });
 
       });
 
