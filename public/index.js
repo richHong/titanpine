@@ -11,18 +11,17 @@ import NavBar from './navBar';
 import MainContain from './MainContain';
 import SignIn from './SignIn';
 import Results from './results';
+import FrontPage from './frontPage';
 
 render((
 	<Router history={hashHistory}>
-        <Route path='/' component={ NavBar } />
+        <Route path='/' component={ FrontPage } />
         <Route component={ MainContain }>
-            <Route component={ NavBar }>
                 <Route path='/results' component={ Results } />
     			<Route path="/createProfile" component={ CreateProfile } />
     			<Route path='/signup' component={ SignUp } />
     			<Route path='/createHouse' component={ CreateHouse } />
                 <Route path='/signin' component={ SignIn } />
-            </Route>
         </Route>
 	</Router>
 ), document.getElementById('app'))

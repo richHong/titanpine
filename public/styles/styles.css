@@ -1,49 +1,197 @@
-#nav {
-	text-align: right;
-	background-color:rgba(0, 0, 0, 0.05);
-    height: 50px;
+body {
+  background-color: #333;
+}
+
+li {
+  float: right;
+}
+
+li .link{
+  font-size: 20px;
+  color: #43D1AF;
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li .link:hover {
+  background-color: #111;
+  color: #2EBC99;
+}
+
+video {
     width: 100%;
-    margin: 0px 0px 0px 0px;
-    position:fixed;
-    float: right;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  font-family: 'Arimo', sans-serif;
+  font-weight:100; 
 }
 
 .searchbutton {
-	background-color: rgba(0, 0, 255, 0.09);
-	height: 50px;
-	width: 150px;
-	font-size: 30px;
-	outline: 0px;
-	box-shadow: none;
-	border: none;
-	float: top; 
-	vertical-align: top;
+  background-color: #43D1AF;
+  color: #333;
+  height: 53px;
+  width: 150px;
+  font-size: 30px;
+  outline: 0px;
+  box-shadow: none;
+  border: none;
+  float: top; 
+  vertical-align: top;
+}
+.searchbutton:hover {
+  background: #2EBC99;
 }
 
 .searchbox {
-	height: 50px;
-	width: 300px;
-	font-size: 40px;
-	font-family: "Courier New", Courier, monospace;
-	outline: 0px;
-	box-shadow: none;
-	border: none;
-	background-color:rgba(255, 0, 0, 0.06);
-	float: top; 
-	text-align: right;
+  height: 50px;
+  width: 300px;
+  font-size: 30px;
+  font-family: 'Arimo', sans-serif;
+  outline: 0px;
+  box-shadow: none;
+  border: none;
+  float: top; 
+  text-align: right;
 }
 
-.searchlinks {
-	vertical-align: bottom;
-	margin: 0px 5px 0px 5px;
-	text-decoration: none;
+.checkbox {
+  float:left;
+  display: block;
+  height: 25px;
 }
-.checkbox{
-	float:left;
-	display: block;
-	height: 25px;
+
+.homeIcon {
+  height:50px;
 }
-#map {
-  height:200px; 
-  width: 300px;
+.title {
+  color:#43D1AF;
+}
+.filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+
+.overlay { 
+  position:absolute;
+  z-index:300000;
+  font-family: 'Arimo', sans-serif;
+  font-weight:100; 
+  background: rgba(0,0,0,0.3);
+  color: white;
+  padding: 2rem;
+  width: 33%;
+  margin:2rem;
+  float: right;
+  font-size: 1.2rem;
+}
+.form-style-6{
+    font-family: 'Arimo', sans-serif;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 16px;
+    background: #F7F7F7;
+}
+.form-style-6 h1{
+    background: #43D1AF;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #333;
+    margin: -16px -16px 16px -16px;
+}
+.form-style-6 input[type="text"],
+.form-style-6 input[type="date"],
+.form-style-6 input[type="datetime"],
+.form-style-6 input[type="email"],
+.form-style-6 input[type="number"],
+.form-style-6 input[type="search"],
+.form-style-6 input[type="time"],
+.form-style-6 input[type="password"],
+.form-style-6 input[type="url"],
+.form-style-6 textarea,
+.form-style-6 select 
+{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+}
+.form-style-6 input[type="text"]:focus,
+.form-style-6 input[type="date"]:focus,
+.form-style-6 input[type="datetime"]:focus,
+.form-style-6 input[type="email"]:focus,
+.form-style-6 input[type="number"]:focus,
+.form-style-6 input[type="search"]:focus,
+.form-style-6 input[type="time"]:focus,
+.form-style-6 input[type="url"]:focus,
+.form-style-6 input[type="password"]:focus,
+.form-style-6 textarea:focus,
+.form-style-6 select:focus
+{
+    box-shadow: 0 0 5px #43D1AF;
+    padding: 3%;
+    border: 1px solid #43D1AF;
+}
+
+.form-style-6 input[type="submit"],
+.form-style-6 input[type="button"]{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #43D1AF;
+    border-bottom: 2px solid #30C29E;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;    
+    color: #333;
+}
+.form-style-6 input[type="submit"]:hover,
+.form-style-6 input[type="button"]:hover{
+    background: #2EBC99;
+}
+.list {
+  font-family: 'Arimo', sans-serif;
+  float:right;
+  height: 820px;
+  width: 452px;
+  overflow: scroll;
+  background-color: #43D1AF;
+}
+.map {
+  width: 64%;
+  float:left;
+}
+.housePic {
+  width:452px;
+  height:300px;
+}
+.price {
+  float:right;
 }

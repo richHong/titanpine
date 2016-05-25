@@ -1,8 +1,12 @@
 import React from 'react';
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
+import NavBar from './navbar';
+
 class MainContain extends React.Component {
 	render(){
-		return (<div><SearchBar />
+		return (
+      <div>
+      <NavBar />
 			{this.props.children}
 			</div>)
 	}
