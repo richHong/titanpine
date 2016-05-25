@@ -1,4 +1,6 @@
 import React from 'react';
+import { Router, Route, hashHistory, browserHistory } from 'react-router';
+
 class SearchBar extends React.Component {
 	render(){
 		return <div>
@@ -12,6 +14,8 @@ class SearchBar extends React.Component {
 		fetch('http://localhost:3001/v1/house_listings/?city=' + searchable)
     	.then(response => response.json())
     	.then(json => console.log(json))
+
+    hashHistory.push('/results')
 	}
 
 }
