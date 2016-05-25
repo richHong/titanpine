@@ -14,6 +14,7 @@ module.exports = (function() {
 
       HouseListing.query()
         .join('user')
+        // .join('house_listing_pic')
         .where(this.params.query)
         .end((err, models) => {
 

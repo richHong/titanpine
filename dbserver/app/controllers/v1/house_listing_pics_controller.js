@@ -3,17 +3,30 @@ module.exports = (function() {
   'use strict';
 
   const Nodal = require('nodal');
+  const pg = require('pg');
   const HouseListingPic = Nodal.require('app/models/house_listing_pic.js');
+
+  const AuthController = Nodal.require('app/controllers/auth_controller.js');
 
   class V1HouseListingPicsController extends Nodal.Controller {
 
     index() {
 
       HouseListingPic.query()
+        // .join('house_listing')
         .where(this.params.query)
         .end((err, models) => {
 
-          this.respond(err || models);
+          this.respond(err || models,
+            ['id',
+             'house_listing_id',
+             'url',
+             'created_at',
+             {
+               house_listing:
+               ['id','city','house_name']
+             }
+            ]);
 
         });
 
