@@ -13,18 +13,18 @@ module.exports = (function() {
     index() {
 
       HouseListingPic.query()
-        // .join('house_listing')
+        .join('user')
         .where(this.params.query)
         .end((err, models) => {
 
           this.respond(err || models,
             ['id',
-             'house_listing_id',
+             'user_id',
              'url',
              'created_at',
              {
-               house_listing:
-               ['id','city','house_name']
+               user:
+               ['id','username','email','created_at']
              }
             ]);
 

@@ -14,7 +14,6 @@ module.exports = (function() {
 
       HouseListing.query()
         .join('user')
-        // .join('house_listing_pic')
         .where(this.params.query)
         .end((err, models) => {
 
@@ -36,6 +35,7 @@ module.exports = (function() {
              'primary_member',
              'created_at',
              'updated_at',
+             'pics',
              {
                user:
                ['id','username','first_name','avatar']
