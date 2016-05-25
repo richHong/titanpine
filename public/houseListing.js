@@ -2,13 +2,13 @@ import React from 'react';
 
 const HouseListing = ({house}) => (
   <div>
-    {house.house_name}<br/>
+    <img className='housePic' src={house.url} />
+    <strong>{house.house_name}</strong><br/>
     {house.heading}<br/>
     Location:<br/>
     {house.street_add}<br/>
     {house.city},{house.state} {house.zipcode}<br/>
-    Price:<br/>
-    {house.price}
+    <span className='price'><strong>Price:</strong> ${house.price} per night</span>
   </div>
 )
 
