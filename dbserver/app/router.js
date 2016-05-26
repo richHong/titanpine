@@ -32,9 +32,9 @@ module.exports = (function() {
   /* generator: begin imports */
 
   const V1UsersController = Nodal.require('app/controllers/v1/users_controller.js');
-  const V1HouseListingsController = Nodal.require('app/controllers/v1/house_listings_controller.js');
+  const V1ListingsController = Nodal.require('app/controllers/v1/listings_controller.js');
   const V1AccessTokensController = Nodal.require('app/controllers/v1/access_tokens_controller.js');
-  const V1HouseListingPicsController = Nodal.require('app/controllers/v1/house_listing_pics_controller.js');
+  const V1ListingpicsController = Nodal.require('app/controllers/v1/listingpics_controller.js');
 
   /* generator: end imports */
 
@@ -43,9 +43,9 @@ module.exports = (function() {
   /* generator: begin routes */
 
   router.route('/v1/users/{id}').use(V1UsersController);
-  router.route('/v1/house_listings/{id}').use(V1HouseListingsController);
+  router.route('/v1/listings/{id}').use(V1ListingsController);
   router.route('/v1/access_tokens/{id}').use(V1AccessTokensController);
-  router.route('/v1/house_listing_pics/{id}').use(V1HouseListingPicsController);
+  router.route('/v1/listingpics/{id}').use(V1ListingpicsController);
 
   /* generator: end routes */
 

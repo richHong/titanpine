@@ -4,7 +4,7 @@ module.exports = (function() {
 
   const Nodal = require('nodal');
 
-  class CreateHouseListings extends Nodal.Migration {
+  class CreateListings extends Nodal.Migration {
 
     constructor(db) {
       super(db);
@@ -14,7 +14,7 @@ module.exports = (function() {
     up() {
 
       return [
-        this.createTable("house_listings",
+        this.createTable("listings",
          [{"name":"user_id","type":"int"},
           {"name":"house_name","type":"string"},
           {"name":"heading","type":"text"},
@@ -39,13 +39,13 @@ module.exports = (function() {
     down() {
 
       return [
-        this.dropTable("house_listings")
+        this.dropTable("listings")
       ];
 
     }
 
   }
 
-  return CreateHouseListings;
+  return CreateListings;
 
 })();

@@ -4,15 +4,15 @@ module.exports = (function() {
 
   const Nodal = require('nodal');
   const pg = require('pg');
-  const HouseListing = Nodal.require('app/models/house_listing.js');
+  const Listing = Nodal.require('app/models/listing.js');
 
   const AuthController = Nodal.require('app/controllers/auth_controller.js');
 
-  class V1HouseListingsController extends AuthController {
+  class V1ListingsController extends AuthController {
 
     index() {
 
-      HouseListing.query()
+      Listing.query()
         .join('user')
         .where(this.params.query)
         .end((err, models) => {
@@ -48,7 +48,7 @@ module.exports = (function() {
 
     show() {
 
-      HouseListing.find(this.params.route.id, (err, model) => {
+      Listing.find(this.params.route.id, (err, model) => {
 
         this.respond(err || model);
 
@@ -62,7 +62,7 @@ module.exports = (function() {
 
         this.params.body.user_id = user.get('id');
 
-        HouseListing.create(this.params.body, (err, model) => {
+        Listing.create(this.params.body, (err, model) => {
 
           this.respond(err || model);
 
@@ -76,7 +76,7 @@ module.exports = (function() {
 
       this.authorize((accessToken, user) => {
 
-        HouseListing.update(this.params.route.id, this.params.body, (err, model) => {
+        Listing.update(this.params.route.id, this.params.body, (err, model) => {
 
           this.respond(err || model);
 
@@ -90,7 +90,7 @@ module.exports = (function() {
 
       this.authorize((accessToken, user) => {
 
-        HouseListing.destroy(this.params.route.id, (err, model) => {
+        Listing.destroy(this.params.route.id, (err, model) => {
 
           this.respond(err || model);
 
@@ -102,6 +102,6 @@ module.exports = (function() {
 
   }
 
-  return V1HouseListingsController;
+  return V1ListingsController;
 
 })();

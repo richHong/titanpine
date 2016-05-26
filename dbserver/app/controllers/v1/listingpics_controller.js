@@ -4,16 +4,17 @@ module.exports = (function() {
 
   const Nodal = require('nodal');
   const pg = require('pg');
-  const HouseListingPic = Nodal.require('app/models/house_listing_pic.js');
+  const Listingpic = Nodal.require('app/models/listingpic.js');
 
   const AuthController = Nodal.require('app/controllers/auth_controller.js');
 
-  class V1HouseListingPicsController extends AuthController {
+  class V1ListingpicsController extends AuthController {
 
     index() {
 
-      HouseListingPic.query()
+      Listingpic.query()
         .join('user')
+        .join('listing')
         .where(this.params.query)
         .end((err, models) => {
 
@@ -23,6 +24,10 @@ module.exports = (function() {
              {
                user:
                ['username']
+             },
+             {
+               listing:
+               ['id','house_name','city','state']
              }
           ]);
 
@@ -32,7 +37,7 @@ module.exports = (function() {
 
     show() {
 
-      HouseListingPic.find(this.params.route.id, (err, model) => {
+      Listingpic.find(this.params.route.id, (err, model) => {
 
         this.respond(err || model);
 
@@ -47,7 +52,7 @@ module.exports = (function() {
 
         this.params.body.user_id = user.get('id');
 
-        HouseListingPic.create(this.params.body, (err, model) => {
+        Listingpic.create(this.params.body, (err, model) => {
 
           this.respond(err || model);
 
@@ -61,7 +66,7 @@ module.exports = (function() {
 
       this.authorize((accessToken, user) => {
 
-        HouseListingPic.update(this.params.route.id, this.params.body, (err, model) => {
+        Listingpic.update(this.params.route.id, this.params.body, (err, model) => {
 
           this.respond(err || model);
 
@@ -76,7 +81,7 @@ module.exports = (function() {
 
       this.authorize((accessToken, user) => {
 
-        HouseListingPic.destroy(this.params.route.id, (err, model) => {
+        Listingpic.destroy(this.params.route.id, (err, model) => {
 
           this.respond(err || model);
 
@@ -88,6 +93,6 @@ module.exports = (function() {
 
   }
 
-  return V1HouseListingPicsController;
+  return V1ListingpicsController;
 
 })();
