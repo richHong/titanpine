@@ -1,16 +1,17 @@
 import React from 'react';
 import { createStore, combineReducers, applyMiddleware, bindActionCreators} from 'redux'
-import { Link } from 'react-router'
-
 import { connect } from 'react-redux'
 import { getHouseAction } from "./houseActions"
+import { Router, Route, hashHistory, browserHistory, Link } from 'react-router';
 
 class SearchBar extends React.Component {
 	render(){
-		return <div>
+		return (
+			<div>
 				<input ref={(input) => this.search = input} className='searchbox' />
-    			<Link to='/results' onClick={this.onSubmit.bind(this)} className='searchbutton'>Search</Link>
-    			</div>
+    		<Link to='/results' onClick={this.onSubmit.bind(this)} className='searchbutton'>Search</Link>
+    	</div>
+    )
 	}
 
 	onSubmit(){
@@ -19,7 +20,6 @@ class SearchBar extends React.Component {
     	.then(response => response.json())
     	.then(json => this.props.getHouseAction(json))
 	}
-
 }
 
 function mapDispatchToProps(dispatch) {

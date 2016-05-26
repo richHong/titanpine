@@ -1,37 +1,91 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import HouseListOfListings from './houseListOfListings';
 import HouseListing from './houseListing';
-
-import { connect } from 'react-redux';
-import houseListingReducer from './appReducers'
+import GMaps from './map';
+// import houseListingReducer from './appReducers'
 
 class Results extends Component {
-
-  listHouses(){
-    // console.log('NEW THIS', this.props.listing.name)
-      if(this.props.listing.name){
-      return this.props.listing.name.map((listing) => {
-        return (<li key={listing.id}>city:{listing.city}<br />
-          dates available:{listing.dates_avail}<br/>
-          house rules:{listing.house_rules}</li>)
-      })
-    }
-  }
-
-  render() {
+ render(){
     return (
-        <ul>{this.listHouses()}</ul>
-      )
+      <div>
+        {this.props.listing.name ? <HouseListOfListings houses={this.props.listing.name} /> : null}
+        <GMaps />
+      </div>
+    )
   }
 }
 
 function mapStateToProps(state) {
-  console.log(state, "State on Results")
   return {
     listing: state.listings
   }
 }
 
-
 export default connect(mapStateToProps)(Results);
 
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+// %%%%%%%%%%%FAKE DATA BELOW%%%%%%%%%%%%%%%%%%%%%%
+
+// export default class Results extends Component {
+//   constructor(){
+//     super();
+//     this.state = {
+//       houses:[{
+//         url: 'https://cdn-images-1.medium.com/max/400/1*wV0lBcrBtw3iqsCtkgZTBg.png',
+//         house_name: "Telegraph Hacker House",
+//         heading: "You like that, don't you!",
+//         street_add: "1600 Shattuck Ave",
+//         city: "Berkeley",
+//         state:"CA",
+//         zipcode: "94709",
+//         price: "55.00"
+//       },{
+//         url:'http://www.socketsite.com/wp-content/uploads/2014/02/2123-2127-Castro.gif',
+//         house_name: "House of Pain",
+//         heading: "Insane in the brain!",
+//         street_add: "123 Broadway",
+//         city: "Oakland",
+//         state:"CA",
+//         zipcode: "94612",
+//         price: "45.00"
+//       },{
+//         url:'http://www.insidesfre.com/wp-content/uploads/2013/04/243romain.jpg',
+//         house_name: "Tech Tower",
+//         heading: "It's Amazing!",
+//         street_add: "23122 Fremont",
+//         city: "San Jose",
+//         state:"CA",
+//         zipcode: "94483",
+//         price: "50.00"
+//       },{
+//         url: 'http://noehill.com/sf/landmarks/hayes/russell_warrren_house_thumb.jpg',
+//         house_name: "Digital Domain",
+//         heading: "Technology is good!",
+//         street_add: "4234 Broadway",
+//         city: "San Francisco",
+//         state:"CA",
+//         zipcode: "92343",
+//         price: "60.00"
+//       },{
+//         url:'https://cdn3.vox-cdn.com/uploads/chorus_image/image/48181361/sgijsdlfjlsd.0.0.jpg',
+//         house_name: "Coder Condos",
+//         heading: "Brain me!",
+//         street_add: "83234 Brains",
+//         city: "Mountainview",
+//         state:"CA",
+//         zipcode: "94234",
+//         price: "40.00"
+//       }]
+//     };
+//   }
+  // render(){
+  //   return (
+  //     <div>
+  //       <HouseListOfListings houses={this.state.houses} />
+  //       <GMaps />
+  //     </div>
+  //   )
+  // }
+// }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Router, Route, hashHistory, browserHistory } from 'react-router';
 
 class HousingForm extends React.Component {
   constructor(props){
@@ -62,30 +63,32 @@ class HousingForm extends React.Component {
       })
     }).then(response => {
       console.log(response);
+      hashHistory.push('/results');
     });
   }
 
   render(){
     return(
         <form onSubmit={e => this.submit(e, this.house_name, this.heading, this.street_add, this.city, this.stateName, this.zipCode, this.price, this.dates_start, this.dates_end, this.interests, this.house_mission, this.house_rules, this.vacancies, this.primary_member, this.amenities)}>
+          <h1>CREATE A HACKER HOUSE</h1>
           <label>House Name:</label><br/>
-            <input ref={input => this.house_name = input}/><br/>
+            <input type='text'ref={input => this.house_name = input}/><br/>
           <label>Heading:</label><br/>
-            <input ref={input => this.heading = input}/><br/>
+            <input type='text'ref={input => this.heading = input}/><br/>
           <label>Street Address:</label><br/>
-            <input ref={input => this.street_add = input}/><br/>
+            <input type='text'ref={input => this.street_add = input}/><br/>
           <label>City:</label><br/>
-            <input ref={input => this.city = input}/><br/>
+            <input type='text'ref={input => this.city = input}/><br/>
           <label>State:</label><br/>
-            <input maxLength='2'ref={input => this.stateName = input}/><br/>
+            <input type='text'maxLength='2'ref={input => this.stateName = input}/><br/>
           <label>Zipcode:</label><br/>
-            <input pattern="\d*" maxLength='5' min='0'ref={input => this.zipCode = input}/><br/>
+            <input type='text'pattern="\d*" maxLength='5' min='0'ref={input => this.zipCode = input}/><br/>
           <label>Price:</label><br/>
-            $<input type="number" name="currency" min="0" max="9999" step="0.01" ref={input => this.price = input}/>per night<br/>
+            <input type="number" name="currency" min="0" max="9999" step="0.01" ref={input => this.price = input}/><br/>
           <label>Dates Available:</label><br/>
             <input type="date"ref={input => this.dates_start = input}/><input type="date"ref={input => this.dates_end = input}/><br/>
           <label>Interests:</label><br/>
-            <input ref={input => this.interests = input}/><br/>
+            <input type='text'ref={input => this.interests = input}/><br/>
             <div>
             {this.state.interestsArray.map((value, i) => {
               return (
@@ -95,7 +98,7 @@ class HousingForm extends React.Component {
                 </div>
                 )
             })}
-            </div><br/><br/><br/>
+            </div><br/><br/><br/><br/><br/><br/>
           <label>Mission Statement:</label><br/>
             <textarea ref={input => this.house_mission = input}/><br/>
           <label>House Rules:</label><br/>
@@ -103,9 +106,9 @@ class HousingForm extends React.Component {
           <label>Number of Vacancies:</label><br/>
             <input type="number" min='0' ref={input => this.vacancies = input}/><br/>
           <label>Primary Member:</label><br/>
-            <input ref={input => this.primary_member = input}/><br/>
+            <input type='text'ref={input => this.primary_member = input}/><br/>
           <label>Amenities:</label><br/>
-            <input ref={input => this.amenities = input}/><br/>
+            <input type='text'ref={input => this.amenities = input}/><br/>
             <div>
               {this.state.amenitiesArray.map((value, i) => {
               return (

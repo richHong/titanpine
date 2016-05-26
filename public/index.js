@@ -11,29 +11,25 @@ import SignUp from './SignUp';
 import CreateProfile from './createProfile';
 import CreateHouse from './createHouse';
 import SearchBar from './SearchBar';
-import NavBar from './navBar';
+import NavBar from './NavBar';
 import MainContain from './MainContain';
 import SignIn from './SignIn';
 import Results from './results';
+import FrontPage from './frontPage';
 import houseListingReducer from './appReducers'
     
-
 var store = createStore(houseListingReducer)
-
-
 
 render((
     <Provider store={store}>
 	<Router history={ hashHistory }>
-        <Route path='/' component={ NavBar } />
+        <Route path='/' component={ FrontPage } />
         <Route component={ MainContain }>
-            <Route component={ NavBar }>
                 <Route path='/results' component={ Results }/>
     			<Route path="/createProfile" component={ CreateProfile } />
     			<Route path='/signup' component={ SignUp } />
     			<Route path='/createHouse' component={ CreateHouse } />
                 <Route path='/signin' component={ SignIn } />
-            </Route>
         </Route>
 	</Router>
     </Provider>

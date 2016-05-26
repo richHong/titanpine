@@ -4,8 +4,7 @@ import ProfileForm from './profileForm';
 export default class CreateProfile extends Component {
   render() {
     return (
-      <div> 
-        <h1>Welcome! Create Your Profile Below</h1>
+      <div className='form-style-6'> 
         <ProfileForm/>       
       </div>
     )
