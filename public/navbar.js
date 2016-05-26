@@ -13,8 +13,8 @@ class NavBar extends React.Component {
 				<li ><Link to="/createHouse" className='link'>Create House</Link></li>
 				<li ><Link to='/createprofile' className='link'>Create Profile</Link></li>
 				<div>{this.props.children}</div>
-    		</ul>
-    	);
+    	</ul>
+    );
 	}
 }
 

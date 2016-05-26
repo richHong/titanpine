@@ -6,9 +6,10 @@ class MainContain extends React.Component {
 	render(){
 		return (
       <div>
-      <NavBar />
-			{this.props.children}
-			</div>)
+      	<NavBar />
+				{this.props.children}
+			</div>
+		)
 	}
 }
 
