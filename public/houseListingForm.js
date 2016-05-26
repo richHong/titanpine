@@ -98,7 +98,7 @@ class HousingForm extends React.Component {
                 </div>
                 )
             })}
-            </div><br/><br/><br/>
+            </div><br/><br/><br/><br/><br/><br/>
           <label>Mission Statement:</label><br/>
             <textarea ref={input => this.house_mission = input}/><br/>
           <label>House Rules:</label><br/>

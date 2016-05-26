@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HouseListOfListings from './houseListOfListings';
 import HouseListing from './houseListing';
+import GMaps from './map';
 
 export default class Results extends Component {
   constructor(){
@@ -59,7 +60,7 @@ export default class Results extends Component {
     return (
       <div>
         <HouseListOfListings houses={this.state.houses} />
-        <img className='map'src="http://www.spur.org/sites/default/files/wysiwyg/20-san%20francisco%20zoom%2012%202009_0.jpg" />
+        <GMaps />
       </div>
     )
   }
