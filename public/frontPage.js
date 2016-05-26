@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import NavBar from './NavBar';
+import NavBar from './navBar';
 
 export default class FrontPage extends Component {
   render() {
     return (
-      <div> 
+      <div>
         <NavBar />
             <div className="filter">
               <div className="overlay">
