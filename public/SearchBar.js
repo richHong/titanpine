@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
 
 	onSubmit(){
 		var searchable = this.search.value.replace(" ", "+").toLowerCase();;
-		fetch('http://localhost:3001/v1/house_listings/?city=' + searchable)
+		fetch('http://localhost:3001/v1/listings/?city=' + searchable)
     	.then(response => response.json())
     	.then(json => this.props.getHouseAction(json))
 	}

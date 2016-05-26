@@ -39,7 +39,7 @@ class HousingForm extends React.Component {
   submit(e, name, heading, street, city, state, zipCode, price, dateStart, dateEnd, interests, mission, rules, vacancies, primary, amenities){
     e.preventDefault();
 
-    fetch('http://localhost:3001/v1/house_listings/', {
+    fetch('http://localhost:3001/v1/listings/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
