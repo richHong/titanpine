@@ -73,10 +73,15 @@ video {
 }
 
 .logo {
+  text-decoration: none; 
   color:#43D1AF;
   font-family: 'Rock Salt', cursive; 
-  text-decoration: none; 
 }
+
+.logo:visited {
+  text-decoration: none;
+}
+
 .title {
   color:#43D1AF;
   font-family: 'Rock Salt', cursive;

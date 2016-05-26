@@ -6,7 +6,7 @@ class NavBar extends React.Component {
 	render(){
 		return (
 			<ul className='nav'>
-				<Link to="/"><span className="logo">Hacker Habitat</span></Link>
+				<Link className="logo" to="/">Hacker Habitat</Link>
 				<li ><SearchBar /></li>
 				<li ><Link to='/signup' className='link'>Sign Up</Link></li>
 				<li ><Link to='/signin' className='link'>Log In</Link></li>
