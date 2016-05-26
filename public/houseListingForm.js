@@ -38,35 +38,12 @@ class HousingForm extends React.Component {
   submit(e, name, heading, street, city, state, zipCode, price, dateStart, dateEnd, interests, mission, rules, vacancies, primary, amenities){
     e.preventDefault();
 
-<<<<<<< HEAD
-    fetch('http://localhost:3001/v1/listings/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-          user_id: this.state.currentUserID,
-          house_name: name.value,
-          heading: heading.value,
-          street_add: street.value,
-          city: city.value.toLowerCase(),
-          state: state.value,
-          zipcode: zipCode.value,
-          price: price.value,
-          dates_avail: dateStart.value+' to '+dateEnd.value,
-          house_interests: interests.value+this.state.houseInterests,
-          house_mission: mission.value,
-          house_rules: rules.value,
-          vacancies: vacancies.value,
-          primary_member: primary.value,
-          amenities: amenities.value+this.state.houseAmenities
-=======
     let geolocation;
 
     fetch('http://maps.googleapis.com/maps/api/geocode/json?address='+street.value+'+'+city.value+'+'+state.value)
     .then(response => response.json())
     .then(json => geolocation = json.results[0].geometry.location)
-    .then(() => { 
+    .then(() => {
       fetch('http://localhost:3001/v1/house_listings/', {
         method: 'POST',
         headers: {
@@ -74,7 +51,7 @@ class HousingForm extends React.Component {
         },
         body: JSON.stringify({
             house_name: name.value,
-            heading: heading.value, 
+            heading: heading.value,
             street_add: street.value,
             city: city.value.toLowerCase(),
             state: state.value,
@@ -90,7 +67,6 @@ class HousingForm extends React.Component {
             lat: geolocation.lat,
             lng: geolocation.lng
         })
->>>>>>> 39fabf6d4dca6437e347a3a2bcb461fd5706f61e
       })
       .then(response => {
         response.json();
