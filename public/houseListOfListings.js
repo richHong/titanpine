@@ -3,8 +3,8 @@ import HouseListing from './houseListing';
 
 const HouseList = ({houses}) => (
   <div>
-    {houses.map((house) => {
-      return <HouseListing house={house} />
+    {houses.map((house, i) => {
+      return <HouseListing house={house} key={i} />
     })}
   </div>
 )

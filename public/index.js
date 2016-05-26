@@ -1,20 +1,34 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Router, Route, hashHistory, browserHistory } from 'react-router';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+
 
 import SignUp from './SignUp';
-import CreateProfile from './createProfile'
-import CreateHouse from './createHouse'
-import SearchBar from './SearchBar'
-import NavBar from './navBar'
-import MainContain from './MainContain'
-import SignIn from './SignIn'
+
+import CreateProfile from './createProfile';
+import CreateHouse from './createHouse';
+import SearchBar from './SearchBar';
+import NavBar from './navBar';
+import MainContain from './MainContain';
+import SignIn from './SignIn';
+import Results from './results';
+import houseListingReducer from './appReducers'
+    
+
+var store = createStore(houseListingReducer)
+
+
 
 render((
+    <Provider store={store}>
 	<Router history={ hashHistory }>
         <Route path='/' component={ NavBar } />
         <Route component={ MainContain }>
             <Route component={ NavBar }>
+                <Route path='/results' component={ Results }/>
     			<Route path="/createProfile" component={ CreateProfile } />
     			<Route path='/signup' component={ SignUp } />
     			<Route path='/createHouse' component={ CreateHouse } />
@@ -22,4 +36,5 @@ render((
             </Route>
         </Route>
 	</Router>
-), document.getElementById('app'))
+    </Provider>
+), document.getElementById('app'));
