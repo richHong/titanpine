@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Gmaps, Marker, InfoWindow, Circle } from 'react-gmaps';
 
-const coords = {
+const coords = [{
+  house_name: 'Hacker Habitat',
   lat: 37.8780068,
   lng: -122.2695097
-};
+}];
 
 class GMaps extends React.Component {
   constructor(props){
@@ -13,35 +14,47 @@ class GMaps extends React.Component {
   }
   onMapCreated(map) {
     map.setOptions({
-      disableDefaultUI: true
+      disableDefaultUI: true,
+      panControl:true,
+      zoomControl:true,
+      mapTypeControl:true,
+      scaleControl:true,
+      streetViewControl:true,
+      overviewMapControl:true,
+      rotateControl:true
     });
   }
   render(){
     return (
       <Gmaps
-        width={'800px'}
-        height={'800px'}
-        lat={coords.lat}
-        lng={coords.lng}
+        width={'65%'}
+        height={'820px'}
+        lat={coords[0].lat}
+        lng={coords[0].lng}
         zoom={12}
         loadingMessage={'Be happy'}
         params={{v: '3.exp', key: 'AIzaSyAMUWIppT-jbjMztrR6tWSV7Y58jTZi2Sw'}}
         onMapCreated={this.onMapCreated}>
-        <Marker
-          lat={coords.lat}
-          lng={coords.lng}
-          draggable={true}
-          onDragEnd={this.onDragEnd} />
-        <InfoWindow
-          lat={coords.lat}
-          lng={coords.lng}
-          content={'Hello, Hacker Habitat'}
-          onCloseClick={this.onCloseClick} />
-        <Circle
-          lat={coords.lat}
-          lng={coords.lng}
-          radius={500}
-          onClick={this.onClick} />
+        {coords.map((house, i) => {
+          return (
+          <Marker
+            key={i}
+            lat={house.lat}
+            lng={house.lng}
+            draggable={true}
+            onDragEnd={this.onDragEnd} />
+            )
+        })}
+        {coords.map((house, i) => {
+          return (
+          <InfoWindow
+            key={i}
+            lat={house.lat}
+            lng={house.lng}
+            content={house.house_name}
+            onCloseClick={this.onCloseClick} />
+            )
+        })}
       </Gmaps>
       );
   }
