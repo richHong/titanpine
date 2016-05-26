@@ -34,6 +34,8 @@
         {"name": "city", "type": "text", "properties": {}},
         {"name": "state", "type": "text", "properties": {}},
         {"name": "zipcode", "type": "text", "properties": {}},
+        {"name": "lat", "type": "text", "properties": {}},
+        {"name": "lng", "type": "text", "properties": {}},
         {"name": "price", "type": "int", "properties": {}},
         {"name": "dates_avail", "type": "text", "properties": {}},
         {"name": "house_interests", "type": "text", "properties": {}},
@@ -42,7 +44,6 @@
         {"name": "vacancies", "type": "int", "properties": {}},
         {"name": "primary_member", "type": "text", "properties": {}},
         {"name": "amenities", "type": "text", "properties": {}},
-        {"name": "pics", "type": "text[]", "properties": {}},
         {"name": "created_at", "type": "datetime", "properties": {}},
         {"name": "updated_at", "type": "datetime", "properties": {}}
       ]

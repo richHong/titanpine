@@ -22,6 +22,8 @@ module.exports = (function() {
           {"name":"city","type":"text"},
           {"name":"state","type":"text"},
           {"name":"zipcode","type":"text"},
+          {"name":"lat","type":"text"},
+          {"name":"lng","type":"text"},
           {"name":"price", "type":"int"},
           {"name":"dates_avail","type":"text"},
           {"name":"house_interests","type":"text"},
@@ -29,8 +31,7 @@ module.exports = (function() {
           {"name":"house_rules","type":"text"},
           {"name":"vacancies","type":"int"},
           {"name":"primary_member","type":"text"},
-          {"name":"amenities","type":"text"},
-          {"name":"pics","type":"text[]"}
+          {"name":"amenities","type":"text"}
         ])
       ];
 
