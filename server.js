@@ -55,7 +55,7 @@ var s3fsImplementation2 = new S3FS('hackerhabitatlistings', {
 });
 
 app.use(multiparty);
-app.post('/v1/avatars', function (req,res) {
+app.post('/v1/ap', function (req,res) {
   var file = req.files.file;
   console.log('THE FILE',file);
   var stream = fs.createReadStream(file.path);
@@ -72,7 +72,7 @@ app.post('/v1/avatars', function (req,res) {
   });
 });
 
-app.post('/v1/listings', function (req,res) {
+app.post('/v1/lp', function (req,res) {
   var file = req.files.file;
   console.log('THE FILE',file);
   var stream = fs.createReadStream(file.path);
