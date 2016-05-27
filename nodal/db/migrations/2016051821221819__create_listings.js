@@ -17,21 +17,26 @@ module.exports = (function() {
         this.createTable("listings",
          [{"name":"user_id","type":"int"},
           {"name":"house_name","type":"string"},
-          {"name":"heading","type":"text"},
-          {"name":"street_add","type":"text"},
-          {"name":"city","type":"text"},
-          {"name":"state","type":"text"},
-          {"name":"zipcode","type":"text"},
-          {"name":"lat","type":"text"},
-          {"name":"lng","type":"text"},
+          {"name":"heading","type":"string"},
+          {"name":"street_add","type":"string"},
+          {"name":"city","type":"string"},
+          {"name":"state","type":"string"},
+          {"name":"zipcode","type":"string"},
+          {"name":"lat","type":"string"},
+          {"name":"lng","type":"string"},
           {"name":"price", "type":"int"},
-          {"name":"dates_avail","type":"text"},
-          {"name":"house_interests","type":"text"},
+          {"name":"dates_avail","type":"string"},
+          {"name":"house_interests","type":"string"},
           {"name":"house_mission","type":"string"},
-          {"name":"house_rules","type":"text"},
+          {"name":"house_rules","type":"string"},
           {"name":"vacancies","type":"int"},
-          {"name":"primary_member","type":"text"},
-          {"name":"amenities","type":"text"}
+          {"name":"primary_member","type":"string"},
+          {"name":"amenities","type":"string"}
+          {"name":"pic1","type":"string"}
+          {"name":"pic2","type":"string"}
+          {"name":"pic3","type":"string"}
+          {"name":"pic4","type":"string"}
+          {"name":"pic5","type":"string"}
         ])
       ];
 

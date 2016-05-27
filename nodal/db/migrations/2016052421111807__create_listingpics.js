@@ -17,7 +17,7 @@ module.exports = (function() {
         this.createTable("listingpics",
          [{"name":"user_id","type":"int"},
           {"name":"listing_id","type":"int"},
-          {"name":"url","type":"text"}
+          {"name":"url","type":"string"}
         ])
       ];
 
