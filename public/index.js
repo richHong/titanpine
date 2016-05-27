@@ -7,7 +7,6 @@ import { Provider } from 'react-redux'
 
 
 import SignUp from './SignUp';
-
 import CreateProfile from './createProfile';
 import CreateHouse from './createHouse';
 import SearchBar from './SearchBar';
@@ -18,6 +17,8 @@ import Results from './results';
 import FrontPage from './frontPage';
 import houseListingReducer from './appReducers';
 import MyProfile from './myProfile';
+import SingleListing from './singlelisting'
+
     
 var store = createStore(houseListingReducer)
 
@@ -32,6 +33,7 @@ render((
     			<Route path='/createHouse' component={ CreateHouse } />
                 <Route path='/signin' component={ SignIn } />
                 <Route path='/profile' component={ MyProfile } />
+                <Route path='/singlelisting' component={ SingleListing } />
         </Route>
 	</Router>
     </Provider>
