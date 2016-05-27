@@ -17,6 +17,7 @@ class Results extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state)
   return {
     listing: state.listings
   }
