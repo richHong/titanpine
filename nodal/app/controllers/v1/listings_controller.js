@@ -26,6 +26,8 @@ module.exports = (function() {
              'city',
              'state',
              'zipcode',
+             'lat',
+             'lng',
              'price',
              'dates_avail',
              'house_interests',
