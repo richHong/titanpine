@@ -6,21 +6,24 @@ class SignInForm extends React.Component {
   handleSubmit(e, username, password) {
     e.preventDefault();
 
-  //   fetch(/* NEED TO ADD URL */, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       username: username.value.toLowerCase(),
-  //       password: password.value
-  //     })
-  //   })
-  //     .then(response => response.json())
-  //     .then(json => console.log(json));
-    hashHistory.push('results')
+    fetch('http://localhost:3001/v1/access_tokens', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: username.value.toLowerCase(),
+        password: password.value,
+        grant_type: 'password'
+      })
+    })
+      .then(response => response.json())
+      .then((data) => {
+        window.localStorage.setItem('token',data.data[0].access_token)
+      });
+    // hashHistory.push('results')
   }
-  
+
   render(){
     return (
       <form className='form-style-6' onSubmit={e => this.handleSubmit(e, this.username, this.password)}>
