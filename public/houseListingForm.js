@@ -39,19 +39,20 @@ class HousingForm extends React.Component {
     e.preventDefault();
 
     let geolocation;
-
+    let authToken = window.localStorage.getItem('token');
+    console.log(window.localStorage.getItem('token'));
     fetch('http://maps.googleapis.com/maps/api/geocode/json?address='+street.value+'+'+city.value+'+'+state.value)
     .then(response => response.json())
     .then(json => geolocation = json.results[0].geometry.location)
-    .then(() => { 
-      fetch('http://localhost:3001/v1/house_listings/', {
+    .then(() => {
+      fetch('http://localhost:3001/v1/listings?access_token='+authToken, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             house_name: name.value,
-            heading: heading.value, 
+            heading: heading.value,
             street_add: street.value,
             city: city.value.toLowerCase(),
             state: state.value,
@@ -137,4 +138,4 @@ class HousingForm extends React.Component {
   }
 }
 
-export default HousingForm 
+export default HousingForm

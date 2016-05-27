@@ -25,8 +25,9 @@ module.exports = (function() {
            {"name":"gen_interests","type":"string"},
            {"name":"tech_interests","type":"string"},
            {"name":"hometown","type":"string"},
-           {"name":"avatar","type":"bytea"},
-           {"name":"time_frame","type":"string"}])
+           {"name":"avatar","type":"text"},
+           {"name":"time_frame","type":"string"}
+         ])
       ];
 
     }

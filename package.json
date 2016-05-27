@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "test": "mocha ./test/runner.js",
+    "start": "nodemon server.js",
+    "nodal": "nodal s ./app"
   },
   "repository": {
     "type": "git",
@@ -17,15 +19,19 @@
   },
   "homepage": "https://github.com/andyderek/titanpine#readme",
   "dependencies": {
+    "connect-multiparty": "^2.0.0",
     "es6-promise": "^3.2.1",
     "isomorphic-fetch": "^2.2.1",
     "my1stnpmpackage": "^1.0.2",
+    "chai": "~3.5.0",
+    "mocha": "~2.4.5",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-gmaps": "^1.5.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
     "redux": "^3.3.1",
+    "s3fs": "^2.4.7",
     "webpack": "^1.9.11"
   },
   "devDependencies": {
