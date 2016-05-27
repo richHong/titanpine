@@ -57,7 +57,7 @@ render((
           <Route path='/signin' component={ SignIn } />
           <Route path='/singlelisting' component={ SingleListing } />
           <Route path='/signout' component={ SignOut } onEnter={logout} />
-          <Route path='/profile' component={ MyProfile } />
+          <Route path='/profile' component={ MyProfile } onEnter={requireAuth}/>
       </Route>
 	</Router>
     </Provider>
