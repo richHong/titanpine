@@ -37,17 +37,16 @@ var requireAuth = function(nextState, replace) {
 
 render((
     <Provider store={store}>
-	<Router history={ hashHistory }>
-        <Route path='/' component={ FrontPage } />
-        <Route component={ MainContain }>
-                <Route path='/results' component={ Results }/>
-                <Route path="/createProfile" component={ CreateProfile } onEnter={requireAuth}/>
-                <Route path='/signup' component={ SignUp } />
-                <Route path='/createHouse' component={ CreateHouse } onEnter={requireAuth}/>
-                <Route path='/signin' component={ SignIn } />
-                <Route path='/singlelisting' component={ SingleListing } />
-                <Route path='/signout' component={SignOut} />
-        </Route>
+  <Router history={ hashHistory }>
+      <Route path='/' component={ FrontPage } />
+      <Route component={ MainContain }>
+          <Route path='/results' component={ Results }/>
+          <Route path="/createProfile" component={ CreateProfile } onEnter={requireAuth}/>
+          <Route path='/signup' component={ SignUp } />
+          <Route path='/createHouse' component={ CreateHouse } onEnter={requireAuth}/>
+          <Route path='/signin' component={ SignIn } />
+          <Route path='/singlelisting' component={ SingleListing } />
+      </Route>
 	</Router>
     </Provider>
 ), document.getElementById('app'));
