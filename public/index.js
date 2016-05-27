@@ -4,8 +4,6 @@ import { Router, Route, hashHistory, browserHistory } from 'react-router';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-
-
 import SignUp from './SignUp';
 import SignOut from './signout';
 import CreateProfile from './createProfile';
@@ -17,6 +15,7 @@ import SignIn from './SignIn';
 import Results from './results';
 import FrontPage from './frontPage';
 import SingleListing from './singlelisting';
+import MyProfile from './myProfile';
 
 
 import houseListingReducer from './appReducers';
@@ -58,6 +57,7 @@ render((
           <Route path='/signin' component={ SignIn } />
           <Route path='/singlelisting' component={ SingleListing } />
           <Route path='/signout' component={ SignOut } onEnter={logout} />
+          <Route path='/profile' component={ MyProfile } onEnter={requireAuth}/>
       </Route>
 	</Router>
     </Provider>

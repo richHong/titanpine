@@ -1,12 +1,13 @@
-import React from 'react';
+import React from 'react';  
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 import { Gmaps, Marker, InfoWindow, Circle } from 'react-gmaps';
 
-const coords = [{
+const coords = {
   house_name: 'Hacker Habitat',
   lat: 37.8780068,
   lng: -122.2695097
-}];
+};
 
 class GMaps extends React.Component {
   constructor(props){
@@ -25,17 +26,18 @@ class GMaps extends React.Component {
     });
   }
   render(){
+    console.log(this.props.listing.name);
     return (
       <Gmaps
         width={'65%'}
-        height={'820px'}
-        lat={coords[0].lat}
-        lng={coords[0].lng}
+        height={'100vh'}
+        lat={this.props.listing.name ? this.props.listing.name[0].lat : coords.lat}
+        lng={this.props.listing.name ? this.props.listing.name[0].lng : coords.lng}
         zoom={12}
         loadingMessage={'Be happy'}
         params={{v: '3.exp', key: 'AIzaSyAMUWIppT-jbjMztrR6tWSV7Y58jTZi2Sw'}}
         onMapCreated={this.onMapCreated}>
-        {coords.map((house, i) => {
+        {this.props.listing.name ? this.props.listing.name.map((house, i) => {
           return (
           <Marker
             key={i}
@@ -44,8 +46,8 @@ class GMaps extends React.Component {
             draggable={true}
             onDragEnd={this.onDragEnd} />
             )
-        })}
-        {coords.map((house, i) => {
+        }) : null}
+        {this.props.listing.name ? this.props.listing.name.map((house, i) => {
           return (
           <InfoWindow
             key={i}
@@ -54,11 +56,15 @@ class GMaps extends React.Component {
             content={house.house_name}
             onCloseClick={this.onCloseClick} />
             )
-        })}
+        }) : null}
       </Gmaps>
       );
   }
 }
+function mapStateToProps(state) {
+    return {
+      listing: state.listings
+    }
+  }
 
-
-export default GMaps
+export default connect(mapStateToProps)(GMaps)
