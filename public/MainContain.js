@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
-import NavBar from './NavBar';
+import NavBar from './navBar';
 
 class MainContain extends React.Component {
 	render(){

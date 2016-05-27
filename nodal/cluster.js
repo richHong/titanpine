@@ -15,7 +15,6 @@ module.exports = (() => {
     const app = new Nodal.Application();
     app.listen(Nodal.my.Config.secrets.port);
 
-
   }
 
 })();
