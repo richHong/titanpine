@@ -3,8 +3,8 @@ module.exports = (function() {
   'use strict';
 
   const Nodal = require('nodal');
-  const User = Nodal.require('app/models/user.js');
-  const Listing = Nodal.require('app/models/listing.js');
+  const User = Nodal.require('dbserver/models/user.js');
+  const Listing = Nodal.require('dbserver/models/listing.js');
 
   class Listingpic extends Nodal.Model {}
 

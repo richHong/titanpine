@@ -27,14 +27,14 @@ module.exports = (function() {
 
   /* Routes */
 
-  const IndexController = Nodal.require('app/controllers/index_controller.js');
+  const IndexController = Nodal.require('dbserver/controllers/index_controller.js');
 
   /* generator: begin imports */
 
-  const V1UsersController = Nodal.require('app/controllers/v1/users_controller.js');
-  const V1ListingsController = Nodal.require('app/controllers/v1/listings_controller.js');
-  const V1AccessTokensController = Nodal.require('app/controllers/v1/access_tokens_controller.js');
-  const V1ListingpicsController = Nodal.require('app/controllers/v1/listingpics_controller.js');
+  const V1UsersController = Nodal.require('dbserver/controllers/v1/users_controller.js');
+  const V1ListingsController = Nodal.require('dbserver/controllers/v1/listings_controller.js');
+  const V1AccessTokensController = Nodal.require('dbserver/controllers/v1/access_tokens_controller.js');
+  const V1ListingpicsController = Nodal.require('dbserver/controllers/v1/listingpics_controller.js');
 
   /* generator: end imports */
 

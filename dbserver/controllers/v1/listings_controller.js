@@ -4,9 +4,9 @@ module.exports = (function() {
 
   const Nodal = require('nodal');
   const pg = require('pg');
-  const Listing = Nodal.require('app/models/listing.js');
+  const Listing = Nodal.require('dbserver/models/listing.js');
 
-  const AuthController = Nodal.require('app/controllers/auth_controller.js');
+  const AuthController = Nodal.require('dbserver/controllers/auth_controller.js');
 
   class V1ListingsController extends AuthController {
 
