@@ -14,6 +14,8 @@ module.exports = (function() {
 
       AccessToken.verify(this.params, (err, accessToken, user) => {
 
+        console.log(this.params)
+
         if (err) {
           return this.respond(err);
         }

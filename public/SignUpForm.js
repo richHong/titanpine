@@ -34,7 +34,7 @@ class SignUpForm extends React.Component {
 	                    })
 	                    .then(function(response) {
 	                        if (response.statusText === 'OK') {
-	                            window.location = '#/createProfile';
+                            console.log('success');
 	                        } else {
 	                            alert("Either your email or username is already taken please try again")
 	                        }
@@ -54,6 +54,7 @@ class SignUpForm extends React.Component {
 	                            .then(response => response.json())
 	                            .then((data) => {
 	                                window.localStorage.setItem('token', data.data[0].access_token);
+																	window.location = '#/createProfile';
 	                            });
 	                    });
 
