@@ -1,24 +1,51 @@
 {
-  "name": "nodalDemo2",
-  "version": "0.0.0",
-  "description": "nodalDemo2",
-  "author": "titanium_pinewood",
-  "main": "server.js",
-  "engines": {
-    "node": "6.0.0"
-  },
-  "dependencies": {
-    "bcrypt": "^0.8.6",
-    "nodal": "0.10.0"
-  },
-  "devDependencies": {
-    "chai": "~3.5.0",
-    "mocha": "~2.4.5"
-  },
+  "name": "hackerhabitat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "mocha ./test/runner.js",
-    "start": "node cluster.js",
-    "worker": "node worker.js"
+    "start": "nodemon server.js",
+    "nodal": "nodal s ./dbserver"
   },
-  "private": true
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TitaniumPinewood/titanpine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andyderek/titanpine/issues"
+  },
+  "homepage": "https://github.com/andyderek/titanpine#readme",
+  "dependencies": {
+    "connect-multiparty": "^2.0.0",
+    "es6-promise": "^3.2.1",
+    "isomorphic-fetch": "^2.2.1",
+    "my1stnpmpackage": "^1.0.2",
+    "chai": "~3.5.0",
+    "mocha": "~2.4.5",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-gmaps": "^1.5.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.4.0",
+    "redux": "^3.3.1",
+    "s3fs": "^2.4.7",
+    "webpack": "^1.9.11"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.15",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "express": "^4.13.3",
+    "nodemon": "latest",
+    "morgan": "latest",
+    "http-proxy": "^1.13.2",
+    "react-hot-loader": "^1.3.0",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-hot-middleware": "^2.9.1"
+  }
 }
