@@ -31,11 +31,11 @@ module.exports = (function() {
           {"name":"house_rules","type":"string"},
           {"name":"vacancies","type":"int"},
           {"name":"primary_member","type":"string"},
-          {"name":"amenities","type":"string"}
-          {"name":"pic1","type":"string"}
-          {"name":"pic2","type":"string"}
-          {"name":"pic3","type":"string"}
-          {"name":"pic4","type":"string"}
+          {"name":"amenities","type":"string"},
+          {"name":"pic1","type":"string"},
+          {"name":"pic2","type":"string"},
+          {"name":"pic3","type":"string"},
+          {"name":"pic4","type":"string"},
           {"name":"pic5","type":"string"}
         ])
       ];

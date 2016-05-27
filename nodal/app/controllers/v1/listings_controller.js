@@ -37,10 +37,14 @@ module.exports = (function() {
              'primary_member',
              'created_at',
              'updated_at',
-             'pics',
+             'pic1',
+             'pic2',
+             'pic3',
+             'pic4',
+             'pic5',
              {
                user:
-               ['id','username','first_name','avatar']
+               ['id','username','email','first_name','avatar']
              }
           ]);
 
