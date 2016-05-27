@@ -4,9 +4,9 @@ import { Link } from 'react-router'
 
 const HouseList = ({houses}) => (
   <div className='list'>
-    {houses.map((house, i) => {
+    {Array.isArray(houses) ? houses.map((house, i) => {
       return <HouseListing house={house} key={i} />
-    })}
+    }) : null}
   </div>
 )
 

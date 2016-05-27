@@ -62,7 +62,7 @@ class ProfileForm extends React.Component {
   render(){
     return(
         <form onSubmit={e => this.submit(e, this.firstName, this.lastName, this.description, this.hometown, this.occupation)}>
-          <h1>CREATE YOUR PROFILE</h1>
+          <h1>EDIT PROFILE</h1>
           <label>First Name:</label><br/>
           <input type='text'ref={input => this.firstName = input} /><br/>
           <label>Last Name:</label><br/>
