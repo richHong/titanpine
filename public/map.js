@@ -25,8 +25,14 @@ class GMaps extends React.Component {
       rotateControl:true
     });
   }
+  componentWillMount(){
+    if(this.props.listing.name){
+      if (Array.isArray(this.props.listing.name) === false){
+        this.props.listing.name = [this.props.listing.name];
+      } 
+    }
+  }
   render(){
-    console.log(this.props.listing.name);
     return (
       <Gmaps
         width={'65%'}
