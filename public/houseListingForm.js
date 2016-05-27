@@ -5,7 +5,6 @@ class HousingForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      currentUserID: 1,
       interestsArray:['Music', 'Movies', 'Books', 'Fashion', 'Outdoors', 'Sports', 'Crafting', 'Gaming','Javascript','Ruby', 'Node', 'React', 'Angular', 'Express', 'MongoDB', 'Postgres','Redux'],
       houseInterests:[],
       amenitiesArray:['Washer', 'Dryer', 'Cats Allowed', 'Dogs Allowed', 'Dishwasher', 'Garage', 'Gym', 'Mailroom','Wifi', 'Meeting Room/Lounge'],
@@ -38,32 +37,44 @@ class HousingForm extends React.Component {
 
   submit(e, name, heading, street, city, state, zipCode, price, dateStart, dateEnd, interests, mission, rules, vacancies, primary, amenities){
     e.preventDefault();
-   
-    fetch('http://localhost:3001/v1/house_listings/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-          user_id: this.state.currentUserID,
-          house_name: name.value,
-          heading: heading.value, 
-          street_add: street.value,
-          city: city.value.toLowerCase(),
-          state: state.value,
-          zipcode: zipCode.value,
-          price: price.value,
-          dates_avail: dateStart.value+' to '+dateEnd.value,
-          house_interests: interests.value+this.state.houseInterests,
-          house_mission: mission.value,
-          house_rules: rules.value,
-          vacancies: vacancies.value,
-          primary_member: primary.value,
-          amenities: amenities.value+this.state.houseAmenities
+
+    let geolocation;
+
+    fetch('http://maps.googleapis.com/maps/api/geocode/json?address='+street.value+'+'+city.value+'+'+state.value)
+    .then(response => response.json())
+    .then(json => geolocation = json.results[0].geometry.location)
+    .then(() => { 
+      fetch('http://localhost:3001/v1/house_listings/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            house_name: name.value,
+            heading: heading.value, 
+            street_add: street.value,
+            city: city.value.toLowerCase(),
+            state: state.value,
+            zipcode: zipCode.value,
+            price: price.value,
+            dates_avail: dateStart.value+' to '+dateEnd.value,
+            house_interests: interests.value+this.state.houseInterests,
+            house_mission: mission.value,
+            house_rules: rules.value,
+            vacancies: vacancies.value,
+            primary_member: primary.value,
+            amenities: amenities.value+this.state.houseAmenities,
+            lat: geolocation.lat,
+            lng: geolocation.lng
+        })
       })
-    }).then(response => {
-      console.log(response);
-      hashHistory.push('/results');
+      .then(response => {
+        response.json();
+        console.log(response);
+      })
+      .then(json => {
+        hashHistory.push('/results');
+      });
     });
   }
 

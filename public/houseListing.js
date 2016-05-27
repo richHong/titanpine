@@ -5,26 +5,10 @@ import { createStore, combineReducers, applyMiddleware, bindActionCreators} from
 
 import { singleListingAction } from "./houseActions"
 
-// const HouseListing = ({house}) => (
-//   <div>
-//   	<Link to="/singlelisting">
-//     <img className='housePic' src={house.url} />
-//     <strong>{house.house_name}</strong><br/>
-//     {house.heading}<br/><br/>
-//     <strong>Location:</strong><br/>
-//     {house.street_add}<br/>
-//     {house.city},{house.state} {house.zipcode}<br/>
-//     <span className='price'><strong>Price:</strong> ${house.price} per night</span>
-//     </Link>
-//   </div>
-// )
-
-// export default HouseListing
-
 class HouseListing extends React.Component {
-	render(){
+    render(){
 		return (<div>  	
-				<Link to="/singlelisting" onClick={this.getSingleListing.bind(this)}>
+			<Link to="/singlelisting" onClick={this.getSingleListing.bind(this)}>
     		<img className='housePic' src={this.props.house.url} />
     		<strong>{this.props.house.house_name}</strong><br/>
     		{this.props.house.heading}<br/><br/>
@@ -35,7 +19,6 @@ class HouseListing extends React.Component {
     		</Link>
     	</div>)
 	}
-
 	getSingleListing(){
 		this.props.singleListingAction(this.props.house)
 	}
@@ -53,4 +36,3 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(HouseListing);
 
-// export default HouseListing
