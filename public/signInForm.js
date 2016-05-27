@@ -1,28 +1,33 @@
 import React from 'react';
-import { Router, Route, hashHistory, browserHistory } from 'react-router';
+import {
+    Router,
+    Route,
+    hashHistory,
+    browserHistory
+} from 'react-router';
 
 class SignInForm extends React.Component {
 
-  handleSubmit(e, username, password) {
-    e.preventDefault();
+        handleSubmit(e, username, password) {
+            e.preventDefault();
 
-    fetch('http://localhost:3001/v1/access_tokens', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: username.value.toLowerCase(),
-        password: password.value,
-        grant_type: 'password'
-      })
-    })
-      .then(response => response.json())
-      .then((data) => {
-        window.localStorage.setItem('token',data.data[0].access_token)
-      });
-    // hashHistory.push('results')
-  }
+            fetch('http://localhost:3001/v1/access_tokens', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username.value.toLowerCase(),
+                        password: password.value,
+                        grant_type: 'password'
+                    })
+                })
+                .then(response => response.json())
+                .then((data) => {
+                    window.localStorage.setItem('token', data.data[0].access_token);
+                });
+            // hashHistory.push('results')
+        }
 
   render(){
     return (
