@@ -232,3 +232,6 @@ video {
 .instafeed img{
   width:33%;
 }
+.singleListing{
+  text-decoration: none;
+}
