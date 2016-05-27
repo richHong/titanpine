@@ -18,7 +18,7 @@ class SignUpForm extends React.Component {
 	    e.preventDefault()
 	    let username = this.username.value.toLowerCase();
 	    let password = this.password.value;
-	    if (password >= 5) {
+	    if (password.length >= 5) {
 	        if (password === this.confirmPassword.value) {
 	            if (this.email.value.indexOf("@") > -1 && this.email.value.indexOf(".") > -1) {
 	                fetch('http://localhost:3001/v1/users/', {

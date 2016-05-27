@@ -189,7 +189,7 @@ video {
 .list {
   font-family: 'Arimo', sans-serif;
   float:right;
-  height: 650px;
+  height: 100vh;
   width: 35%;
   overflow: scroll;
   background-color: #43D1AF;
@@ -202,6 +202,7 @@ video {
   float:right;
 }
 .avatarContainer {
+  background-color: #43D1AF;
   width: 100%;
   float: left;
 }
@@ -217,6 +218,17 @@ video {
   font-family: 'Arimo', sans-serif;
 }
 .profileContainer {
-  width:25%;
-  height: 340px;
+  float: left;
+  width: 28%;
+  height: 100vh;
+  overflow: scroll;
+}
+.instafeed {
+  width: 37%;
+  float: left;
+  height: 100vh;
+  overflow: scroll;
+}
+.instafeed img{
+  width:33%;
 }

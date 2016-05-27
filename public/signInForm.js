@@ -27,7 +27,6 @@ class SignInForm extends React.Component {
                     window.localStorage.setItem('token', data.data[0].access_token);
                     window.location = '#/';
                 });
-            // hashHistory.push('results')
         }
 
   render(){

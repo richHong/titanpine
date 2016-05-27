@@ -4,8 +4,6 @@ import { Router, Route, hashHistory, browserHistory } from 'react-router';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-
-
 import SignUp from './SignUp';
 import CreateProfile from './createProfile';
 import CreateHouse from './createHouse';
