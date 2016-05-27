@@ -3,7 +3,7 @@ module.exports = (function() {
   'use strict';
 
   const Nodal = require('nodal');
-  const User = Nodal.require('dbserver/models/user.js');
+  const User = Nodal.require('app/models/user.js');
 
   const crypto = require('crypto');
 

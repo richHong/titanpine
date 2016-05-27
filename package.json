@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha ./test/runner.js",
     "start": "nodemon server.js",
-    "nodal": "nodal s ./dbserver"
+    "nodal": "nodal s ./app"
   },
   "repository": {
     "type": "git",

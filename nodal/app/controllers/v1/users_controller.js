@@ -3,8 +3,8 @@ module.exports = (function() {
   'use strict';
 
   const Nodal = require('nodal');
-  const User = Nodal.require('dbserver/models/user.js');
-  const AuthController = Nodal.require('dbserver/controllers/auth_controller.js');
+  const User = Nodal.require('app/models/user.js');
+  const AuthController = Nodal.require('app/controllers/auth_controller.js');
 
   class V1UsersController extends AuthController {
 

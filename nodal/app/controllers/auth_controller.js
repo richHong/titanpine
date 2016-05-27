@@ -3,7 +3,7 @@ module.exports = (function() {
   'use strict';
 
   const Nodal = require('nodal');
-  const AccessToken = Nodal.require('dbserver/models/access_token.js');
+  const AccessToken = Nodal.require('app/models/access_token.js');
 
   class AuthController extends Nodal.Controller {
 
