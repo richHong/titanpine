@@ -22,6 +22,7 @@ import houseListingReducer from './appReducers'
     
 var store = createStore(houseListingReducer)
 
+
 render((
     <Provider store={store}>
 	<Router history={ hashHistory }>
