@@ -20,6 +20,9 @@ coverage
 # node-waf configuration
 .lock-wscript
 
+#AWS config
+config.json
+
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
