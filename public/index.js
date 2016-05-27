@@ -16,7 +16,8 @@ import MainContain from './MainContain';
 import SignIn from './SignIn';
 import Results from './results';
 import FrontPage from './frontPage';
-import houseListingReducer from './appReducers'
+import houseListingReducer from './appReducers';
+import MyProfile from './myProfile';
     
 var store = createStore(houseListingReducer)
 
@@ -30,6 +31,7 @@ render((
     			<Route path='/signup' component={ SignUp } />
     			<Route path='/createHouse' component={ CreateHouse } />
                 <Route path='/signin' component={ SignIn } />
+                <Route path='/profile' component={ MyProfile } />
         </Route>
 	</Router>
     </Provider>

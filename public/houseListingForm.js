@@ -73,6 +73,7 @@ class HousingForm extends React.Component {
         console.log(response);
       })
       .then(json => {
+        console.log(geolocation)
         hashHistory.push('/results');
       });
     });

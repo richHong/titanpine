@@ -40,9 +40,8 @@ video {
 .searchbutton {
   background-color: #43D1AF;
   color: #333;
-  height: 53px;
   width: 150px;
-  font-size: 45px;
+  font-size: 24px;
   outline: 0px;
   box-shadow: none;
   border: none;
@@ -53,11 +52,13 @@ video {
 .searchbutton:hover {
   background: #2EBC99;
 }
-
+.searchDiv {
+  margin-top: 5px;
+}
 .searchbox {
-  height: 50px;
-  width: 300px;
-  font-size: 30px;
+  height: 24px;
+  width: 200px;
+  font-size: 18px;
   font-family: 'Arimo', sans-serif;
   outline: 0px;
   box-shadow: none;
@@ -188,14 +189,10 @@ video {
 .list {
   font-family: 'Arimo', sans-serif;
   float:right;
-  height: 820px;
+  height: 650px;
   width: 35%;
   overflow: scroll;
   background-color: #43D1AF;
-}
-.map {
-  width: 64%;
-  float:left;
 }
 .housePic {
   width:100%;
@@ -203,4 +200,23 @@ video {
 }
 .price {
   float:right;
+}
+.avatarContainer {
+  width: 100%;
+  float: left;
+}
+.avatar {
+  border-radius: 50%;
+  width: 100%;
+}
+.infoContainer {
+  width: 100%;
+  height: 100%;
+  float: left;
+  background-color: #43D1AF;
+  font-family: 'Arimo', sans-serif;
+}
+.profileContainer {
+  width:25%;
+  height: 340px;
 }

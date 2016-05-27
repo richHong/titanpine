@@ -7,7 +7,7 @@ import { Router, Route, hashHistory, browserHistory, Link } from 'react-router';
 class SearchBar extends React.Component {
 	render(){
 		return (
-			<div>
+			<div className='searchDiv'>
 				<input ref={(input) => this.search = input} className='searchbox' />
     		<Link to='/results' onClick={this.onSubmit.bind(this)} className='searchbutton'>Search</Link>
     	</div>

@@ -8,7 +8,7 @@ const HouseListing = ({house}) => (
     <strong>Location:</strong><br/>
     {house.street_add}<br/>
     {house.city},{house.state} {house.zipcode}<br/>
-    <span className='price'><strong>Price:</strong> ${house.price} per night</span>
+    <span className='price'><strong>Price:</strong> ${house.price} per night </span>
     <br />
     <hr />
   </div>
