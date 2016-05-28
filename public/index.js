@@ -51,7 +51,7 @@ render((
     <Provider store={store}>
   <Router history={ hashHistory }>
       <Route path='/' component={ FrontPage } />
-      <Route component={ MainContain }>
+      <Route component={ MainContain }>{console.log(store)}
           <Route path='/results' component={ Results }/>
           <Route path="/createProfile" component={ CreateProfile } onEnter={requireAuth}/>
           <Route path='/signup' component={ SignUp } />

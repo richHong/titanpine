@@ -16,6 +16,7 @@ export default class FrontPage extends Component {
                   <source src="assets/Working-it/Webm/Working-it.webm" type="video/webm" />
               </video>
             </div>
+      }
       </div>
     )
   }
