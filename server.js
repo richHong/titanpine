@@ -90,8 +90,8 @@ app.post('/v1/ap', function (req,res) {
   var stream = fs.createReadStream(file.path);
 
   return s3fsImplementation1.writeFile(file.originalFilename, stream)
-    .then(function(err) {
-      fs.unlink(file.path, function() {
+    .then(function() {
+      fs.unlink(file.path, function(err) {
         if (err) {
           console.log('Error');
         }
@@ -101,19 +101,19 @@ app.post('/v1/ap', function (req,res) {
   });
 });
 
-app.post('/v1/lp', function (req,res) {
-  var file = req.files.file;
-  var stream = fs.createReadStream(file.path);
+app.post('/v1/lp', function(req, res) {
+    var file = req.files.file;
+    var stream = fs.createReadStream(file.path);
 
-  return s3fsImplementation2.writeFile(file.originalFilename, stream)
-    .then(function(err) {
-      fs.unlink(file.path, function() {
-        if (err) {
-          console.log('Error');
-        }
-        console.log('Success');
-    });
-    res.send('File Upload Complete');
-  });
+    return s3fsImplementation2.writeFile(file.originalFilename, stream)
+        .then(function() {
+            fs.unlink(file.path, function(err) {
+                if (err) {
+                    console.log('Error');
+                }
+                console.log('Success');
+            });
+            res.send('File Upload Complete');
+        });
 });
 //THIS IS ALL FILE UPLOAD STUFFFFFF=============================================
