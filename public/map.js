@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Gmaps, Marker, InfoWindow, Circle } from 'react-gmaps';
 
-const coords = {
+const coords = [{
   house_name: 'Hacker Habitat',
   lat: 37.8780068,
   lng: -122.2695097
-};
+}];
 
 class GMaps extends React.Component {
   constructor(props){
@@ -25,25 +25,18 @@ class GMaps extends React.Component {
       rotateControl:true
     });
   }
-  componentWillMount(){
-    if(this.props.listing.name){
-      if (Array.isArray(this.props.listing.name) === false){
-        this.props.listing.name = [this.props.listing.name];
-      } 
-    }
-  }
   render(){
     return (
       <Gmaps
         width={'65%'}
         height={'100vh'}
-        lat={this.props.listing.name ? this.props.listing.name[0].lat : coords.lat}
-        lng={this.props.listing.name ? this.props.listing.name[0].lng : coords.lng}
+        lat={(this.props.listings.length > 0) ? this.props.listings[0].lat : 37.8780068}
+        lng={(this.props.listings.length > 0) ? this.props.listings[0].lng : -122.2695097}
         zoom={12}
         loadingMessage={'Be happy'}
         params={{v: '3.exp', key: 'AIzaSyAMUWIppT-jbjMztrR6tWSV7Y58jTZi2Sw'}}
         onMapCreated={this.onMapCreated}>
-        {this.props.listing.name ? this.props.listing.name.map((house, i) => {
+        {(this.props.listings.length > 0) ? this.props.listings.map((house, i) => {
           return (
           <Marker
             key={i}
@@ -53,7 +46,7 @@ class GMaps extends React.Component {
             onDragEnd={this.onDragEnd} />
             )
         }) : null}
-        {this.props.listing.name ? this.props.listing.name.map((house, i) => {
+        {(this.props.listings.length > 0) ? this.props.listings.map((house, i) => {
           return (
           <InfoWindow
             key={i}
@@ -68,8 +61,9 @@ class GMaps extends React.Component {
   }
 }
 function mapStateToProps(state) {
+    console.log('state in maps', state)
     return {
-      listing: state.listings
+      listings: state.listings.searchResults
     }
   }
 

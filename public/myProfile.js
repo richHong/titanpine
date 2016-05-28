@@ -69,7 +69,7 @@ export default class MyProfile extends Component {
   render() {
     return (
       <div>
-        <HouseListOfListings houses={this.state.favorites} />
+        <HouseListOfListings houses={this.state.favorites} favorites='favorites'/>
         <SingleProfile />
         <div id='instafeed' className='instafeed'></div>
       </div>
