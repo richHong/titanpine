@@ -60,20 +60,6 @@ if (!isProduction) {
 }
 
 
-proxy.on('error', function(e) {
-  e.preventDefault();
-  console.log('Could not connect to proxy, please try again...');
-});
-
-app.listen(port, function () {
-  console.log('Server running on port ' + port);
-});
-// httpsServer.listen(port, function () {
-//   console.log('Server running on port ' + port);
-// });
-
-
-
 
 //THIS IS ALL FILE UPLOAD STUFFFFFF=============================================
 var s3fsImplementation1 = new S3FS('hackerhabitatavatars', {
@@ -123,3 +109,17 @@ app.post('/v1/lp', function (req,res) {
   });
 });
 //THIS IS ALL FILE UPLOAD STUFFFFFF=============================================
+
+
+
+proxy.on('error', function(e) {
+  e.preventDefault();
+  console.log('Could not connect to proxy, please try again...');
+});
+
+app.listen(port, function () {
+  console.log('Server running on port ' + port);
+});
+// httpsServer.listen(port, function () {
+//   console.log('Server running on port ' + port);
+// });
