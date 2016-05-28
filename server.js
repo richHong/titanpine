@@ -25,11 +25,11 @@ var proxy = httpProxy.createProxyServer({
 var app = express();
 // var httpsServer = https.createServer(options, app);
 
-var options = {
-   key: fs.readFileSync('./key.pem', 'utf8'),
-   cert: fs.readFileSync('./server.crt', 'utf8'),
-   NPNProtocols: ['http/2.0', 'spdy', 'http/1.1', 'http/1.0']
-};
+// var options = {
+//    key: fs.readFileSync('./key.pem', 'utf8'),
+//    cert: fs.readFileSync('./server.crt', 'utf8'),
+//    NPNProtocols: ['http/2.0', 'spdy', 'http/1.1', 'http/1.0']
+// };
 
 //serving our index.html
 app.use(express.static(publicPath));
