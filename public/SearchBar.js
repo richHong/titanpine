@@ -22,7 +22,7 @@ class SearchBar extends React.Component {
 		fetch('http://localhost:3001/v1/listings/?city=' + searchable)
     	.then(response => response.json())
     	.then(json => {
-        this.props.getHouseAction(json);
+        this.props.getHouseAction(json.data);
         hashHistory.push('results');
       })
 	}

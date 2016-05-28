@@ -1,13 +1,13 @@
-export function getHouseAction (name) {
+export function getHouseAction (listings) {
   return {
     type: 'GET_LISTINGS',
-    name: name.data
+    listings
   }
 }
 
-export function singleListingAction(name) {
+export function singleListingAction(house) {
 	return {
 		type: 'SINGLE_LISTING',
-		name: name
+		house
 	}
 }

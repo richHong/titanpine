@@ -35,8 +35,9 @@ class SingleListing extends React.Component {
 }
 
 function mapStateToProps(state) {
+  console.log('state in singlelisting',state)
   return {
-    listing: state.listings.name
+    listing: state.listings.singleListing
   }
 }
 

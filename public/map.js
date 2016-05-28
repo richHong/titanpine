@@ -12,8 +12,6 @@ const coords = [{
 class GMaps extends React.Component {
   constructor(props){
     super(props);
-    this.state = {};
-    
   }
   onMapCreated(map) {
     map.setOptions({
@@ -27,51 +25,34 @@ class GMaps extends React.Component {
       rotateControl:true
     });
   }
-  componentWillMount(){
-    //Hacks for dealing with map results on search
-    if(this.props.listing.name){
-      if (Array.isArray(this.props.listing.name)){
-        if (this.props.listing.name.length === 0){
-          this.setState({results: coords});
-        } 
-      } else {
-        this.setState({results:[this.props.listing.name]});
-      }
-    } else {
-      this.setState({results: coords});
-    }
-    if(!this.state.results){
-      this.setState({results: coords});
-    }
-  }
   render(){
     return (
       <Gmaps
         width={'65%'}
         height={'100vh'}
-        lat={this.state.results[0].lat || 37.8780068}
-        lng={this.state.results[0].lng || -122.2695097}
+        lat={(this.props.listings.length > 0) ? this.props.listings[0].lat : 37.8780068}
+        lng={(this.props.listings.length > 0) ? this.props.listings[0].lng : -122.2695097}
         zoom={12}
         loadingMessage={'Be happy'}
         params={{v: '3.exp', key: 'AIzaSyAMUWIppT-jbjMztrR6tWSV7Y58jTZi2Sw'}}
         onMapCreated={this.onMapCreated}>
-        {this.state.results ? this.state.results.map((house, i) => {
+        {(this.props.listings.length > 0) ? this.props.listings.map((house, i) => {
           return (
           <Marker
             key={i}
-            lat={house.lat || 37.8780068}
-            lng={house.lng || -122.2695097}
+            lat={house.lat}
+            lng={house.lng}
             draggable={true}
             onDragEnd={this.onDragEnd} />
             )
         }) : null}
-        {this.state.results ? this.state.results.map((house, i) => {
+        {(this.props.listings.length > 0) ? this.props.listings.map((house, i) => {
           return (
           <InfoWindow
             key={i}
-            lat={house.lat || 37.8780068}
-            lng={house.lng || -122.2695097}
-            content={house.house_name || 'Hacker Habitat'}
+            lat={house.lat}
+            lng={house.lng}
+            content={house.house_name}
             onCloseClick={this.onCloseClick} />
             )
         }) : null}
@@ -80,8 +61,9 @@ class GMaps extends React.Component {
   }
 }
 function mapStateToProps(state) {
+    console.log('state in maps', state)
     return {
-      listing: state.listings
+      listings: state.listings.searchResults
     }
   }
 
