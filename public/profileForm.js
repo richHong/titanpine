@@ -39,7 +39,7 @@ class ProfileForm extends React.Component {
   submit(e, firstName, lastName, description, hometown, occupation){
     e.preventDefault();
 
-    fetch('http://localhost:3001/v1/users/'+currentUserID, {
+    fetch('http://localhost:3001/v1/users/'+this.state.currentUserID, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

@@ -3,16 +3,14 @@ import React, { Component } from 'react';
 export default class singleProfile extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      first_name: 'Leroy',
-      last_name: 'Jenkins',
-      avatar: '',
-      description: 'I am a software engineer living in the San Francisco Bay Area. Telegraph Academy has shown me all the things I need to become a top performer.',
-      hometown: 'Berkeley',
-      occupation: 'Software Engineer',
-      gen_interests: 'Gaming,Fashion',
-      tech_interests: 'Node.js,React'
-    };
+    this.state = {};
+  }
+  componentWillMount(){
+    let authToken = window.localStorage.getItem('token');
+    let userID = window.localStorage.getItem('userID');
+     fetch('http://localhost:3001/v1/users/'+userID+'?access_token='+authToken)
+     .then(response => response.json())
+     .then(json => console.log(json));
   }
   render() {
     return (
