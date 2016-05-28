@@ -38,21 +38,26 @@ var requireAuth = function(nextState, replace) {
 };
 
 var logout = function(nextState, replace) {
+    let authToken = window.localStorage.getItem('token');
+    let id = window.localStorage.getItem('id');
 
-  if (!!localStorage.token) {
-    fetch('http://localhost:3001/v1/listings?access_token='+authToken, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-    })
-    .then((response) => response.json() );
-    delete localStorage.token;
-    replace({
-      pathname: '/signout',
-      state: { nextPathname: nextState.location.pathname }
-    });
-  }
+    if (!!localStorage.token) {
+        fetch('http://localhost:3001/v1/access_tokens/'+id+'?access_token='+authToken, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+            .then((response) => response.json());
+        delete localStorage.token;
+        delete localStorage.id;
+        replace({
+            pathname: '/signout',
+            state: {
+                nextPathname: nextState.location.pathname
+            }
+        });
+    }
 
 };
 
