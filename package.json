@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./test/runner.js",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "nodal": "nodal s ./app"
   },
   "repository": {
