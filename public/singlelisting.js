@@ -20,7 +20,7 @@ class SingleListing extends React.Component {
 
           <b>Vacancies:</b> {this.props.listing.vacancies} <br /><br />
 
-          <b>House Interests:</b> {this.props.listing.house_interests.split(',').map((interest, i) => <span key={i} >{interest}, </span>)}<br /><br />
+          <b>House Interests:</b> {this.props.listing.house_interests ? this.props.listing.house_interests.split(',').map((interest, i) => <span key={i} >{interest}, </span>) :  null}<br /><br />
 
           <b>House Mission:</b> {this.props.listing.house_mission} <br /><br />
 

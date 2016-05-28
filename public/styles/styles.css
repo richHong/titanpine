@@ -40,7 +40,6 @@ video {
 .searchbutton {
   background-color: #43D1AF;
   color: #333;
-  width: 150px;
   font-size: 24px;
   outline: 0px;
   box-shadow: none;
@@ -236,6 +235,9 @@ video {
   text-decoration: none;
   color: black;
 }
+.listingBorder{
+  border-bottom: 2px solid #333;
+}
 .houseInfo {
   font-family: 'Arimo', sans-serif;
   float:right;
@@ -255,4 +257,18 @@ video {
   text-align: center;
   font-family: 'Arimo', sans-serif;
   color: #43D1AF;
+}
+.magnify {
+  height: 26px;
+  background-color: #43D1AF;
+}
+.listHeading {
+  font-family: 'Arimo', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  height: 5vh;
+  width: 100%;
+  background-color: #333;
+  color: #43D1AF;
+  border-bottom: 2px solid #333;
 }

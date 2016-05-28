@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Gmaps, Marker, InfoWindow, Circle } from 'react-gmaps';
 
-const coords = {
+const coords = [{
   house_name: 'Hacker Habitat',
   lat: 37.8780068,
   lng: -122.2695097
-};
+}];
 
 class GMaps extends React.Component {
   constructor(props){
     super(props);
+    this.state = {};
+    
   }
   onMapCreated(map) {
     map.setOptions({
@@ -26,10 +28,20 @@ class GMaps extends React.Component {
     });
   }
   componentWillMount(){
+    //Hacks for dealing with map results on search
     if(this.props.listing.name){
-      if (Array.isArray(this.props.listing.name) === false){
-        this.props.listing.name = [this.props.listing.name];
-      } 
+      if (Array.isArray(this.props.listing.name)){
+        if (this.props.listing.name.length === 0){
+          this.setState({results: coords});
+        } 
+      } else {
+        this.setState({results:[this.props.listing.name]});
+      }
+    } else {
+      this.setState({results: coords});
+    }
+    if(!this.state.results){
+      this.setState({results: coords});
     }
   }
   render(){
@@ -37,29 +49,29 @@ class GMaps extends React.Component {
       <Gmaps
         width={'65%'}
         height={'100vh'}
-        lat={this.props.listing.name ? this.props.listing.name[0].lat : coords.lat}
-        lng={this.props.listing.name ? this.props.listing.name[0].lng : coords.lng}
+        lat={this.state.results[0].lat || 37.8780068}
+        lng={this.state.results[0].lng || -122.2695097}
         zoom={12}
         loadingMessage={'Be happy'}
         params={{v: '3.exp', key: 'AIzaSyAMUWIppT-jbjMztrR6tWSV7Y58jTZi2Sw'}}
         onMapCreated={this.onMapCreated}>
-        {this.props.listing.name ? this.props.listing.name.map((house, i) => {
+        {this.state.results ? this.state.results.map((house, i) => {
           return (
           <Marker
             key={i}
-            lat={house.lat}
-            lng={house.lng}
+            lat={house.lat || 37.8780068}
+            lng={house.lng || -122.2695097}
             draggable={true}
             onDragEnd={this.onDragEnd} />
             )
         }) : null}
-        {this.props.listing.name ? this.props.listing.name.map((house, i) => {
+        {this.state.results ? this.state.results.map((house, i) => {
           return (
           <InfoWindow
             key={i}
-            lat={house.lat}
-            lng={house.lng}
-            content={house.house_name}
+            lat={house.lat || 37.8780068}
+            lng={house.lng || -122.2695097}
+            content={house.house_name || 'Hacker Habitat'}
             onCloseClick={this.onCloseClick} />
             )
         }) : null}

@@ -9,13 +9,12 @@ export default class singleProfile extends Component {
 
     let authToken = window.localStorage.getItem('token');
     let userID = window.localStorage.getItem('userID');
-    
+
      fetch('http://localhost:3001/v1/users/'+userID+'?access_token='+authToken)
      .then(response => response.json())
      .then(json => this.setState(json.data[0]));
   }
   render() {
-    console.log(this.state);
     return (
       <div>
         <div className='profileContainer'>
