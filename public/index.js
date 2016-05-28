@@ -1,3 +1,4 @@
+'use strict';
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Router, Route, hashHistory, browserHistory } from 'react-router';
@@ -18,8 +19,9 @@ import SingleListing from './singlelisting';
 import MyProfile from './myProfile';
 import ContactForm from './contactform';
 
-
 import houseListingReducer from './appReducers';
+
+let authToken = window.localStorage.getItem('token');
 
 var store = createStore(houseListingReducer);
 
@@ -37,13 +39,27 @@ var requireAuth = function(nextState, replace) {
 };
 
 var logout = function(nextState, replace) {
-  if (!!localStorage.token) {
-    delete localStorage.token;
-    replace({
-      pathname: '/',
-      state: { nextPathname: nextState.location.pathname }
-    })
-  }
+    let authToken = window.localStorage.getItem('token');
+    let id = window.localStorage.getItem('id');
+
+    if (!!localStorage.token) {
+        fetch('http://localhost:3001/v1/access_tokens/'+id+'?access_token='+authToken, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+            .then((response) => response.json());
+        delete localStorage.token;
+        delete localStorage.id;
+        replace({
+            pathname: '/signout',
+            state: {
+                nextPathname: nextState.location.pathname
+            }
+        });
+    }
+
 };
 
 

@@ -5,7 +5,9 @@ module.exports = (function() {
   const Nodal = require('nodal');
   const AccessToken = Nodal.require('app/models/access_token.js');
 
-  class V1AccessTokensController extends Nodal.Controller {
+  const AuthController = Nodal.require('app/controllers/auth_controller.js');
+
+  class V1AccessTokensController extends AuthController {
 
     index() {
 
@@ -46,18 +48,23 @@ module.exports = (function() {
 
     destroy() {
 
-      AccessToken.logout(this.params, (err, accessToken) => {
+      this.authorize((accessToken,user) => {
 
-        this.respond(err || accessToken,
-          ['id',
-           'user_id',
-           'token_type',
-           'expires_at',
-           'ip_address',
-           'created_at'
-         ]);
+        AccessToken.logout(this.params, (err, accessToken) => {
+
+          this.respond(err || accessToken,
+            ['id',
+            'user_id',
+            'token_type',
+            'expires_at',
+            'ip_address',
+            'created_at'
+          ]);
+
+        });
 
       });
+
 
     }
 
