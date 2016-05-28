@@ -236,3 +236,23 @@ video {
   text-decoration: none;
   color: black;
 }
+.houseInfo {
+  font-family: 'Arimo', sans-serif;
+  float:right;
+  height: 100vh;
+  width: 35%;
+  overflow: scroll;
+  background-color: #43D1AF;
+}
+.carousel {
+  width: 35%;
+  float:right;
+}
+.houseName {
+  font-size: 20px;
+}
+.signout {
+  text-align: center;
+  font-family: 'Arimo', sans-serif;
+  color: #43D1AF;
+}
