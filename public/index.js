@@ -1,3 +1,4 @@
+'use strict';
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Router, Route, hashHistory, browserHistory } from 'react-router';
@@ -19,6 +20,8 @@ import MyProfile from './myProfile';
 
 import houseListingReducer from './appReducers';
 
+let authToken = window.localStorage.getItem('token');
+
 var store = createStore(houseListingReducer);
 
 var loggedIn = function() {
@@ -35,13 +38,22 @@ var requireAuth = function(nextState, replace) {
 };
 
 var logout = function(nextState, replace) {
+
   if (!!localStorage.token) {
+    fetch('http://localhost:3001/v1/listings?access_token='+authToken, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+    })
+    .then((response) => response.json() );
     delete localStorage.token;
     replace({
-      pathname: '/',
+      pathname: '/signout',
       state: { nextPathname: nextState.location.pathname }
-    })
+    });
   }
+
 };
 
 render((
