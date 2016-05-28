@@ -13,6 +13,7 @@ var fs = require('fs');
 var S3FS = require('s3fs');
 var multiparty = require('connect-multiparty')();
 
+
 // We need to add a configuration to our proxy server,
 // as we are now proxying outside localhost
 var proxy = httpProxy.createProxyServer({
@@ -20,7 +21,12 @@ var proxy = httpProxy.createProxyServer({
 });
 
 var app = express();
+var options = {
+   key: fs.readFileSync('./key.pem', 'utf8'),
+   cert: fs.readFileSync('./server.crt', 'utf8')
+};
 
+var httpsServer = https.createServer(options, app);
 //serving our index.html
 app.use(express.static(publicPath));
 
@@ -40,6 +46,8 @@ app.all('/build/*', function (req, res) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extened:true}));
+
+
 //THIS IS ALL FILE UPLOAD STUFFFFFF=============================================
 var s3fsImplementation1 = new S3FS('hackerhabitatavatars', {
   accessKeyId: config.accessKeyId,
@@ -93,6 +101,6 @@ proxy.on('error', function(e) {
   console.log('Could not connect to proxy, please try again...')
 });
 
-app.listen(port, function () {
+httpsServer.listen(port, function () {
   console.log('Server running on port ' + port)
 });

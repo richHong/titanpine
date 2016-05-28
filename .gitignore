@@ -23,6 +23,13 @@ coverage
 #AWS config
 config.json
 
+#SSL
+ssl.json
+cert .p7b
+csr.pem
+key.pem
+server.crt
+
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
