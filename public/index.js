@@ -17,7 +17,6 @@ import FrontPage from './frontPage';
 import SingleListing from './singlelisting';
 import MyProfile from './myProfile';
 
-
 import houseListingReducer from './appReducers';
 
 var store = createStore(houseListingReducer);
