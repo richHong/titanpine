@@ -53,7 +53,9 @@ class SignUpForm extends React.Component {
 	                            })
 	                            .then(response => response.json())
 	                            .then((data) => {
-	                                window.localStorage.setItem('token', data.data[0].access_token);
+																window.localStorage.setItem('token', data.data[0].access_token);
+						                    window.localStorage.setItem('i', data.data[0].id);
+						                    window.localStorage.setItem('u', data.data[0].user_id);
 																	window.location = '#/createProfile';
 	                            });
 	                    });

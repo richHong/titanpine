@@ -1,5 +1,7 @@
 import React from 'react';
 import { Router, Route, hashHistory, browserHistory } from 'react-router';
+let currentUserID = window.localStorage.getItem('u');
+
 
 class ProfileForm extends React.Component {
   constructor(props){
@@ -9,7 +11,7 @@ class ProfileForm extends React.Component {
       techInterests: ['Javascript','Ruby', 'Node', 'React', 'Angular', 'Express', 'MongoDB', 'Postgres','Redux'],
       general:[],
       tech:[],
-      currentUserID: 1
+      currentUserID: currentUserID
     };
     this.submit = this.submit.bind(this);
     this.addGeneral = this.addGeneral.bind(this);
