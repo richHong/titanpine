@@ -6,12 +6,13 @@ let currentUserID = window.localStorage.getItem('u');
 class ProfileForm extends React.Component {
   constructor(props){
     super(props);
+
     this.state = {
       genInterests:['Music', 'Movies', 'Books', 'Fashion', 'Outdoors', 'Sports', 'Crafting', 'Gaming'],
       techInterests: ['Javascript','Ruby', 'Node', 'React', 'Angular', 'Express', 'MongoDB', 'Postgres','Redux'],
       general:[],
-      tech:[],
-      currentUserID: currentUserID
+      tech:[]
+
     };
     this.submit = this.submit.bind(this);
     this.addGeneral = this.addGeneral.bind(this);
@@ -41,7 +42,10 @@ class ProfileForm extends React.Component {
   submit(e, firstName, lastName, description, hometown, occupation){
     e.preventDefault();
 
-    fetch('http://localhost:3001/v1/users/'+currentUserID, {
+    let authToken = window.localStorage.getItem('token');
+    let userID = window.localStorage.getItem('userID');
+
+    fetch('http://localhost:3001/v1/users/'+userID+'?access_token='+authToken, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -57,7 +61,7 @@ class ProfileForm extends React.Component {
       })
     }).then(response => {
       console.log(response);
-      browserHistory.push('/createHouse');
+      hashHistory.push('/profile');
     });
   }
 
@@ -67,14 +71,19 @@ class ProfileForm extends React.Component {
           <h1>EDIT PROFILE</h1>
           <label>First Name:</label><br/>
           <input type='text'ref={input => this.firstName = input} /><br/>
+
           <label>Last Name:</label><br/>
           <input type='text'ref={input => this.lastName = input} /><br/>
+
           <label>Description:</label><br/>
           <textarea id="aboutMe" placeholder="Tell me about yourself" ref={input => this.description = input} /><br/>
+
           <label>Hometown:</label><br/>
           <input type='text'placeholder="Where are you from?" ref={input => this.hometown = input} /><br/><br/>
+
           <label>Occupation:</label><br/>
           <input type='text'placeholder="Where do you work?" ref={input => this.occupation = input} /><br/><br/>
+
           <label>General Interests:</label><br/><br/>
           <div>
             {this.state.genInterests.map((value, i) => {
@@ -86,6 +95,7 @@ class ProfileForm extends React.Component {
                 )
             })}
           </div><br/><br/><br/><br/>
+
           <label id="techInterests">Tech Interests:</label><br/><br/>
           <div>
             {this.state.techInterests.map((value, i) => {
@@ -97,6 +107,7 @@ class ProfileForm extends React.Component {
                 )
             })}
           </div><br/><br/><br/><br/>
+
           <input id="profileSubmit" type="submit" value="Save Changes"/>
         </form>
       )

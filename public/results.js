@@ -9,7 +9,7 @@ class Results extends Component {
  render(){
     return (
       <div>
-        {this.props.listing.name ? <HouseListOfListings houses={this.props.listing.name} /> : null}
+        {this.props.listings ? <HouseListOfListings houses={this.props.listings} /> : null}
         <GMaps />
       </div>
     )
@@ -17,8 +17,9 @@ class Results extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log('state in results', state)
   return {
-    listing: state.listings
+    listings: state.listings.searchResults
   }
 }
 

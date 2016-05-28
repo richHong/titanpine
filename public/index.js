@@ -51,6 +51,7 @@ var logout = function(nextState, replace) {
             .then((response) => response.json());
         delete localStorage.token;
         delete localStorage.id;
+        delete localStorage.userID;
         replace({
             pathname: '/signout',
             state: {
