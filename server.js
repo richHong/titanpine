@@ -6,7 +6,8 @@ var publicPath = path.resolve(__dirname, 'public');
 var bodyParser = require('body-parser');
 var isProduction = process.env.NODE_ENV === 'production';
 var port = isProduction ? process.env.PORT : 3000;
-var multiparty = require('connect-multiparty')();
+var multiparty = require('connect-multiparty');
+var helmet = require('helmet');
 
 // We need to add a configuration to our proxy server,
 // as we are now proxying outside localhost
@@ -20,8 +21,9 @@ var app = express();
 app.use(express.static(publicPath));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(helmet());
 //THIS IS ALL FILE UPLOAD STUFFFFFF=============================================
-app.use(multiparty);
+app.use(multiparty());
 require('./server/middleware.js');
 require('./server/S3ListingsMiddleware.js')(app);
 require('./server/S3AvatarMiddleware.js')(app);
