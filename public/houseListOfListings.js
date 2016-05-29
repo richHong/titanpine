@@ -8,10 +8,9 @@ class HouseList extends React.Component {
 
   }
   render(){
-    console.log(this.props);
     return (
     <div className='list'>
-      <div className='listHeading'><b>{ this.props.favorites === 'favorites' ? 'Favorites' : ' Search Results'}</b></div>
+      <div className='listHeading'><b>{ this.props.page === 'profile' ? 'List of Houses Created' : ' Search Results'}</b></div>
       {Array.isArray(this.props.houses) ? this.props.houses.map((house, i) => {
         return <HouseListing house={house} key={i} />
       }) : null}

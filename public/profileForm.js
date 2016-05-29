@@ -39,11 +39,17 @@ class ProfileForm extends React.Component {
     }
   }
 
-  submit(e, firstName, lastName, description, hometown, occupation){
+  submit(e, avatar, firstName, lastName, description, hometown, occupation){
     e.preventDefault();
 
     let authToken = window.localStorage.getItem('token');
     let userID = window.localStorage.getItem('userID');
+    let avatarName;
+    if (avatar.value !== ''){
+      avatarName = 'https://s3-us-west-1.amazonaws.com/hackerhabitatavatars/'+this.avatar.value.slice(12);
+    } else {
+      avatarName = avatar.value;
+    }
 
     fetch('http://localhost:3001/v1/users/'+userID+'?access_token='+authToken, {
       method: 'PUT',
@@ -51,6 +57,7 @@ class ProfileForm extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        avatar: avatarName,
         first_name: firstName.value,
         last_name: lastName.value,
         hometown: hometown.value,
@@ -67,8 +74,11 @@ class ProfileForm extends React.Component {
 
   render(){
     return(
-        <form onSubmit={e => this.submit(e, this.firstName, this.lastName, this.description, this.hometown, this.occupation)}>
+        <form onSubmit={e => this.submit(e, this.avatar, this.firstName, this.lastName, this.description, this.hometown, this.occupation)}>
           <h1>EDIT PROFILE</h1>
+          <label>Upload Avatar:</label><br/>
+          <input type='file' ref={input => this.avatar = input} /><br /><br />
+
           <label>First Name:</label><br/>
           <input type='text'ref={input => this.firstName = input} /><br/>
 
