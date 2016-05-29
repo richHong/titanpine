@@ -17,11 +17,7 @@ module.exports = (function() {
 
           this.respond(err || models,
             ['id',
-             'user_id',
              'token_type',
-             'expires_at',
-             'ip_address',
-             'created_at'
            ]);
 
       });
