@@ -22,7 +22,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 //THIS IS ALL FILE UPLOAD STUFFFFFF=============================================
 app.use(multiparty);
-
+require('./server/middleware.js');
+require('./server/S3ListingsMiddleware.js')(app);
+require('./server/S3AvatarMiddleware.js')(app);
 //THIS IS ALL FILE UPLOAD STUFFFFFF=============================================
 
 //server/compiler.js runs webpack-dev-server which creates the bundle.js which index.html serves
