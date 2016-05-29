@@ -1,11 +1,7 @@
 'use strict';
 var express = require('express');
 var path = require('path');
-var net = require('net');
-var tls = require('tls');
-var https = require('https');
 var httpProxy = require('http-proxy');
-var path = require('path');
 var publicPath = path.resolve(__dirname, 'public');
 var bodyParser = require('body-parser');
 var isProduction = process.env.NODE_ENV === 'production';
@@ -21,24 +17,7 @@ var proxy = httpProxy.createProxyServer({
     changeOrigin: true
 });
 
-// var options = {
-//    key: fs.readFileSync('./key.pem', 'utf8'),
-//    cert: fs.readFileSync('./server.crt', 'utf8'),
-//    requestCert: true,
-//    NPNProtocols: ['http/2.0', 'spdy', 'http/1.1', 'http/1.0']
-// };
-
 var app = express();
-// var httpsServer = https.createServer(options, app);
-// var tlsServer = tls.createServer(options, function (cleartextStream) {
-//     var cleartextRequest = net.connect({
-//         port: 3000,
-//         host: '127.0.0.1'
-//     }, function () {
-//         cleartextStream.pipe(cleartextRequest);
-//         cleartextRequest.pipe(cleartextStream);
-//     });
-// });
 
 //serving our index.html
 app.use(express.static(publicPath));
@@ -119,9 +98,3 @@ proxy.on('error', function(e) {
 app.listen(port, function() {
     console.log('Server running on port ' + port);
 });
-// httpsServer.listen(port, function () {
-//   console.log('Server running on port ' + port);
-// });
-// tlsServer.listen(port, function () {
-//   console.log('Server running on port ' + port);
-// });
