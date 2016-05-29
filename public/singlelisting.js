@@ -26,8 +26,6 @@ class SingleListing extends React.Component {
 
           <b>House Rules: </b> {this.props.listing.house_rules} <br /><br />
 
-          <button>Add to Favorites</button>
-
         </div>
         <GMaps />
 			</div>
