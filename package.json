@@ -1,7 +1,7 @@
 {
   "name": "hackerhabitat",
   "version": "1.0.0",
-  "description": "",
+  "description": "A web-app designed to help people find and create listings for tech-centric, co-living spaces and housing",
   "main": "index.js",
   "scripts": {
     "start": "node server.js"
@@ -13,9 +13,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andyderek/titanpine/issues"
+    "url": "https://github.com/TitaniumPinewood/titanpine/issues"
   },
-  "homepage": "https://github.com/andyderek/titanpine#readme",
+  "homepage": "https://github.com/TitaniumPinewood/titanpine#readme",
   "dependencies": {
     "body-parser": "latest",
     "chai": "~3.5.0",

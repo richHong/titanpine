@@ -9,8 +9,6 @@ var port = isProduction ? process.env.PORT : 3000;
 var multiparty = require('connect-multiparty');
 var helmet = require('helmet');
 
-// We need to add a configuration to our proxy server,
-// as we are now proxying outside localhost
 var proxy = httpProxy.createProxyServer({
     changeOrigin: true
 });
@@ -22,15 +20,12 @@ app.use(express.static(publicPath));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(helmet());
-//THIS IS ALL FILE UPLOAD STUFFFFFF=============================================
 app.use(multiparty());
 require('./server/middleware.js');
 require('./server/S3ListingsMiddleware.js')(app);
 require('./server/S3AvatarMiddleware.js')(app);
-//THIS IS ALL FILE UPLOAD STUFFFFFF=============================================
 
 //server/compiler.js runs webpack-dev-server which creates the bundle.js which index.html serves
-//the compiler adds some console logs for some extra sugar
 //notice that you will not see a physical bundle.js because webpack-dev-server runs it from memory
 if (!isProduction) {
     var bundle = require('./server/compiler.js');
