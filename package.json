@@ -4,7 +4,8 @@
   "description": "A web-app designed to help people find and create listings for tech-centric, co-living spaces and housing",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress --colors"
   },
   "repository": {
     "type": "git",
