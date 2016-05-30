@@ -1,14 +1,15 @@
+var config = require('../config.json');
 var fs = require('fs');
 var S3FS = require('s3fs');
 
 module.exports = function (app) {
 
-  // var s3fsImplementation2 = new S3FS('hackerhabitatlistings', {
-  //   accessKeyId: config.accessKeyId,
-  //   secretAccessKey: config.secretAccessKey,
-  //   endpoint: config.endpoint,
-  //   region: config.region
-  // });
+  var s3fsImplementation2 = new S3FS('hackerhabitatlistings', {
+    accessKeyId: config.accessKeyId,
+    secretAccessKey: config.secretAccessKey,
+    endpoint: config.endpoint,
+    region: config.region
+  });
 
   app.route('/v1/ap')
     .post(function(req, res) {
