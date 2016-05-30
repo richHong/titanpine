@@ -108,7 +108,7 @@ video {
 }
 .form-style-6{
     font-family: 'Arimo', sans-serif;
-    max-width: 400px;
+    max-width: 500px;
     margin: 10px auto;
     padding: 16px;
     background: #F7F7F7;
@@ -271,4 +271,12 @@ video {
   background-color: #333;
   color: #43D1AF;
   border-bottom: 2px solid #333;
+}
+.carousel {
+  width: 100%;
+  float:top;
+}
+.carouselImage {
+  display: block;
+  margin: 0 auto;
 }

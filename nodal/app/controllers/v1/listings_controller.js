@@ -35,6 +35,7 @@ module.exports = (function() {
              'house_rules',
              'vacancies',
              'primary_member',
+             'amenities',
              'created_at',
              'updated_at',
              'pic1',

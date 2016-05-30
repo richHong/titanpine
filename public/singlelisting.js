@@ -1,15 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import GMaps from './map';
-import MyCarousel from './carousel'
+import { connect } from 'react-redux';
+import SingleGMaps from './singleMap';
+import MyCarousel from './carousel';
 
 class SingleListing extends React.Component {
 	render(){
-    console.log(this.props.listing);
 		return <div>
-        <MyCarousel className='carousel'/>
+        <div className='carousel'>
+          <MyCarousel />
+        </div>
         <div className="houseInfo">
-  				<span className='houseName'><b>{this.props.listing.house_name}</b></span><br/>
+  				<span className='houseName'>
+            <b>{this.props.listing.house_name}</b>
+          </span><br/>
+
           <i>{this.props.listing.heading}</i><br/><br/>
 
           <b>Location:</b><br/>
@@ -26,14 +30,18 @@ class SingleListing extends React.Component {
 
           <b>House Rules: </b> {this.props.listing.house_rules} <br /><br />
 
+          <b>Amenities: </b> {this.props.listing.amenities} <br /><br />
+
+          <b>Primary Member: </b> {this.props.listing.primary_member} <br /><br />
         </div>
-        <GMaps />
+
+        <SingleGMaps />
+
 			</div>
 	}
 }
 
 function mapStateToProps(state) {
-  console.log('state in singlelisting',state)
   return {
     listing: state.listings.singleListing
   }

@@ -37,7 +37,7 @@ class ProfileForm extends React.Component {
     }
   }
 
-  submit(e, avatar, firstName, lastName, description, hometown, occupation){
+  submit(e, avatar, firstName, lastName, description, hometown, occupation, general, tech){
     e.preventDefault();
 
     let authToken = window.localStorage.getItem('token');
@@ -61,8 +61,8 @@ class ProfileForm extends React.Component {
         hometown: hometown.value,
         description: description.value,
         occupation: occupation.value,
-        gen_interests: this.state.general,
-        tech_interests: this.state.tech
+        gen_interests: general.value+this.state.general,
+        tech_interests: tech.value+this.state.tech
       })
     }).then(response => {
       console.log(response);
@@ -72,7 +72,7 @@ class ProfileForm extends React.Component {
 
   render(){
     return(
-        <form onSubmit={e => this.submit(e, this.avatar, this.firstName, this.lastName, this.description, this.hometown, this.occupation)}>
+        <form onSubmit={e => this.submit(e, this.avatar, this.firstName, this.lastName, this.description, this.hometown, this.occupation, this.general, this.tech)}>
           <h1>EDIT PROFILE</h1>
           <label>Upload Avatar:</label><br/>
           <input type='file' ref={input => this.avatar = input} /><br /><br />
@@ -93,6 +93,7 @@ class ProfileForm extends React.Component {
           <input type='text'placeholder="Where do you work?" ref={input => this.occupation = input} /><br/><br/>
           
           <label>General Interests:</label><br/><br/>
+          <input type='text'ref={input => this.general = input} /><br/>
           <div>
             {this.state.genInterests.map((value, i) => {
               return (
@@ -105,6 +106,7 @@ class ProfileForm extends React.Component {
           </div><br/><br/><br/><br/>
           
           <label id="techInterests">Tech Interests:</label><br/><br/>
+          <input type='text'ref={input => this.tech = input} /><br/>
           <div>
             {this.state.techInterests.map((value, i) => {
               return (

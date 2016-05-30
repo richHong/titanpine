@@ -17,7 +17,6 @@ class Results extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('state in results', state)
   return {
     listings: state.listings.searchResults
   }
