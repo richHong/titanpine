@@ -39,7 +39,7 @@ var requireAuth = function(nextState, replace) {
 
 var logout = function(nextState, replace) {
     let authToken = window.localStorage.getItem('token');
-    let id = window.localStorage.getItem('id');
+    let id = window.localStorage.getItem('i');
 
     if (!!localStorage.token) {
         fetch('http://localhost:3001/v1/access_tokens/'+id+'?access_token='+authToken, {
@@ -50,7 +50,7 @@ var logout = function(nextState, replace) {
             })
             .then((response) => response.json());
         delete localStorage.token;
-        delete localStorage.id;
+        delete localStorage.i;
         delete localStorage.userID;
         replace({
             pathname: '/signout',
