@@ -1,7 +1,5 @@
 import React from 'react';
 import { Router, Route, hashHistory, browserHistory } from 'react-router';
-let currentUserID = window.localStorage.getItem('u');
-
 
 class ProfileForm extends React.Component {
   constructor(props){
