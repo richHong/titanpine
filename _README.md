@@ -36,7 +36,12 @@
 From within the root directory:
 
 ```sh
-npm install
+npm install --save
+```
+From within '/nodal':
+
+```sh
+npm install --save
 ```
 
 ### Roadmap
