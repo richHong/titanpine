@@ -11,7 +11,6 @@ import CreateProfile from './createProfile';
 import CreateHouse from './createHouse';
 import SearchBar from './SearchBar';
 import NavBar from './navBar';
-console.log('here');
 import MainContain from './MainContain';
 import SignIn from './SignIn';
 import Results from './results';

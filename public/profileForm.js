@@ -65,7 +65,6 @@ class ProfileForm extends React.Component {
         tech_interests: this.state.tech
       })
     }).then(response => {
-      console.log(response);
       hashHistory.push('/profile');
     });
   }
