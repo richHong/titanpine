@@ -2,6 +2,7 @@
 var express = require('express');
 var path = require('path');
 var httpProxy = require('http-proxy');
+var favicon = require('serve-favicon');
 var publicPath = path.resolve(__dirname, 'public');
 var bodyParser = require('body-parser');
 var isProduction = process.env.NODE_ENV === 'production';
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(helmet());
 app.use(multiparty());
+app.use(favicon(__dirname + '/public/assets/black-house.ico'));
 require('./server/middleware.js');
 require('./server/S3ListingsMiddleware.js')(app);
 require('./server/S3AvatarMiddleware.js')(app);
