@@ -40,7 +40,7 @@ class HousingForm extends React.Component {
 
     let geolocation;
     let authToken = window.localStorage.getItem('token');
-    console.log(window.localStorage.getItem('token'));
+
     fetch('http://maps.googleapis.com/maps/api/geocode/json?address='+street.value+'+'+city.value+'+'+state.value)
     .then(response => response.json())
     .then(json => geolocation = json.results[0].geometry.location)

@@ -24,6 +24,7 @@ class SignInForm extends React.Component {
                 })
                 .then(response => response.json())
                 .then((data) => {
+                    window.localStorage.setItem('userID', data.data[0].user_id);
                     window.localStorage.setItem('token', data.data[0].access_token);
                     window.localStorage.setItem('id', data.data[0].id);
                     window.location = '#/';
