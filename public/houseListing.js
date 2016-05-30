@@ -9,7 +9,7 @@ class HouseListing extends React.Component {
 		return (
         <div className='listingBorder'>  	
 
-			<Link className='singleListing' to="/singlelisting" onClick={this.getSingleListing.bind(this)}>
+			<Link className='singleListing nounderline' to="/singlelisting" onClick={this.getSingleListing.bind(this)}>
 
         		<img className='housePic' src={this.props.house.url || 'https://openclipart.org/image/2400px/svg_to_png/170529/pib-dark.png'} />
         		

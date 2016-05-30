@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
 		return (
 			<div className='searchDiv'>
         <form onSubmit={e => this.onSubmit(e)}>
-  				<input placeholder='Search' ref={(input) => this.search = input} className='searchbox' />
+  				<input placeholder='Search by City' ref={(input) => this.search = input} className='searchbox' />
       		<img onClick={this.onSubmit.bind(this)} className='magnify searchbutton'src='https://cdn2.iconfinder.com/data/icons/picons-basic-1/57/basic1-016_search_zoom_find-512.png'/>
         </form>
       </div>

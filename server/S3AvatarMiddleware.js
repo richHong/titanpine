@@ -1,5 +1,4 @@
 var config = require('../config.json');
-var path = require('path');
 var fs = require('fs');
 var S3FS = require('s3fs');
 

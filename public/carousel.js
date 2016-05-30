@@ -1,12 +1,10 @@
-'use strict';
-import React from 'react';
-import { Carousel } from 'react-bootstrap';
+import React, {Component} from 'react';
+import {Carousel, CarouselItem, CarouselCaption} from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 class MyCarousel extends React.Component {
   constructor(){
     super();
-    this.mixins = [Carousel.ControllerMixin];
     this.state = {};
   }
   componentWillMount(){
@@ -27,22 +25,24 @@ class MyCarousel extends React.Component {
       images.push(this.props.listing.pic5);
     }
     if(!this.props.listing.pic1){
-      images.push('http://usanorth811.org/wp-content/uploads/2013/07/house-img.jpg');
+      images.push('http://freedesignfile.com/upload/2016/03/House-architecture-blueprint-vector-set-03.jpg');
     }
     this.setState({images: images});
   }
   render() {
-    console.log(Carousel.Item);
+    console.log(this.state);
     return (
-      <Carousel >
-        {this.state.images.map((image, i) => {
+      <Carousel>
+        {this.state.images.map((img, i) => {
           return (
-            <Carousel.Item key={i}>
-              <img width={900} height={500} className='carouselImage' src={image} />
-            </Carousel.Item>
-            )
-          })}
+          <CarouselItem key ={i}>
+            <img className='carouselImage' width={700}src={img} />
+          </CarouselItem>
+          )
+        })}
       </Carousel>
+        
+       
     )
   }
 };

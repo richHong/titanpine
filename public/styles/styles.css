@@ -1,5 +1,6 @@
 body {
   background-color: #333;
+  font-family: 'Jura', sans-serif;
 }
 
 li {
@@ -13,11 +14,12 @@ li .link{
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  background-color: #333;
 }
 
 li .link:hover {
-  background-color: #111;
-  color: #2EBC99;
+  background-color: #43D1AF;
+  color: #333;
 }
 
 video {
@@ -33,7 +35,6 @@ video {
   padding: 0;
   overflow: hidden;
   background-color: #333;
-  font-family: 'Arimo', sans-serif;
   font-weight:100; 
 }
 
@@ -55,10 +56,9 @@ video {
   margin-top: 5px;
 }
 .searchbox {
-  height: 24px;
+  height: 26px;
   width: 200px;
   font-size: 18px;
-  font-family: 'Arimo', sans-serif;
   outline: 0px;
   box-shadow: none;
   border: none;
@@ -73,18 +73,22 @@ video {
 }
 
 .logo {
+  display: inline-block;
   text-decoration: none; 
   color:#43D1AF;
-  font-family: 'Rock Salt', cursive; 
+  font-size: 20px; 
+  margin-top: 5px;
 }
 
+.logo:hover {
+  text-decoration: none;
+  color:#43D1AF;
+}
 .logo:visited {
   text-decoration: none;
 }
-
 .title {
   color:#43D1AF;
-  font-family: 'Rock Salt', cursive;
 }
 .filter {
     z-index: 100;
@@ -96,18 +100,16 @@ video {
 .overlay { 
   position:absolute;
   z-index:300000;
-  font-family: 'Arimo', sans-serif;
   font-weight:100; 
   background: rgba(0,0,0,0.3);
   color: white;
   padding: 2rem;
-  width: 33%;
+  width: 45%;
   margin:2rem;
   float: right;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 .form-style-6{
-    font-family: 'Arimo', sans-serif;
     max-width: 500px;
     margin: 10px auto;
     padding: 16px;
@@ -148,7 +150,6 @@ video {
     border: 1px solid #ccc;
     padding: 3%;
     color: #555;
-    font: 95% Arial, Helvetica, sans-serif;
 }
 .form-style-6 input[type="text"]:focus,
 .form-style-6 input[type="date"]:focus,
@@ -186,12 +187,15 @@ video {
     background: #2EBC99;
 }
 .list {
-  font-family: 'Arimo', sans-serif;
   float:right;
   height: 100vh;
   width: 35%;
   overflow: scroll;
   background-color: #43D1AF;
+  text-decoration: none;
+}
+.list:hover {
+  text-decoration: none;
 }
 .housePic {
   width:100%;
@@ -214,7 +218,6 @@ video {
   height: 100%;
   float: left;
   background-color: #43D1AF;
-  font-family: 'Arimo', sans-serif;
 }
 .profileContainer {
   float: left;
@@ -239,7 +242,6 @@ video {
   border-bottom: 2px solid #333;
 }
 .houseInfo {
-  font-family: 'Arimo', sans-serif;
   float:right;
   height: 100vh;
   width: 35%;
@@ -255,7 +257,6 @@ video {
 }
 .signout {
   text-align: center;
-  font-family: 'Arimo', sans-serif;
   color: #43D1AF;
 }
 .magnify {
@@ -263,7 +264,6 @@ video {
   background-color: #43D1AF;
 }
 .listHeading {
-  font-family: 'Arimo', sans-serif;
   font-size: 20px;
   text-align: center;
   height: 5vh;
@@ -275,6 +275,7 @@ video {
 .carousel {
   width: 100%;
   float:top;
+  background-color: #333;
 }
 .carouselImage {
   display: block;
