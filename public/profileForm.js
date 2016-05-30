@@ -10,7 +10,7 @@ class ProfileForm extends React.Component {
       techInterests: ['Javascript','Ruby', 'Node', 'React', 'Angular', 'Express', 'MongoDB', 'Postgres','Redux'],
       general:[],
       tech:[]
-      
+
     };
     this.submit = this.submit.bind(this);
     this.addGeneral = this.addGeneral.bind(this);
@@ -85,13 +85,13 @@ class ProfileForm extends React.Component {
 
           <label>Description:</label><br/>
           <textarea id="aboutMe" placeholder="Tell me about yourself" ref={input => this.description = input} /><br/>
-          
+
           <label>Hometown:</label><br/>
           <input type='text'placeholder="Where are you from?" ref={input => this.hometown = input} /><br/><br/>
-          
+
           <label>Occupation:</label><br/>
           <input type='text'placeholder="Where do you work?" ref={input => this.occupation = input} /><br/><br/>
-          
+
           <label>General Interests:</label><br/><br/>
           <input type='text'ref={input => this.general = input} /><br/>
           <div>
@@ -104,7 +104,7 @@ class ProfileForm extends React.Component {
                 )
             })}
           </div><br/><br/><br/><br/>
-          
+
           <label id="techInterests">Tech Interests:</label><br/><br/>
           <input type='text'ref={input => this.tech = input} /><br/>
           <div>
@@ -117,7 +117,7 @@ class ProfileForm extends React.Component {
                 )
             })}
           </div><br/><br/><br/><br/>
-          
+
           <input id="profileSubmit" type="submit" value="Save Changes"/>
         </form>
       )
