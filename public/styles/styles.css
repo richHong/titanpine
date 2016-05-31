@@ -74,6 +74,7 @@ video {
   float:left;
   display: block;
   height: 25px;
+  margin-right: 5px;
 }
 
 .logo {
@@ -116,8 +117,8 @@ video {
   float: right;
   font-size: 1.5rem;
 }
-.form-style-6{
-    max-width: 500px;
+.form-style-6 {
+    max-width: 600px;
     margin: 10px auto;
     padding: 16px;
     background: #F7F7F7;
@@ -191,7 +192,10 @@ video {
 }
 .form-style-6 input[type="submit"]:hover,
 .form-style-6 input[type="button"]:hover{
-    background: #2EBC99;
+  background: #2EBC99;
+}
+.fileUpload {
+  
 }
 .list {
   float:right;
