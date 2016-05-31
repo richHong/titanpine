@@ -17,7 +17,7 @@ class Results extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
+ return {
     listings: state.listings.searchResults
   }
 }
