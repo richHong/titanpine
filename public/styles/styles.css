@@ -22,6 +22,10 @@ li .link:hover {
   color: #333;
 }
 
+li .link:focus {
+  background-color: #43D1AF;
+  color: #333;
+}
 video {
     width: 100%;
     height: 100%;
@@ -66,7 +70,7 @@ video {
   text-align: right;
 }
 
-.checkbox {
+.checkboxItem {
   float:left;
   display: block;
   height: 25px;
@@ -85,6 +89,9 @@ video {
   color:#43D1AF;
 }
 .logo:visited {
+  text-decoration: none;
+}
+.logo:active {
   text-decoration: none;
 }
 .title {
@@ -197,6 +204,9 @@ video {
 .list:hover {
   text-decoration: none;
 }
+.list:active {
+  text-decoration: none;
+}
 .housePic {
   width:100%;
   height:300px;
@@ -237,6 +247,10 @@ video {
 .singleListing{
   text-decoration: none;
   color: black;
+}
+.singleListing:hover {
+  text-decoration: none;
+  color:black;
 }
 .listingBorder{
   border-bottom: 2px solid #333;

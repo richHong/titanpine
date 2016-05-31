@@ -108,7 +108,7 @@ class HousingForm extends React.Component {
             <div>
             {this.state.interestsArray.map((value, i) => {
               return (
-                <div key={i} className="checkbox">
+                <div key={i} className="checkboxItem">
                   <input type="checkbox" onChange={e => this.addInterest(value)} />
                   <span>{value}</span>
                 </div>
@@ -128,7 +128,7 @@ class HousingForm extends React.Component {
             <div>
               {this.state.amenitiesArray.map((value, i) => {
               return (
-                <div key={i} className="checkbox">
+                <div key={i} className="checkboxItem">
                   <input type="checkbox" onChange={e => this.addAmenity(value)} />
                   <span>{value}</span>
                 </div>

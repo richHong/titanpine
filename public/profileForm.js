@@ -96,7 +96,7 @@ class ProfileForm extends React.Component {
           <div>
             {this.state.genInterests.map((value, i) => {
               return (
-                <div key={i} className="checkbox">
+                <div key={i} className="checkboxItem">
                   <input type="checkbox" onChange={e => this.addGeneral(value)} />
                   <span>{value}</span>
                 </div>
@@ -109,7 +109,7 @@ class ProfileForm extends React.Component {
           <div>
             {this.state.techInterests.map((value, i) => {
               return (
-                <div key={i} className="checkbox">
+                <div key={i} className="checkboxItem">
                   <input type="checkbox" onChange={e => this.addTech(value)} />
                   <span>{value}</span>
                 </div>
