@@ -16,7 +16,7 @@ for tech-minded people to find hacker-houses and live-work spaces for long and s
 1. [Requirements](#requirements)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
+    1. [Roadmap](#roadmap)
 1. [Team](#team)
 1. [Contributing](#contributing)
 

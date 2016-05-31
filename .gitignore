@@ -30,6 +30,9 @@ csr.pem
 key.pem
 server.crt
 
+#random
+_PRESS-RELEASE.md
+
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
