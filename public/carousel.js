@@ -30,7 +30,6 @@ class MyCarousel extends React.Component {
     this.setState({images: images});
   }
   render() {
-    console.log(this.state);
     return (
       <Carousel>
         {this.state.images.map((img, i) => {

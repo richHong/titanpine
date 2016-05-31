@@ -6,10 +6,13 @@ import MyCarousel from './carousel';
 class SingleListing extends React.Component {
 	render(){
 		return <div>
+
         <div className='carousel'>
           <MyCarousel />
         </div>
+
         <div className="houseInfo">
+
   				<span className='houseName'>
             <b>{this.props.listing.house_name}</b>
           </span><br/>
@@ -23,6 +26,8 @@ class SingleListing extends React.Component {
           <b>Price:</b> ${this.props.listing.price} per night<br /><br/>
 
           <b>Vacancies:</b> {this.props.listing.vacancies} <br /><br />
+
+          <b>Dates Available: </b> {this.props.listing.dates_avail} <br /><br />
 
           <b>House Interests:</b> {this.props.listing.house_interests ? this.props.listing.house_interests.split(',').map((interest, i) => <span key={i} >{interest}, </span>) :  null}<br /><br />
 
