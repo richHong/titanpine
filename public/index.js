@@ -21,8 +21,6 @@ import ContactForm from './contactform';
 
 import houseListingReducer from './appReducers';
 
-let authToken = window.localStorage.getItem('token');
-
 var store = createStore(houseListingReducer);
 
 var loggedIn = function() {

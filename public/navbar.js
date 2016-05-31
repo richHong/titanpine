@@ -13,7 +13,6 @@ class NavBar extends React.Component {
 			<ul className='nav'>
 				<Link className="logo" to="/">Hacker Habitat</Link>
 				<li><SearchBar /></li>
-
 				<li>
 					{ loggedIn() ? (
 						<Link to='/signout' className='link'>Log Out</Link>

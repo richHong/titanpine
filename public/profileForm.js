@@ -45,7 +45,7 @@ class ProfileForm extends React.Component {
     let userID = window.localStorage.getItem('userID');
     let avatarName;
 
-    if (pic1.value === ''){
+    if (avatar.value === ''){
       avatarName = avatar.value;
     } else {
       avatarName = 'https://s3-us-west-1.amazonaws.com/hackerhabitatavatars/'+avatar.value.slice(12);
