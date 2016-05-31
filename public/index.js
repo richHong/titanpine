@@ -17,6 +17,7 @@ import Results from './results';
 import FrontPage from './frontPage';
 import SingleListing from './singlelisting';
 import MyProfile from './myProfile';
+import ContactForm from './contactform';
 
 import houseListingReducer from './appReducers';
 
@@ -62,11 +63,12 @@ var logout = function(nextState, replace) {
 
 };
 
+
 render((
     <Provider store={store}>
   <Router history={ hashHistory }>
       <Route path='/' component={ FrontPage } />
-      <Route component={ MainContain }>
+      <Route component={ MainContain }>{console.log(store)}
           <Route path='/results' component={ Results }/>
           <Route path="/createProfile" component={ CreateProfile } onEnter={requireAuth}/>
           <Route path='/signup' component={ SignUp } />
@@ -75,6 +77,7 @@ render((
           <Route path='/singlelisting' component={ SingleListing } />
           <Route path='/signout' component={ SignOut } onEnter={logout} />
           <Route path='/profile' component={ MyProfile } onEnter={requireAuth}/>
+          <Route path='/contact' component={ ContactForm } onEnter={requireAuth}/>
       </Route>
 	</Router>
     </Provider>
