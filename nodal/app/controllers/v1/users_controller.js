@@ -58,8 +58,6 @@ module.exports = (function() {
 
     create() {
 
-      // this.userLogin((user, password) => {
-
         User.create(this.params.body, (err, model) => {
 
           this.respond(err || model,
@@ -69,8 +67,6 @@ module.exports = (function() {
           ]);
 
         });
-
-      // });
 
     }
 
