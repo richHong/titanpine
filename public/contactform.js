@@ -17,5 +17,3 @@ class ContactForm extends React.Component {
 }
 
 export default ContactForm
-
-// <input type='submit' onClick={this.submitForm.bind(this)} to="/createProfile" value='Send'/>
