@@ -1,5 +1,5 @@
 {
-  "name": "Hacker Habitat",
+  "name": "hackerhabitat",
   "version": "1.0.0",
   "description": "A web-app designed to help people find and create listings for tech-centric, co-living spaces and housing",
   "main": "index.js",
@@ -37,13 +37,12 @@
     "react-bootstrap": "^0.29.4",
     "react-dom": "^0.14.7",
     "react-gmaps": "^1.5.0",
-    "react-hot-loader": "^1.3.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
     "redux": "^3.3.1",
     "s3fs": "^2.4.7",
     "serve-favicon": "^2.3.0",
-    "webpack": "^1.9.11",
+    "webpack": "^1.9.11"
   },
   "devDependencies": {
     "babel-core": "^6.3.15",
