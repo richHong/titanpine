@@ -13,7 +13,6 @@ class NavBar extends React.Component {
 			<ul className='nav'>
 				<Link className="logo" to="/">Hacker Habitat</Link>
 				<li><SearchBar /></li>
-
 				<li>
 					{ loggedIn() ? (
 						<Link to='/signout' className='link'>Log Out</Link>
@@ -49,7 +48,6 @@ class NavBar extends React.Component {
 						<div></div>
 					)}
         </li>
->>>>>>> 3edecdb15a7e1c91e6c076613c7b4915e4e67b8e
 				<div>{this.props.children}</div>
     	</ul>
     );
