@@ -1,26 +1,55 @@
-'use strict';
-
-import React from 'react';
-
-import Carousel from 'nuka-carousel';
+import React, {Component} from 'react';
+import {Carousel, CarouselItem, CarouselCaption} from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 class MyCarousel extends React.Component {
   constructor(){
     super();
-    this.mixins = [Carousel.ControllerMixin]
+    this.state = {};
+  }
+  componentWillMount(){
+    let images = [];
+    if(this.props.listing.pic1){
+      images.push(this.props.listing.pic1);
+    }
+    if(this.props.listing.pic2){
+      images.push(this.props.listing.pic2);
+    }
+    if(this.props.listing.pic3){
+      images.push(this.props.listing.pic3);
+    }
+    if(this.props.listing.pic4){
+      images.push(this.props.listing.pic4);
+    }
+    if(this.props.listing.pic5){
+      images.push(this.props.listing.pic5);
+    }
+    if(!this.props.listing.pic1){
+      images.push('http://freedesignfile.com/upload/2016/03/House-architecture-blueprint-vector-set-03.jpg');
+    }
+    this.setState({images: images});
   }
   render() {
+    console.log(this.state);
     return (
       <Carousel>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"/>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"/>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3"/>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4"/>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide5"/>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide6"/>
+        {this.state.images.map((img, i) => {
+          return (
+          <CarouselItem key ={i}>
+            <img className='carouselImage' width={700}src={img} />
+          </CarouselItem>
+          )
+        })}
       </Carousel>
+        
+       
     )
   }
 };
+function mapStateToProps(state) {
+  return {
+    listing: state.listings.singleListing
+  }
+}
 
-export default MyCarousel
+export default connect(mapStateToProps)(MyCarousel)

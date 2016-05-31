@@ -11,21 +11,12 @@ class HousingForm extends React.Component {
       houseAmenities:[]
     };
     this.addInterest = this.addInterest.bind(this);
-    this.addAmenity = this.addInterest.bind(this);
+    this.addAmenity = this.addAmenity.bind(this);
     this.submit = this.submit.bind(this);
   }
 
-  addInterest (value){
-    if (this.state.houseInterests.includes(value)){
-      this.state.houseInterests.forEach((interest, index, list) => {
-        list.splice(index,1);
-      });
-    } else {
-      this.state.houseInterests.push(value);
-    }
-  }
-
   addAmenity (value){
+    console.log(value);
     if (this.state.houseAmenities.includes(value)){
       this.state.houseAmenities.forEach((interest, index, list) => {
         list.splice(index,1);
@@ -35,9 +26,21 @@ class HousingForm extends React.Component {
     }
   }
 
+  addInterest (value){
+    console.log(value);
+    if (this.state.houseInterests.includes(value)){
+      this.state.houseInterests.forEach((interest, index, list) => {
+        list.splice(index,1);
+      });
+    } else {
+      this.state.houseInterests.push(value);
+    }
+  }
+
+
   submit(e, name, heading, street, city, state, zipCode, price, dateStart, dateEnd, interests, mission, rules, vacancies, primary, amenities){
     e.preventDefault();
-
+  
     let geolocation;
     let authToken = window.localStorage.getItem('token');
 
@@ -105,7 +108,7 @@ class HousingForm extends React.Component {
             <div>
             {this.state.interestsArray.map((value, i) => {
               return (
-                <div key={i} className="checkbox">
+                <div key={i} className="checkboxItem">
                   <input type="checkbox" onChange={e => this.addInterest(value)} />
                   <span>{value}</span>
                 </div>
@@ -125,7 +128,7 @@ class HousingForm extends React.Component {
             <div>
               {this.state.amenitiesArray.map((value, i) => {
               return (
-                <div key={i} className="checkbox">
+                <div key={i} className="checkboxItem">
                   <input type="checkbox" onChange={e => this.addAmenity(value)} />
                   <span>{value}</span>
                 </div>
