@@ -46,7 +46,8 @@ class SingleListing extends React.Component {
             <label>Your Message:</label><br />
             <textarea style={{width: '100%'}}ref={(message) => this.message = message} onChange={this.onMessage.bind(this)}></textarea><br/>
             <input name='message' type='submit' onClick={this.onSendMessage.bind(this)} value='Send'/>
-            </form>
+          </form>
+          
         </div>
 
         <SingleGMaps />
