@@ -8,7 +8,7 @@ li {
 }
 
 li .link{
-  font-size: 15px;
+  font-size: 1.2em;
   color: #43D1AF;
   display: inline-block;
   text-align: center;
@@ -83,6 +83,7 @@ video {
   color:#43D1AF;
   font-size: 20px;
   margin-top: 5px;
+  padding-left: 1%;
 }
 
 .logo:hover {
@@ -104,7 +105,9 @@ video {
     background: rgba(0, 0, 0, 0.4);
     width: 100%;
 }
-
+.frontPageDescription {
+  font-size: 1.3em;
+}
 .overlay {
   position:absolute;
   z-index:300000;
@@ -223,6 +226,12 @@ video {
   width: 100%;
   float: left;
 }
+.avatarForm {
+  font-size: 1.3em;
+}
+.listingForm {
+  font-size: 1.3em;
+}
 .avatar {
   border-radius: 50%;
   width: 100%;
@@ -232,6 +241,7 @@ video {
   height: 100%;
   float: left;
   background-color: #43D1AF;
+  font-size: 1.4em;
 }
 .profileContainer {
   float: left;
@@ -251,6 +261,7 @@ video {
 .singleListing{
   text-decoration: none;
   color: black;
+  font-size: 1.2em;
 }
 .singleListing:hover {
   text-decoration: none;
@@ -265,9 +276,13 @@ video {
   width: 40%;
   overflow: scroll;
   background-color: #43D1AF;
+  font-size: 1.4em;
+}
+.contactHouse {
+  font-size: 1.4em;
 }
 .houseName {
-  font-size: 20px;
+  font-size: 2.0em;
 }
 .signout {
   text-align: center;

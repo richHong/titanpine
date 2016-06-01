@@ -59,7 +59,6 @@ class HousingForm extends React.Component {
       var form = document.getElementById('pic1Form');
       var fdata = new FormData(form);
       Axios.post('http://localhost:3000/v1/lp', fdata)
-      .then(response => console.log(response));
     }
 
     if (pic2.value === ''){
@@ -79,7 +78,6 @@ class HousingForm extends React.Component {
       var form = document.getElementById('pic3Form');
       var fdata = new FormData(form);
       Axios.post('http://localhost:3000/v1/lp', fdata)
-      .then(response => console.log(response));
     }
 
     if (pic4.value === ''){
@@ -89,7 +87,6 @@ class HousingForm extends React.Component {
       var form = document.getElementById('pic4Form');
       var fdata = new FormData(form);
       Axios.post('http://localhost:3000/v1/lp', fdata)
-      .then(response => console.log(response));
     }
 
     if (pic5.value === ''){
@@ -99,7 +96,6 @@ class HousingForm extends React.Component {
       var form = document.getElementById('pic5Form');
       var fdata = new FormData(form);
       Axios.post('http://localhost:3000/v1/lp', fdata)
-      .then(response => console.log(response));
     }
 
     fetch('http://maps.googleapis.com/maps/api/geocode/json?address='+street.value+'+'+city.value+'+'+state.value)
@@ -142,7 +138,7 @@ class HousingForm extends React.Component {
 
   render(){
     return(
-          <div>
+          <div className="listingForm">
             <h1>CREATE A HACKER HOUSE</h1>
           <form>
             <label>House Name:</label><br/>

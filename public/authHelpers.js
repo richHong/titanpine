@@ -32,8 +32,6 @@
 //
 //         let authToken = window.localStorage.getItem('token');
 //         let id = window.localStorage.getItem('i');
-//         console.log('authToken: ',authToken);
-//         console.log('id: ',id);
 //
 //         if (!!localStorage.token) {
 //
