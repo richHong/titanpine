@@ -2,11 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SingleGMaps from './singleMap';
 import MyCarousel from './carousel';
+import $ from 'jquery'
+
 
 class SingleListing extends React.Component {
 	render(){
+    console.log(this.props)
 		return <div>
-
         <div className='carousel'>
           <MyCarousel />
         </div>
@@ -41,10 +43,60 @@ class SingleListing extends React.Component {
         </div>
 
         <SingleGMaps />
+        <form>
+          <label>Your Message:</label><br />
+          <textarea ref={(message) => this.message = message} onChange={this.onMessage.bind(this)} rows='40' cols='150'></textarea><br/>
+          <input name='message' type='submit' onClick={this.onSendMessage.bind(this)} value='Send'/>
+        </form>
 
 			</div>
 	}
+
+    onMessage(){
+    console.log(this.message.value)
+  }
+
+    onSendMessage(e){
+      e.preventDefault();
+      var sender;
+      var receiver;
+      var username;
+      var listing = "no name"
+      var message = this.message.value
+      let userID = window.localStorage.getItem('userID');
+      console.log("Here is the listing",this.props.listing.user)
+      fetch('http://localhost:3001/v1/users/?id=' + userID)
+      .then(response => response.json())
+      .then(json => {
+        console.log(json.data,"Senders Email:", json.data[0].email, "Receivers Email:", this.props.listing.user.email, "Username", json.data[0].username)
+        username = json.data[0].username
+        sender = json.data[0].email
+        receiver = this.props.listing.user.email
+        if(this.props.listing.house_name){
+          listing = this.props.listing.house_name
+        }
+      })
+      .then(() => {
+        console.log("HI THERE")
+        var settings = {
+              "url": "https://api.sendgrid.com/v3/mail/send/beta",
+              "method": "POST",
+              "headers": {
+                  "authorization": "Bearer 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",
+                  "content-type": "application/json",
+                  "cache-control": "no-cache",
+                  "postman-token": "d1d73c00-90fc-fcb0-1246-d7f416a65443"
+              },
+              "processData": false,
+             "data": JSON.stringify({personalizations: [{to: [{email: receiver}]}],from: {email: sender},subject: username + " is interesed in " + listing + " on Hacker Habitat" ,content: [{type: "text/plain", value: message}]})
+        }
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
+    })
+  }
 }
+
 
 function mapStateToProps(state) {
   return {

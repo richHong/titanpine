@@ -10,10 +10,6 @@ class ContactForm extends React.Component {
 		)
 	}
 
-	onMessage(){
-		console.log(this.message.value)
-	}
-
 }
 
 export default ContactForm
