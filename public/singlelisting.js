@@ -88,7 +88,7 @@ class SingleListing extends React.Component {
                   "postman-token": "d1d73c00-90fc-fcb0-1246-d7f416a65443"
               },
               "processData": false,
-             "data": JSON.stringify({personalizations: [{to: [{email: receiver}]}],from: {email: sender},subject: username + " is interesed in " + listing + " on Hacker Habitat" ,content: [{type: "text/plain", value: message}]})
+             "data": JSON.stringify({personalizations: [{to: [{email: receiver}]}],from: {email: sender},subject: username + " is interested in " + listing + " on Hacker Habitat" ,content: [{type: "text/plain", value: message}]})
         }
         $.ajax(settings).done(function (response) {
           console.log(response);
