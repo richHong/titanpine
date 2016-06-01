@@ -9,6 +9,7 @@ var isProduction = process.env.NODE_ENV === 'production';
 var port = isProduction ? process.env.PORT : 3000;
 var multiparty = require('connect-multiparty');
 var helmet = require('helmet');
+var fetch = require('isomorphic-fetch');
 
 var proxy = httpProxy.createProxyServer({
     changeOrigin: true
