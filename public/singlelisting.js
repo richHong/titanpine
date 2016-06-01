@@ -14,30 +14,30 @@ class SingleListing extends React.Component {
         <div className="houseInfo">
 
   				<span className='houseName'>
-            <b>{this.props.listing.house_name}</b>
+            <b>{this.props.listing ? this.props.listing.house_name : null}</b>
           </span><br/>
 
-          <i>{this.props.listing.heading}</i><br/><br/>
+          <i>{this.props.listing ? this.props.listing.heading : null}</i><br/><br/>
 
           <b>Location:</b><br/>
-          {this.props.listing.street_add}<br/>
-          {this.props.listing.city},{this.props.listing.state} {this.props.listing.zipcode}<br/><br/>
+          {this.props.listing ? this.props.listing.street_add : null}<br/>
+          {this.props.listing ? this.props.listing.city : null},{this.props.listing ? this.props.listing.state : null} {this.props.listing ? this.props.listing.zipcode : null}<br/><br/>
 
-          <b>Price:</b> ${this.props.listing.price} per night<br /><br/>
+          <b>Price:</b> ${this.props.listing ? this.props.listing.price : null} per night<br /><br/>
 
-          <b>Vacancies:</b> {this.props.listing.vacancies} <br /><br />
+          <b>Vacancies:</b> {this.props.listing ? this.props.listing.vacancies : null} <br /><br />
 
-          <b>Dates Available: </b> {this.props.listing.dates_avail} <br /><br />
+          <b>Dates Available: </b> {this.props.listing ? this.props.listing.dates_avail : null} <br /><br />
 
-          <b>House Interests:</b> {this.props.listing.house_interests ? this.props.listing.house_interests.split(',').map((interest, i) => <span key={i} >{interest}, </span>) :  null}<br /><br />
+          <b>House Interests:</b> {this.props.listing ? this.props.listing.house_interests.split(',').map((interest, i) => <span key={i} >{interest}, </span>) :  null}<br /><br />
 
-          <b>House Mission:</b> {this.props.listing.house_mission} <br /><br />
+          <b>House Mission:</b> {this.props.listing ? this.props.listing.house_mission : null} <br /><br />
 
-          <b>House Rules: </b> {this.props.listing.house_rules} <br /><br />
+          <b>House Rules: </b> {this.props.listing ? this.props.listing.house_rules : null} <br /><br />
 
-          <b>Amenities: </b> {this.props.listing.amenities ? this.props.listing.amenities.split(',').map((amenity, i) => <span key={i} >{amenity}, </span>) :  null} <br /><br />
+          <b>Amenities: </b> {this.props.listing ? this.props.listing.amenities.split(',').map((amenity, i) => <span key={i} >{amenity}, </span>) :  null} <br /><br />
 
-          <b>Primary Member: </b> {this.props.listing.primary_member} <br /><br />
+          <b>Primary Member: </b> {this.props.listing ? this.props.listing.primary_member : null} <br /><br />
         </div>
 
         <SingleGMaps />
