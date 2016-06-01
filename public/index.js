@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { Router, Route, hashHistory, browserHistory } from 'react-router';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import "isomorphic-fetch";
 
 import SignUp from './SignUp';
 import SignOut from './signout';
