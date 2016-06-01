@@ -11,7 +11,7 @@ class HouseListing extends React.Component {
 
 			<Link className='singleListing' to="/singlelisting" onClick={this.getSingleListing.bind(this)}>
 
-        		<img className='housePic' src={this.props.house.url || 'https://openclipart.org/image/2400px/svg_to_png/170529/pib-dark.png'} />
+        		<img className='housePic' src={this.props.house.pic1 || 'https://openclipart.org/image/2400px/svg_to_png/170529/pib-dark.png'} />
         		
                 <span className='houseName'><b>{this.props.house.house_name}</b></span><br/>
         		
