@@ -40,14 +40,17 @@ class SingleListing extends React.Component {
           <b>Amenities: </b> {this.props.listing ? this.props.listing.amenities.split(',').map((amenity, i) => <span key={i} >{amenity}, </span>) :  null} <br /><br />
 
           <b>Primary Member: </b> {this.props.listing ? this.props.listing.primary_member : null} <br /><br />
+
+          <form>
+            <h4><b>Contact {this.props.listing ? this.props.listing.house_name : 'Hacker House'}</b></h4>
+            <label>Your Message:</label><br />
+            <textarea style={{width: '100%'}}ref={(message) => this.message = message} onChange={this.onMessage.bind(this)}></textarea><br/>
+            <input name='message' type='submit' onClick={this.onSendMessage.bind(this)} value='Send'/>
+            </form>
         </div>
 
         <SingleGMaps />
-        <form>
-          <label>Your Message:</label><br />
-          <textarea ref={(message) => this.message = message} onChange={this.onMessage.bind(this)} rows='40' cols='150'></textarea><br/>
-          <input name='message' type='submit' onClick={this.onSendMessage.bind(this)} value='Send'/>
-        </form>
+       
 
 			</div>
 	}
