@@ -23,7 +23,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(helmet());
 app.use(multiparty());
 app.use(favicon(__dirname + '/public/assets/black-house.ico'));
-require('./server/middleware.js');
 require('./server/S3ListingsMiddleware.js')(app);
 require('./server/S3AvatarMiddleware.js')(app);
 
