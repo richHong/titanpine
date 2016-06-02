@@ -89,7 +89,10 @@ class SingleListing extends React.Component {
               "processData": false,
              "data": JSON.stringify({personalizations: [{to: [{email: receiver}]}],from: {email: sender},subject: username + " is interested in " + listing + " on Hacker Habitat" ,content: [{type: "text/plain", value: message}]})
         }
-        $.ajax(settings).done(function (response) {
+        $.ajax(settings).done(function (response, req, error) {
+          if (req === 'success') {
+            alert("Your Message Was Sent!)")
+          }
           console.log(response);
         });
     })
