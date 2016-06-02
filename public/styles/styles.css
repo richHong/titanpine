@@ -226,7 +226,7 @@ video {
   width: 100%;
   float: left;
 }
-.avatarForm {
+#avatarForm {
   font-size: 1.3em;
 }
 .listingForm {

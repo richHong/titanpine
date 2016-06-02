@@ -80,12 +80,12 @@ class ProfileForm extends React.Component {
         <div>
           <h1>EDIT PROFILE</h1>
 
-          <form className="avatarForm">
+          <form id="avatarForm">
             <label>Upload Avatar:</label><br/>
             <input type='file' name='file' className='fileUpload'ref={input => this.avatar = input} />
           </form>
 
-          <form className="avatarForm" onSubmit={e => this.submit(e, this.avatar, this.firstName, this.lastName, this.description, this.hometown, this.occupation, this.general, this.tech)}>
+          <form id="avatarForm" onSubmit={e => this.submit(e, this.avatar, this.firstName, this.lastName, this.description, this.hometown, this.occupation, this.general, this.tech)}>
 
             <label>First Name:</label><br/>
             <input type='text'ref={input => this.firstName = input} /><br/>
