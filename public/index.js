@@ -13,7 +13,7 @@ import CreateHouse from './createHouse';
 import SearchBar from './SearchBar';
 import NavBar from './navigationBar';
 import MainContain from './MainContain';
-import SignIn from './SignIn';
+import SignIn from './SignInComp';
 import Results from './results';
 import FrontPage from './frontPage';
 import SingleListing from './singlelisting';
