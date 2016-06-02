@@ -11,7 +11,7 @@ import SignOut from './signout';
 import CreateProfile from './createProfile';
 import CreateHouse from './createHouse';
 import SearchBar from './SearchBar';
-import NavBar from './navBar';
+import NavBar from './navigationBar';
 import MainContain from './MainContain';
 import SignIn from './SignIn';
 import Results from './results';
