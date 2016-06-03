@@ -1,6 +1,6 @@
 {
-  "accessKeyId": "",
-  "secretAccessKey": "",
-  "endpoint":"",
-  "region": ""
+  "accessKeyId": process.env.KEYID,
+  "secretAccessKey": process.env.ACCESSKEY,
+  "endpoint": process.env.ENDPOINT,
+  "region": process.env.REGION
 }
