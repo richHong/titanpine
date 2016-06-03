@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from './navBar';
+import NavBar from './navigationBar';
 
 export default class FrontPage extends Component {
   render() {
