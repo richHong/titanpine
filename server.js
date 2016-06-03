@@ -29,6 +29,26 @@ app.use(favicon(__dirname + '/public/assets/black-house.ico'));
 require('./server/S3ListingsMiddleware.js')(app);
 require('./server/S3AvatarMiddleware.js')(app);
 
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  app.route('/email')
+   .post(function(req, res) {
+        console.log(req.body)
+        fetch("https://api.sendgrid.com/v3/mail/send/beta", {
+            "method": "POST",
+            "headers": {
+                "authorization": "Bearer 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",
+                "content-type": "application/json",
+                "cache-control": "no-cache",
+                "postman-token": "d1d73c00-90fc-fcb0-1246-d7f416a65443"
+            },
+            "body": JSON.stringify(req.body)
+    }).then((response) => {
+        // console.log(response)
+        res.send(response)})
+    });
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 //server/compiler.js runs webpack-dev-server which creates the bundle.js which index.html serves
 //will not see a physical bundle.js because webpack-dev-server runs it from memory
 if (!isProduction) {

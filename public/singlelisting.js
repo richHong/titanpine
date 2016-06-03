@@ -77,25 +77,30 @@ class SingleListing extends React.Component {
           listing = this.props.listing.house_name
         }
       })
-      .then(() => {
-        var settings = {
-              "url": "https://api.sendgrid.com/v3/mail/send/beta",
-              "method": "POST",
-              "headers": {
-                  "authorization": "Bearer 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",
-                  "content-type": "application/json",
-                  "cache-control": "no-cache",
-                  "postman-token": "d1d73c00-90fc-fcb0-1246-d7f416a65443"
-              },
-              "processData": false,
-             "data": JSON.stringify({personalizations: [{to: [{email: receiver}]}],from: {email: sender},subject: username + " is interested in " + listing + " on Hacker Habitat" ,content: [{type: "text/plain", value: message}]})
-        }
-        $.ajax(settings).done(function (response, req, error) {
-          if (req === 'success') {
-            alert("Your Message Was Sent!)")
-          }
-          console.log(response);
-        });
+      .then(() => { 
+        fetch('/email', {
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: JSON.stringify({personalizations: [{to: [{email: receiver}]}],from: {email: sender},subject: username + " is interested in " + listing + " on Hacker Habitat" ,content: [{type: "text/plain", value: message}]})
+        }).then(res => {console.log(res)})
+        // var settings = {
+        //       "url": "https://api.sendgrid.com/v3/mail/send/beta",
+        //       "method": "POST",
+        //       "headers": {
+        //           "authorization": "Bearer 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",
+        //           "content-type": "application/json",
+        //           "cache-control": "no-cache",
+        //           "postman-token": "d1d73c00-90fc-fcb0-1246-d7f416a65443"
+        //       },
+        //       "processData": false,
+        //      "data": JSON.stringify({personalizations: [{to: [{email: receiver}]}],from: {email: sender},subject: username + " is interested in " + listing + " on Hacker Habitat" ,content: [{type: "text/plain", value: message}]})
+        // }
+        // $.ajax(settings).done(function (response, req, error) {
+        //   if (req === 'success') {
+        //     alert("Your Message Was Sent!)")
+        //   }
+        //   console.log(response);
+        // });
     })
   }
 }
