@@ -21,7 +21,7 @@ coverage
 .lock-wscript
 
 #AWS config
-config.json
+_config.json
 
 #SSL
 ssl.json
