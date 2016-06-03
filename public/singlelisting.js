@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SingleGMaps from './singleMap';
 import MyCarousel from './carousel';
-import $ from 'jquery'
 
 
 class SingleListing extends React.Component {
@@ -43,7 +42,7 @@ class SingleListing extends React.Component {
           <form>
             <h4 className="contactHouse"><b>Contact {this.props.listing ? this.props.listing.house_name : 'Hacker House'}:</b></h4>
             <label>Your Message:</label><br />
-            <textarea style={{width: '100%'}}ref={(message) => this.message = message} onChange={this.onMessage.bind(this)}></textarea><br/>
+            <textarea style={{width: '100%'}}ref={(message) => this.message = message}></textarea><br/>
             <input name='message' type='submit' onClick={this.onSendMessage.bind(this)} value='Send'/>
           </form>
 
@@ -56,9 +55,6 @@ class SingleListing extends React.Component {
 			</div>
 	}
 
-    onMessage(){
-  }
-
     onSendMessage(e){
       e.preventDefault();
       var sender;
@@ -70,8 +66,12 @@ class SingleListing extends React.Component {
       fetch('http://localhost:3001/v1/users/?id=' + userID)
       .then(response => response.json())
       .then(json => {
-        username = json.data[0].username
-        sender = json.data[0].email
+        if(json.data[0]){
+          username = json.data[0].username
+          sender = json.data[0].email
+        } else {
+          alert("You Must Be Signed in to send a message")
+        }
         receiver = this.props.listing.user.email
         if(this.props.listing.house_name){
           listing = this.props.listing.house_name
@@ -82,25 +82,7 @@ class SingleListing extends React.Component {
           method: 'POST',
           headers: {'content-type': 'application/json'},
           body: JSON.stringify({personalizations: [{to: [{email: receiver}]}],from: {email: sender},subject: username + " is interested in " + listing + " on Hacker Habitat" ,content: [{type: "text/plain", value: message}]})
-        }).then(res => {console.log(res)})
-        // var settings = {
-        //       "url": "https://api.sendgrid.com/v3/mail/send/beta",
-        //       "method": "POST",
-        //       "headers": {
-        //           "authorization": "Bearer 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",
-        //           "content-type": "application/json",
-        //           "cache-control": "no-cache",
-        //           "postman-token": "d1d73c00-90fc-fcb0-1246-d7f416a65443"
-        //       },
-        //       "processData": false,
-        //      "data": JSON.stringify({personalizations: [{to: [{email: receiver}]}],from: {email: sender},subject: username + " is interested in " + listing + " on Hacker Habitat" ,content: [{type: "text/plain", value: message}]})
-        // }
-        // $.ajax(settings).done(function (response, req, error) {
-        //   if (req === 'success') {
-        //     alert("Your Message Was Sent!)")
-        //   }
-        //   console.log(response);
-        // });
+        }).then((res) => {console.log(res)})
     })
   }
 }

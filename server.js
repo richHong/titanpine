@@ -31,8 +31,7 @@ require('./server/S3AvatarMiddleware.js')(app);
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   app.route('/email')
-   .post(function(req, res) {
-        console.log(req.body)
+   .post(function(req, res, err) {
         fetch("https://api.sendgrid.com/v3/mail/send/beta", {
             "method": "POST",
             "headers": {
@@ -42,9 +41,9 @@ require('./server/S3AvatarMiddleware.js')(app);
                 "postman-token": "d1d73c00-90fc-fcb0-1246-d7f416a65443"
             },
             "body": JSON.stringify(req.body)
-    }).then((response) => {
-        // console.log(response)
-        res.send(response)})
+    }).then((response, req) => {
+        res.send(response, req)})
+        // res.status(status).send(body)
     });
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
