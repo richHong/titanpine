@@ -13,7 +13,6 @@ module.exports = function (app) {
 
   app.post('/v1/ap', function(req, res) {
       var file = req.files.file;
-      console.log(file);
       var stream = fs.createReadStream(file.path);
 
       return s3fsImplementation1.writeFile(file.originalFilename, stream)
