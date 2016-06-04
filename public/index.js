@@ -11,9 +11,9 @@ import SignOut from './signout';
 import CreateProfile from './createProfile';
 import CreateHouse from './createHouse';
 import SearchBar from './SearchBar';
-import NavBar from './navBar';
+import NavBar from './navigationBar';
 import MainContain from './MainContain';
-import SignIn from './SignIn';
+import SignIn from './SignInComp';
 import Results from './results';
 import FrontPage from './frontPage';
 import SingleListing from './singlelisting';
@@ -67,7 +67,7 @@ render((
     <Provider store={store}>
   <Router history={ hashHistory }>
       <Route path='/' component={ FrontPage } />
-      <Route component={ MainContain }>{console.log(store)}
+      <Route component={ MainContain }>
           <Route path='/results' component={ Results }/>
           <Route path="/createProfile" component={ CreateProfile } onEnter={requireAuth}/>
           <Route path='/signup' component={ SignUp } />

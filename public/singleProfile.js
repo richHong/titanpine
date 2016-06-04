@@ -27,13 +27,13 @@ export default class singleProfile extends Component {
 
           {this.state.username ?
             <div>
-              <span><b>Username:</b> {this.state.username}</span><br /><br />
-              <span><b>Name:</b> {this.state.first_name} {this.state.last_name}</span><br /><br />
-              <span><b>Hometown:</b> {this.state.hometown}</span><br /><br />
-              <span><b>Occupation:</b> {this.state.occupation}</span><br /><br />
-              <span><b>Description:</b> {this.state.description}</span><br /><br />
-              <span><b>General Interests:</b> {this.state.gen_interests ? this.state.gen_interests.split(',').map((interest, i) => <span key={i} >{interest}, </span>) : null}</span><br /><br />
-              <span><b>Tech Interests:</b> {this.state.tech_interests ?this.state.tech_interests.split(',').map((interest, i) => <span key={i} >{interest}, </span>) : null}</span><br /><br />
+              <span><b><i>Username:</i></b> {this.state.username}</span><br /><br />
+              <span><b><i>Name:</i></b> {this.state.first_name} {this.state.last_name}</span><br /><br />
+              <span><b><i>Hometown:</i></b> {this.state.hometown}</span><br /><br />
+              <span><b><i>Occupation:</i></b> {this.state.occupation}</span><br /><br />
+              <span><b><i>Description:</i></b> {this.state.description}</span><br /><br />
+              <span><b><i>General Interests:</i></b> {this.state.gen_interests ? this.state.gen_interests.split(',').map((interest, i) => <span key={i} >{interest}, </span>) : null}</span><br /><br />
+              <span><b><i>Tech Interests:</i></b> {this.state.tech_interests ?this.state.tech_interests.split(',').map((interest, i) => <span key={i} >{interest}, </span>) : null}</span><br /><br />
             </div>
             : null}
 

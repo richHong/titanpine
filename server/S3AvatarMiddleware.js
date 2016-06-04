@@ -11,8 +11,7 @@ module.exports = function (app) {
     region: config.region
   });
 
-  app.route('/v1/ap')
-    .post(function(req, res) {
+  app.post('/v1/ap', function(req, res) {
       var file = req.files.file;
       var stream = fs.createReadStream(file.path);
 
