@@ -7,7 +7,6 @@ import $ from 'jquery'
 
 class SingleListing extends React.Component {
 	render(){
-    console.log(this.props)
 		return <div>
         <div className='carousel'>
           <MyCarousel />
@@ -47,7 +46,7 @@ class SingleListing extends React.Component {
             <textarea style={{width: '100%'}}ref={(message) => this.message = message} onChange={this.onMessage.bind(this)}></textarea><br/>
             <input name='message' type='submit' onClick={this.onSendMessage.bind(this)} value='Send'/>
           </form>
-          
+
         </div>
 
         <SingleGMaps />
