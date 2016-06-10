@@ -91,7 +91,7 @@ class SingleListing extends React.Component {
         }
         $.ajax(settings).done(function (response, req, error) {
           if (req === 'success') {
-            alert("Your Message Was Sent!)")
+            alert("Your Message Was Sent!")
           }
           console.log(response);
         });
