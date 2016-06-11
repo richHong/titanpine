@@ -1,6 +1,6 @@
 {
-  "accessKeyId": "process.env.KEYID",
-  "secretAccessKey": "process.env.ACCESSKEY",
-  "endpoint": "process.env.ENDPOINT",
-  "region": "process.env.REGION"
+  "accessKeyId": "AKIAICHCDHRMFFI4VONA",
+  "secretAccessKey": "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",
+  "endpoint":"https://s3-us-west-1.amazonaws.com/",
+  "region": "us-west-1"
 }
