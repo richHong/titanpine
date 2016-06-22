@@ -3,18 +3,20 @@ module.exports = (() => {
   'use strict';
 
   const Nodal = require('nodal');
-  const Router = Nodal.require('app/router.js');
-
-  console.log(Router);
-
-  class RouterTest extends Nodal.mocha.Test {
+  
+  class AccessTokenTest extends Nodal.mocha.Test {
 
     test(expect) {
 
-      it('Should return a status of', done => {
+      it('Should return a status of 200 for a general GET request', done => {
 
-        expect(null).to.not.exist;
-        done();
+        this.endpoint('/v1/access_tokens').get((status, headers, body, json) => {
+
+          console.log(json);
+          expect(status).to.equal(200);
+          done();
+
+        });
 
       });
 
@@ -22,6 +24,6 @@ module.exports = (() => {
 
   }
 
-  return RouterTest;
+  return AccessTokenTest;
 
 })();
