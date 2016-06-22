@@ -6,7 +6,7 @@ module.exports = (() => {
 
   class ExampleTest extends Nodal.mocha.Test {
 
-    test(expect) {
+    xtest(expect) {
 
       it('Should compare 1 and 1', () => {
 
