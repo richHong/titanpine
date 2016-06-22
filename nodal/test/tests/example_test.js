@@ -14,6 +14,12 @@ module.exports = (() => {
 
       });
 
+      it('Should compare 0 and 0', () => {
+
+        expect(0).to.equal(0);
+
+      });
+
       it('Should add 1 and 1, asynchronously', done => {
 
         setTimeout(() => {
