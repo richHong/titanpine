@@ -29,13 +29,9 @@ app.use(favicon(__dirname + '/public/assets/black-house.ico'));
 require('./server/S3ListingsMiddleware.js')(app);
 require('./server/S3AvatarMiddleware.js')(app);
 
-//server/compiler.js runs webpack-dev-server which creates the bundle.js which index.html serves
-//will not see a physical bundle.js because webpack-dev-server runs it from memory
 if (!isProduction) {
     var bundle = require('./server/compiler.js');
     bundle();
-    // express now processes all requests to localhost:8080
-    // app.all is a special routing method used for loading middleware functions
     app.all('/build/*', function(req, res) {
         proxy.web(req, res, {
             target: 'http://localhost:8080'
