@@ -3,7 +3,7 @@ module.exports = (() => {
   'use strict';
 
   const Nodal = require('nodal');
-  
+
   class AccessTokenTest extends Nodal.mocha.Test {
 
     test(expect) {
@@ -12,7 +12,6 @@ module.exports = (() => {
 
         this.endpoint('/v1/access_tokens').get((status, headers, body, json) => {
 
-          console.log(json);
           expect(status).to.equal(200);
           done();
 
