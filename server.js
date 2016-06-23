@@ -53,8 +53,6 @@ require('./server/S3AvatarMiddleware.js')(app);
 if (!isProduction) {
     var bundle = require('./server/compiler.js');
     bundle();
-    // express now processes all requests to localhost:8080
-    // app.all is a special routing method used for loading middleware functions
     app.all('/build/*', function(req, res) {
         proxy.web(req, res, {
             target: 'http://localhost:8080'

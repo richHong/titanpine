@@ -22,6 +22,7 @@ coverage
 
 #AWS config
 _config.json
+config.json
 
 #SSL
 ssl.json

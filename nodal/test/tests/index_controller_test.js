@@ -6,7 +6,7 @@ module.exports = (() => {
 
   class IndexControllerTest extends Nodal.mocha.Test {
 
-    test(expect) {
+    xtest(expect) {
 
       it('Should return an HTTP 200', done => {
 
