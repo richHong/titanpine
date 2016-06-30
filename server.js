@@ -32,7 +32,7 @@ require('./server/S3AvatarMiddleware.js')(app);
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   app.route('/email')
    .post(function(req, res, err) {
-        fetch("https://api.sendgrid.com/v3/mail/send/beta", {
+        fetch("https://api.sendgrid.com/v3/mail/send", {
             "method": "POST",
             "headers": {
                 "authorization": "Bearer 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",
@@ -42,8 +42,7 @@ require('./server/S3AvatarMiddleware.js')(app);
             },
             "body": JSON.stringify(req.body)
     }).then((response, req) => {
-        res.send(response, req)})
-        // res.status(status).send(body)
+        res.status(response.status).send(response)})
     });
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

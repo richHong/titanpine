@@ -82,7 +82,13 @@ class SingleListing extends React.Component {
           method: 'POST',
           headers: {'content-type': 'application/json'},
           body: JSON.stringify({personalizations: [{to: [{email: receiver}]}],from: {email: sender},subject: username + " is interested in " + listing + " on Hacker Habitat" ,content: [{type: "text/plain", value: message}]})
-        }).then((res) => {console.log(res)})
+        }).then(res => {
+        if(res.status === 202){
+          alert("Your Message was Sent")
+        } else {
+          alert("Your Message Could Not Be Sent")
+        }
+      })
     })
   }
 }
