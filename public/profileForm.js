@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, hashHistory, browserHistory } from 'react-router';
 import Axios from 'axios';
 
+
 class ProfileForm extends React.Component {
   constructor(props){
     super(props);
@@ -40,11 +41,12 @@ class ProfileForm extends React.Component {
 
   submit(e, avatar, firstName, lastName, description, hometown, occupation, general, tech){
     e.preventDefault();
-
     let authToken = window.localStorage.getItem('token');
     let userID = window.localStorage.getItem('userID');
     let avatarName;
-
+    fetch('http://localhost:3001/v1/users/' + userID)
+    .then(response => response.json())
+    .then(json => console.log(json.data[0]))
     if (avatar.value === ''){
       avatarName = avatar.value;
     } else {
