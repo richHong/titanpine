@@ -3,11 +3,7 @@ import { Router, Route, hashHistory, browserHistory } from 'react-router';
 import Axios from 'axios';
 
 function ifNotEmptyChangeTo(currentValue, previousValue){
-  if(currentValue !== ""){
-    return currentValue;
-  } else {
-    return previousValue
-  }
+  return currentValue !== "" ? currentValue : previousValue;
 };
 
 class ProfileForm extends React.Component {
@@ -70,7 +66,6 @@ class ProfileForm extends React.Component {
     fetch('http://localhost:3001/v1/users/' + userID)
     .then(response => response.json())
     .then(json => {
-        console.log(json.data[0], firstName.value)
         my_firstname = ifNotEmptyChangeTo(firstName.value, json.data[0].first_name);
         my_lastname = ifNotEmptyChangeTo(lastName.value, json.data[0].last_name);
         my_hometown = ifNotEmptyChangeTo(hometown.value, json.data[0].hometown);
