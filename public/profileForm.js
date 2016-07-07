@@ -2,6 +2,10 @@ import React from 'react';
 import { Router, Route, hashHistory, browserHistory } from 'react-router';
 import Axios from 'axios';
 
+function ifNotEmptyChangeTo(currentValue, previousValue){
+  return currentValue !== "" ? currentValue : previousValue;
+};
+
 class ProfileForm extends React.Component {
   constructor(props){
     super(props);
@@ -40,10 +44,14 @@ class ProfileForm extends React.Component {
 
   submit(e, avatar, firstName, lastName, description, hometown, occupation, general, tech){
     e.preventDefault();
-
     let authToken = window.localStorage.getItem('token');
     let userID = window.localStorage.getItem('userID');
     let avatarName;
+    let my_firstname;
+    let my_lastname;
+    let my_hometown;
+    let my_description;
+    let my_occupation;
 
     if (avatar.value === ''){
       avatarName = avatar.value;
@@ -55,6 +63,16 @@ class ProfileForm extends React.Component {
       .then(response => console.log(response));
     }
 
+    fetch('http://localhost:3001/v1/users/' + userID)
+    .then(response => response.json())
+    .then(json => {
+        my_firstname = ifNotEmptyChangeTo(firstName.value, json.data[0].first_name);
+        my_lastname = ifNotEmptyChangeTo(lastName.value, json.data[0].last_name);
+        my_hometown = ifNotEmptyChangeTo(hometown.value, json.data[0].hometown);
+        my_description = ifNotEmptyChangeTo(description.value, json.data[0].description);
+        my_occupation = ifNotEmptyChangeTo(occupation.value, json.data[0].occupation);
+      })
+    .then(() => {     
     fetch('http://localhost:3001/v1/users/'+userID+'?access_token='+authToken, {
       method: 'PUT',
       headers: {
@@ -62,17 +80,20 @@ class ProfileForm extends React.Component {
       },
       body: JSON.stringify({
         avatar: avatarName,
-        first_name: firstName.value,
-        last_name: lastName.value,
-        hometown: hometown.value,
-        description: description.value,
-        occupation: occupation.value,
+        first_name: my_firstname,
+        last_name: my_lastname,
+        hometown: my_hometown,
+        description: my_description,
+        occupation: my_occupation,
         gen_interests: general.value+this.state.general,
         tech_interests: tech.value+this.state.tech
       })
     }).then(response => {
       hashHistory.push('/profile');
-    });
+    })
+    }
+    )
+
   }
 
   render(){
